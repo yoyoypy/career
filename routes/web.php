@@ -12,12 +12,22 @@
 */
 
 Route::get('/dashboard', 'DashboardController@index');
+
+//jobs setting
 Route::prefix('/jobs')->group(function () {
-    Route::get('list', 'JobController@index')->name('joblists');
-    Route::get('add', 'JobController@create')->name('createjob');
-    Route::get('category', 'JobController@category')->name('category');
-    Route::get('location', 'JobController@location')->name('location');
-    Route::get('skill', 'JobController@skill')->name('joblists');
+    Route::get('/list', 'JobController@index')->name('joblists');
+    Route::get('/add', 'JobController@create')->name('createjob');
+
+    Route::get('/category', 'JobController@category')->name('category');
+
+    Route::get('/location', 'JobController@location')->name('location');
+    Route::get('/skill', 'JobController@skill')->name('joblists');
+});
+
+//applicant
+Route::get('/applicant', 'JobApplicationController@index');
+Route::post('/applicant/{id}', function ($id) {
+    ('JobApplicationController@update');
 });
 
 Auth::routes(['register' => false]);
