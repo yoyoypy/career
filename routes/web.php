@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index');
+Route::prefix('/jobs')->group(function () {
+    Route::get('list', 'JobController@index')->name('joblists');
+    Route::get('add', 'JobController@create')->name('createjob');
+    Route::get('category', 'JobController@category')->name('category');
+    Route::get('location', 'JobController@location')->name('location');
+    Route::get('skill', 'JobController@skill')->name('joblists');
+});
 
 Auth::routes(['register' => false]);

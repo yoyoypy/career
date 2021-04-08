@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('backend.layouts.default')
 
 @section('content')
     <!-- Animated -->

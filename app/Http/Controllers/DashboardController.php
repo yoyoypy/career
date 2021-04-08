@@ -11,13 +11,13 @@ class DashboardController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
-    
+
     public function index(){
-        return view('pages.dashboard');
+        return view('backend.pages.dashboard');
     }
 }
