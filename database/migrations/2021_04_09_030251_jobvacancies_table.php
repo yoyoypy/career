@@ -15,18 +15,19 @@ class Jobvacancies extends Migration
     {
         Schema::create('jobvacancies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('slug');
             $table->string('jobtitle');
             $table->longText('jobdescription');
             $table->longText('jobrequirement');
-            $table->string('joblocation');
-            $table->string('jobcategory');
-            $table->string('skill');
+            $table->string('joblocation_id');
+            $table->string('jobcategory_id');
+            $table->string('skill_id');
             $table->integer('position');
             $table->timestamps('start');
             $table->timestamps('end');
             $table->integer('status');
-            $table->string('metatitle');
-            $table->longText('metadescription');
+            //$table->string('metatitle');
+            //$table->longText('metadescription');
             $table->timestamps('created_at');
         });
     }

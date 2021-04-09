@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use JobRequest;
 
 class JobController extends Controller
 {
@@ -23,7 +24,7 @@ class JobController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
