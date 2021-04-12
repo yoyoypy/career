@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Application extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -25,21 +25,22 @@ class Application extends Migration
             $table->date('dob');
             $table->string('pob');
             $table->string('sex');
-            $table->string('educations');
+            $table->string('education');
             $table->integer('weight');
             $table->integer('height');
             $table->string('bloodtype');
             $table->string('eye');
             $table->text('id_card_address');
             $table->text('present_address');
-            $table->integer('phone_number', (13));
+            $table->string('phone_number');
             $table->string('email');
-            $table->integer('id_card_number', (16));
+            $table->string('id_card_number');
             $table->string('tax_id_card_number');
-            $table->integer('social_security_number', (16));
+            $table->string('social_security_number');
             $table->string('marital_status');
-            $table->file('cv');
-            $table->timestamps('created_at');
+            $table->string('cv');
+            $table->timestamps();
+            //$table->ipAddress('visitor');
         });
     }
 

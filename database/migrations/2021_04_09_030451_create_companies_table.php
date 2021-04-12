@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Jobcategory extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Jobcategory extends Migration
      */
     public function up()
     {
-        Schema::create('jobcategories', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('category');
-            $table->timestamps('created_at');
+            $table->string('company');
+            $table->timestamps();
         });
     }
 

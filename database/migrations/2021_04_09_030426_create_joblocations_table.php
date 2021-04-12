@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Joblocation extends Migration
+class CreateJoblocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class Joblocation extends Migration
         Schema::create('joblocations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('location');
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Jobvacancies extends Migration
+class CreateJobvacanciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,13 +22,14 @@ class Jobvacancies extends Migration
             $table->string('joblocation_id');
             $table->string('jobcategory_id');
             $table->string('skill_id');
+            $table->string('company');
             $table->integer('position');
-            $table->timestamps('start');
-            $table->timestamps('end');
-            $table->integer('status');
+            $table->date('start');
+            $table->date('end');
+            $table->string('status');
             //$table->string('metatitle');
             //$table->longText('metadescription');
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
     }
 
