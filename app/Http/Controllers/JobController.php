@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Job;
 use Illuminate\Http\Request;
 use JobRequest;
 
@@ -14,7 +14,11 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.jobs.index');
+        $items = Job::all();
+
+        return view('backend.pages.jobs.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**

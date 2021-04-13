@@ -19,25 +19,30 @@ Route::get('/dashboard', 'DashboardController@index');
 //     Route::get('/add', 'JobController@create')->name('createjob');
 // });
 
-//job
+
+//routing back end
+Route::prefix('admin')->group(function () {
+
+//job route
 Route::resource('job', 'JobController');
 
-
 Route::prefix('/jobs')->group(function () {
-        //job category
+        //job category route
         Route::resource('category', 'CategoryController');
 
-        //job location
+        //job location route
         Route::resource('location', 'LocationController');
 
-        //skill
+        //skill route
         Route::resource('skill', 'SkillController');
 });
 
-//applicant
+//applicant route
 Route::resource('applicant', 'JobApplicationController');
 
-//company
+//company route
 Route::resource('company', 'CompanyController');
+
+});
 
 Auth::routes(['register' => false]);
