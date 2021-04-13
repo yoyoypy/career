@@ -28,7 +28,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.jobs.create');
     }
 
     /**
