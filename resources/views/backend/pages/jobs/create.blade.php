@@ -53,6 +53,23 @@
             @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
+            <label for="skill_id" class=" form-control-label">Select Requires Skills</label>
+                <select name="skill_id" id="skill_id" multiple="" class="form-control">
+                    <option value="1">Option #1</option>
+                    <option value="2">Option #2</option>
+                    <option value="3">Option #3</option>
+                    <option value="4">Option #4</option>
+                    <option value="5">Option #5</option>
+                    <option value="6">Option #6</option>
+                    <option value="7">Option #7</option>
+                    <option value="8">Option #8</option>
+                    <option value="9">Option #9</option>
+                    <option value="10">Option #10</option>
+                </select>
+            <small class="form-text text-muted">Press CTRL+Click to Multiple</small>
+        @error('skill_id') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
             <label for="company_id" class="form-control-label">Company</label>
               <select name="company_id"
                       value="{{ old('company_id') }}"
@@ -90,6 +107,16 @@
             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
             @error('end') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
+        <div class="form-group">
+            <label for="company_id" class="form-control-label">Select Status</label>
+              <select name="company_id"
+                      value="{{ old('company_id') }}"
+                      class="form-control @error('company_id') is-invalid @enderror">
+                          <option value="active">Active</option>
+                          <option value="disactive">Inactive</option>
+              </select>
+            @error('company_id') <div class="text-muted">{{ $message }}</div> @enderror
+          </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">
             Submit Job Vacancy

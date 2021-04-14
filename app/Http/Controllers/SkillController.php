@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Skill;
 
 class SkillController extends Controller
 {
@@ -13,7 +14,11 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $items = Skill::all();
+
+        return view('backend.pages.jobs.skill.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**

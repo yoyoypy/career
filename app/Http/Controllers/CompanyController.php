@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
 
 class CompanyController extends Controller
 {
@@ -13,7 +14,11 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $items = Company::all();
+
+        return view('backend.pages.company.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**

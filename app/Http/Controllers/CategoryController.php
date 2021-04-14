@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\JobCategory;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $items = JobCategory::all();
+
+        return view('backend.pages.jobs.category.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
