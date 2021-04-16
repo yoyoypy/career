@@ -28,7 +28,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.jobs.location.create');
     }
 
     /**

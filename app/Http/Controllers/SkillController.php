@@ -28,7 +28,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.jobs.skill.create');
     }
 
     /**
