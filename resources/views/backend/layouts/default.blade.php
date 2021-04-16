@@ -7,13 +7,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sadhana Karir</title>
-    <meta name="description" content="ShaynaAdmin - HTML5 Admin Template">
+    <meta name="description" content="Sadhana Karir">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
    {{-- style --}}
    @stack('before-style')
    @include('backend.includes.style')
    @stack('after-style')
+   @notifyCss
 </head>
 
 <body>
@@ -21,8 +22,11 @@
    @include('backend.includes.sidebar')
 
     <div id="right-panel" class="right-panel">
-       {{-- narbar --}}
+       {{-- navbar --}}
         @include('backend.includes.navbar')
+
+        {{-- notif --}}
+        @include('notify::messages')
 
         <div class="content">
             {{-- content --}}

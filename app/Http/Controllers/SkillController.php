@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Skill;
+use App\Http\Requests\SkillRequest;
 
 class SkillController extends Controller
 {
@@ -37,9 +38,13 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SkillRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Skill::create($data);
+        notify()->success('Skill Added!');
+        return redirect()->route('skill.index');
     }
 
     /**
