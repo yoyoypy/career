@@ -13,7 +13,7 @@ class JobCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class JobCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'category' => 'required'
         ];
     }
 }

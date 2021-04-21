@@ -66,7 +66,11 @@ class SkillController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Skill::findOrFail($id);
+
+        return view('backend.pages.jobs.skill.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -76,9 +80,15 @@ class SkillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SkillRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Skill::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Skill Edited!');
+        return redirect()->route('skill.index');
     }
 
     /**
@@ -89,6 +99,10 @@ class SkillController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Skill::findOrFail($id);
+        $item->delete();
+
+        notify()->success('Skill Deleted!');
+        return redirect()->route('skill.index');
     }
 }

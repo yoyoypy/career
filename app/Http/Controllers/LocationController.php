@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
+use App\Http\Requests\LocationRequest;
 
 class LocationController extends Controller
 {
@@ -37,9 +38,13 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LocationRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Location::create($data);
+        notify()->success('Location Added!');
+        return redirect()->route('location.index');
     }
 
     /**
@@ -61,7 +66,11 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Location::findOrFail($id);
+
+        return view('backend.pages.jobs.location.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -71,9 +80,15 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(LocationRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Location::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Location Edited!');
+        return redirect()->route('location.index');
     }
 
     /**
@@ -84,6 +99,10 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Location::findOrFail($id);
+        $item->delete();
+
+        notify()->success('Location Deleted!');
+        return redirect()->route('location.index');
     }
 }

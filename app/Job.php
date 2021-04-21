@@ -25,7 +25,7 @@ class Job extends Model
 
     public function Application()
     {
-        //return $this->hasMany(Application::class, 'application_id');
+        return $this->hasMany(Application::class, 'application_id');
     }
 
     /**
@@ -35,7 +35,7 @@ class Job extends Model
      */
     public function JobCategory(): HasMany
     {
-        //return $this->hasMany(JobCategory::class, 'jobcategory_id');
+        return $this->hasMany(JobCategory::class, 'jobcategory_id');
     }
 
     /**
@@ -45,7 +45,7 @@ class Job extends Model
      */
     public function Location(): HasMany
     {
-        //return $this->hasMany(Location::class, 'location_id');
+        return $this->hasMany(Location::class, 'location_id');
     }
 
     /**
@@ -55,7 +55,7 @@ class Job extends Model
      */
     public function Skill(): HasMany
     {
-        //return $this->hasMany(Skill::class, 'skill_id');
+        return $this->hasMany(Skill::class, 'skill_id');
     }
 
 

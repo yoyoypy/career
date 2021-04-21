@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company;
+use App\Http\Requests\CompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -28,7 +29,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.jobs.company.create');
+        return view('backend.pages.company.create');
     }
 
     /**
@@ -37,9 +38,13 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Company::create($data);
+        notify()->success('Company Added!');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -61,7 +66,11 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Company::findOrFail($id);
+
+        return view('backend.pages.company.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -71,9 +80,15 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Company::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Company Edited!');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -84,6 +99,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Company::findOrFail($id);
+        $item->delete();
+
+        notify()->success('Company Deleted!');
+        return redirect()->route('company.index');
     }
 }

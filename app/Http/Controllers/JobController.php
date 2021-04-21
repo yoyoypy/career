@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Job;
+use App\Skill;
+use App\Location;
+use App\JobCategory;
+use App\Company;
 use Illuminate\Http\Request;
 use JobRequest;
 
@@ -28,7 +32,12 @@ class JobController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.jobs.create');
+        return view('backend.pages.jobs.create')->with([
+            'skills' => $skills = Skill::all(),
+            'locations' => $locations = Location::all(),
+            'categories' => $jobcategories = JobCategory::all(),
+            'companies' => $companies = Company::all()
+        ]);
     }
 
     /**

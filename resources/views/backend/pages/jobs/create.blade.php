@@ -33,10 +33,9 @@
             <select name="joblocation_id"
                     value="{{ old('joblocation_id') }}"
                     class="form-control @error('joblocation_id') is-invalid @enderror">
-                        <option value="0">Please select</option>
-                        <option value="1">Option #1</option>
-                        <option value="2">Option #2</option>
-                        <option value="3">Option #3</option>
+                @foreach  ($locations as $location)
+                    <option value="{{ $location->id}}">{{ $location->location }}</option>
+                @endforeach
             </select>
           @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
@@ -45,26 +44,18 @@
               <select name="jobcategory_id"
                       value="{{ old('jobcategory_id') }}"
                       class="form-control @error('jobcategory_id') is-invalid @enderror">
-                          <option value="0">Please select</option>
-                          <option value="1">Option #1</option>
-                          <option value="2">Option #2</option>
-                          <option value="3">Option #3</option>
+                      @foreach  ($categories as $category)
+                      <option value="{{ $category->id}}">{{ $category->category }}</option>
+                  @endforeach
               </select>
             @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
             <label for="skill_id" class=" form-control-label">Select Requires Skills</label>
                 <select name="skill_id" id="skill_id" multiple="" class="form-control">
-                    <option value="1">Option #1</option>
-                    <option value="2">Option #2</option>
-                    <option value="3">Option #3</option>
-                    <option value="4">Option #4</option>
-                    <option value="5">Option #5</option>
-                    <option value="6">Option #6</option>
-                    <option value="7">Option #7</option>
-                    <option value="8">Option #8</option>
-                    <option value="9">Option #9</option>
-                    <option value="10">Option #10</option>
+                    @foreach  ($skills as $skill)
+                        <option value="{{ $skill->id}}">{{ $skill->skill }}</option>
+                    @endforeach
                 </select>
             <small class="form-text text-muted">Press CTRL+Click to Multiple</small>
         @error('skill_id') <div class="text-muted">{{ $message }}</div> @enderror
@@ -74,10 +65,9 @@
               <select name="company_id"
                       value="{{ old('company_id') }}"
                       class="form-control @error('company_id') is-invalid @enderror">
-                          <option value="0">Please select</option>
-                          <option value="1">Option #1</option>
-                          <option value="2">Option #2</option>
-                          <option value="3">Option #3</option>
+                    @foreach  ($companies as $company)
+                      <option value="{{ $company->id}}">{{ $company->company }}</option>
+                    @endforeach
               </select>
             @error('company_id') <div class="text-muted">{{ $message }}</div> @enderror
           </div>

@@ -12,9 +12,9 @@
 
    {{-- style --}}
    @stack('before-style')
+   @notifyCss
    @include('backend.includes.style')
    @stack('after-style')
-   @notifyCss
 </head>
 
 <body>

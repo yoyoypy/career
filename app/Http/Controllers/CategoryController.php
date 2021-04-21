@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JobCategory;
+use App\Http\Requests\JobCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -37,9 +38,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobCategoryRequest $request)
     {
-        //
+        $data = $request->all();
+
+        JobCategory::create($data);
+        notify()->success('Category Added!');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -61,7 +66,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = JobCategory::findOrFail($id);
+
+        return view('backend.pages.jobs.category.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -71,9 +80,15 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JobCategoryRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = JobCategory::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Category Edited!');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -84,6 +99,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = JobCategory::findOrFail($id);
+        $item->delete();
+
+        notify()->success('Category Deleted!');
+        return redirect()->route('category.index');
     }
 }
