@@ -98,14 +98,14 @@
             @error('end') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label for="company_id" class="form-control-label">Select Status</label>
-              <select name="company_id"
-                      value="{{ old('company_id') }}"
-                      class="form-control @error('company_id') is-invalid @enderror">
+            <label for="status" class="form-control-label">Select Status</label>
+              <select name="status"
+                      value="{{ old('status') }}"
+                      class="form-control @error('status') is-invalid @enderror">
                           <option value="active">Active</option>
-                          <option value="disactive">Inactive</option>
+                          <option value="inactive">Inactive</option>
               </select>
-            @error('company_id') <div class="text-muted">{{ $message }}</div> @enderror
+            @error('status') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block" type="submit">

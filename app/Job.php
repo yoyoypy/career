@@ -14,8 +14,11 @@ class Job extends Model
         'joblocation_id',
         'jobcategory_id',
         'skill_id',
+        'company_id',
         'position',
         'slug',
+        'start',
+        'end',
         'status'
     ];
 
@@ -29,23 +32,33 @@ class Job extends Model
     }
 
     /**
-     * Get all of the comments for the Job
+     * Get the user that owns the Job
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function JobCategory(): HasMany
+    public function Location()
     {
-        return $this->hasMany(JobCategory::class, 'jobcategory_id');
+        return $this->belongsTo(Location::class, 'joblocation_id', 'id');
     }
 
     /**
-     * Get all of the Location for the Job
+     * Get the user that owns the Job
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Location(): HasMany
+    public function Company()
     {
-        return $this->hasMany(Location::class, 'location_id');
+        return $this->belongsTo(Company::class, 'company_id', 'id');
+    }
+
+    /**
+     * Get the user that owns the Job
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function JobCategory()
+    {
+        return $this->belongsTo(JobCategory::class, 'jobcategory_id', 'id');
     }
 
     /**
@@ -53,9 +66,9 @@ class Job extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Skill(): HasMany
+    public function Skill()
     {
-        return $this->hasMany(Skill::class, 'skill_id');
+        return $this->hasMany(Skill::class, 'id', 'skill_id');
     }
 
 

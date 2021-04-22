@@ -19,8 +19,8 @@
                     <th>Job Category</th>
                     <th>Company</th>
                     <th>Start Date</th>
-                    <th>End Date</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -28,11 +28,10 @@
                     <tr>
                       <td>{{ $item->id }}</td>
                       <td>{{ $item->jobtitle }}</td>
-                      <td>{{ $item->joblocation_id }}</td>
-                      <td>{{ $item->jobcategory_id }}</td>
-                      <td>{{ $item->company_id }}</td>
+                      <td>{{ $item->Location->location }}</td>
+                      <td>{{ $item->JobCategory->category }}</td>
+                      <td>{{ $item->Company->company }}</td>
                       <td>{{ $item->start }}</td>
-                      <td>{{ $item->end }}</td>
                       <td>{{ $item->status }}</td>
                       <td>
                         {{--  <a href="{{ route('products.gallery', $item->id) }}" class="btn btn-info btn-sm">

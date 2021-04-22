@@ -7,7 +7,9 @@ use App\Location;
 use App\JobCategory;
 use App\Company;
 use Illuminate\Http\Request;
-use JobRequest;
+use App\Http\Requests\JobRequest;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class JobController extends Controller
 {
@@ -18,8 +20,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $items = Job::all();
-
+        $items = Job::with('Location', 'Skill', 'JobCategory', 'Company')->get();
+        //dd($items);
         return view('backend.pages.jobs.index')->with([
             'items' => $items
         ]);
@@ -48,9 +50,35 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        // $data['slug'] = Str::slug($request->jobtitle);
+        // $data['joblocation_id'] = $request->$location->id;
+        // $data['jobcategory_id'] = $request->$category->id;
+        // $data['skill_id'] = $request->$skill->id;
+        // $data['company_id'] = $request->$company->id;
 
-        Job::create($data);
+        // Job::create([
+        //     'joblocation_id' => $location->id,
+        //     'jobcategory_id' => $category->id,
+        //     'skill_id' => $skill->id,
+        //     'company_id' => $company->id,
+        // ]);
+
+        Job::create([
+            'slug'               => Str::slug($request->jobtitle),
+            'jobtitle'           => $request->input('jobtitle'),
+            'jobdescription'     => $request->input('jobdescription'),
+            'jobrequirement'     => $request->input('jobrequirement'),
+            'joblocation_id'     => $request->input('joblocation_id'),
+            'jobcategory_id'     => $request->input('jobcategory_id'),
+            'skill_id'           => $request->input('skill_id'),
+            'company_id'         => $request->input('company_id'),
+            'position'           => $request->input('position'),
+            'start'              => Carbon::parse($request->start),
+            'end'                => Carbon::parse($request->end),
+            'status'             => $request->input('status'),
+        ]);
+
         notify()->success('New Job Added!');
         return redirect()->route('job.index');
     }
