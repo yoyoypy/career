@@ -46,9 +46,13 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
-        //
+        $data = $request->all();
+
+        Job::create($data);
+        notify()->success('New Job Added!');
+        return redirect()->route('job.index');
     }
 
     /**
