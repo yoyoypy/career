@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Collection;
 
 class JobRequest extends FormRequest
 {
@@ -29,7 +30,7 @@ class JobRequest extends FormRequest
             'jobrequirement' => 'required',
             'joblocation_id' => 'required',
             'jobcategory_id' => 'required',
-            'skill_id' => 'required',
+            'skill' => 'required',
             'position' => 'required',
             'start' => 'required',
             'status' => 'required'

@@ -51,14 +51,10 @@
             @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
-            <label for="skill_id" class=" form-control-label">Select Requires Skills</label>
-                <select name="skill_id" id="skill_id" multiple="" class="form-control">
-                    @foreach  ($skills as $skill)
-                        <option value="{{ $skill->id}}">{{ $skill->skill }}</option>
-                    @endforeach
-                </select>
-            <small class="form-text text-muted">Press CTRL+Click to Multiple</small>
-        @error('skill_id') <div class="text-muted">{{ $message }}</div> @enderror
+            <label for="skill" class="form-control-label">Require Skill</label>
+                <textarea name="skill"
+                      class="ckeditor form-control @error('skill') is-invalid @enderror">{{ old('skill')}}</textarea>
+            @error('skill') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label for="company_id" class="form-control-label">Company</label>

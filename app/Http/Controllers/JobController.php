@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Job;
-use App\Skill;
 use App\Location;
 use App\JobCategory;
 use App\Company;
@@ -10,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class JobController extends Controller
 {
@@ -20,7 +20,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $items = Job::with('Location', 'Skill', 'JobCategory', 'Company')->get();
+        $items = Job::with('Location', 'JobCategory', 'Company')->get();
         //dd($items);
         return view('backend.pages.jobs.index')->with([
             'items' => $items
@@ -35,7 +35,6 @@ class JobController extends Controller
     public function create()
     {
         return view('backend.pages.jobs.create')->with([
-            'skills' => $skills = Skill::all(),
             'locations' => $locations = Location::all(),
             'categories' => $jobcategories = JobCategory::all(),
             'companies' => $companies = Company::all()
@@ -50,19 +49,7 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
-        // $data = $request->all();
-        // $data['slug'] = Str::slug($request->jobtitle);
-        // $data['joblocation_id'] = $request->$location->id;
-        // $data['jobcategory_id'] = $request->$category->id;
-        // $data['skill_id'] = $request->$skill->id;
-        // $data['company_id'] = $request->$company->id;
-
-        // Job::create([
-        //     'joblocation_id' => $location->id,
-        //     'jobcategory_id' => $category->id,
-        //     'skill_id' => $skill->id,
-        //     'company_id' => $company->id,
-        // ]);
+       //dd($request);
 
         Job::create([
             'slug'               => Str::slug($request->jobtitle),
@@ -71,7 +58,7 @@ class JobController extends Controller
             'jobrequirement'     => $request->input('jobrequirement'),
             'joblocation_id'     => $request->input('joblocation_id'),
             'jobcategory_id'     => $request->input('jobcategory_id'),
-            'skill_id'           => $request->input('skill_id'),
+            'skill'              => $request->input('skill'),
             'company_id'         => $request->input('company_id'),
             'position'           => $request->input('position'),
             'start'              => Carbon::parse($request->start),
@@ -102,7 +89,15 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Job::with('Location', 'JobCategory', 'Company')->findOrFail($id);
+        //dd($item);
+
+        return view('backend.pages.jobs.edit')->with([
+            'item' => $item,
+            'locations' => $locations = Location::all(),
+            'categories' => $jobcategories = JobCategory::all(),
+            'companies' => $companies = Company::all()
+        ]);
     }
 
     /**
@@ -112,9 +107,15 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JobRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Job::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Job Edited!');
+        return redirect()->route('job.index');
     }
 
     /**

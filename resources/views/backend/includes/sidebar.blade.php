@@ -20,9 +20,6 @@
                     <li class="">
                         <a href="{{ route ('location.index') }}"> <i class="menu-icon fa fa-plus"></i>Add Job Location</a>
                     </li>
-                    <li class="">
-                        <a href="{{ route ('skill.index') }}"> <i class="menu-icon fa fa-plus"></i>Add Skills</a>
-                    </li>
 
                     <li class="menu-title">Company</li><!-- /.menu-title -->
                     <li class="">

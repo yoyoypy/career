@@ -22,7 +22,7 @@
             <button class="btn btn-primary btn-sm" type="submit">
                 Submit New company
             </button>
-            <a href="{{ route('skill.index')}}" class="btn btn-warning btn-sm">
+            <a href="{{ route('company.index')}}" class="btn btn-warning btn-sm">
                 Cancel
             </a>
         </div>

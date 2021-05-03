@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
-    protected $table = 'jobvacancies';
+    protected $table = 'jobsvacancies';
     protected $fillable = [
         'jobtitle',
         'jobdescription',
         'jobrequirement',
         'joblocation_id',
         'jobcategory_id',
-        'skill_id',
+        'skill',
         'company_id',
         'position',
         'slug',
@@ -60,16 +60,5 @@ class Job extends Model
     {
         return $this->belongsTo(JobCategory::class, 'jobcategory_id', 'id');
     }
-
-    /**
-     * Get all of the skill for the Job
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function Skill()
-    {
-        return $this->hasMany(Skill::class, 'id', 'skill_id');
-    }
-
 
 }

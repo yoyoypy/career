@@ -32,9 +32,6 @@ Route::prefix('/jobs')->group(function () {
 
         //job location route
         Route::resource('location', 'LocationController');
-
-        //skill route
-        Route::resource('skill', 'SkillController');
 });
 
 //applicant route
