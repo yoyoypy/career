@@ -13,7 +13,7 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.pages.jobsapplication.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class JobApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.apply');
     }
 
     /**

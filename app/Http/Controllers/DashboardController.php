@@ -15,8 +15,6 @@ class DashboardController extends Controller
     // {
     //     $this->middleware('auth');
     // }
-
-
     public function index(){
         return view('backend.pages.dashboard');
     }

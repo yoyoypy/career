@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/dashboard', 'DashboardController@index');
+
 
 //jobs setting
 // Route::prefix('/jobs')->group(function () {
@@ -21,7 +21,9 @@ Route::get('/dashboard', 'DashboardController@index');
 
 
 //routing back end
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
+
+Route::resource('dashboard', 'DashboardController');
 
 //job route
 Route::resource('job', 'JobController');
@@ -43,3 +45,14 @@ Route::resource('company', 'CompanyController');
 });
 
 Auth::routes(['register' => false]);
+
+
+Route::get('/', 'HomeController@index');
+
+Route::get('joblist', 'JobController@indexlist');
+
+Route::get('job/{slug}', 'JobController@show');
+
+Route::get('job/{slug}/apply', 'JobApplicationController@create');
+
+Route::post('job/{slug}/apply', 'JobApplicationController@store');

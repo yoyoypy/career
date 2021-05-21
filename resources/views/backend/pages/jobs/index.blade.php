@@ -18,7 +18,6 @@
                     <th>Job Location</th>
                     <th>Job Category</th>
                     <th>Company</th>
-                    <th>Start Date</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -31,13 +30,11 @@
                       <td>{{ $item->Location->location }}</td>
                       <td>{{ $item->JobCategory->category }}</td>
                       <td>{{ $item->Company->company }}</td>
-                      <td>{{ $item->start }}</td>
                       <td>{{ $item->status }}</td>
                       <td>
-                        {{--  <a href="{{ route('products.gallery', $item->id) }}" class="btn btn-info btn-sm">
-                         <a href="#" class="btn btn-info btn-sm">
-                          <i class="fa fa-picture-o"></i>
-                            </a> --}}
+                        <a href="{{ route('job.show', $item->slug) }}" class="btn btn-warning btn-sm">
+                            <i class="fa fa-eye"></i>
+                        </a>
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">
                           <i class="fa fa-pencil"></i>
                         </a>

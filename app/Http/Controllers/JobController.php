@@ -28,6 +28,20 @@ class JobController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexlist()
+    {
+        $items = Job::with('Location', 'JobCategory', 'Company')->get();
+        //dd($items);
+        return view('frontend.joblist')->with([
+            'items' => $items
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -76,9 +90,18 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        //return view('frontend.jobdetail');
+        $item = Job::with('Location', 'JobCategory', 'Company')->findorfail($slug);
+        //dd($item);
+
+        return view('frontend.jobdetail')->with([
+            'item' => $item,
+            'locations' => $locations = Location::all(),
+            'categories' => $jobcategories = JobCategory::all(),
+            'companies' => $companies = Company::all()
+        ]);
     }
 
     /**
@@ -126,6 +149,10 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Job::findOrFail($id);
+        $item->delete();
+
+        notify()->success('Job Deleted!');
+        return redirect()->route('job.index');
     }
 }
