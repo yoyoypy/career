@@ -32,7 +32,7 @@
                       <td>{{ $item->Company->company }}</td>
                       <td>{{ $item->status }}</td>
                       <td>
-                        <a href="{{ route('job.show', $item->slug) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('job.show', $item->id) }}" class="btn btn-warning btn-sm">
                             <i class="fa fa-eye"></i>
                         </a>
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">

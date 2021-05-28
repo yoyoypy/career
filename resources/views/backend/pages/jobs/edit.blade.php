@@ -77,6 +77,15 @@
             @error('position') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
+            <label for="salary" class="form-control-label">Salary</label>
+              <input   type="text"
+                        name="salary"
+                        value="{{ old('salary') ? old('salary') : $item->salary}}"
+                        class="form-control @error('salary') is-invalid @enderror"/>
+            <small class="form-text text-muted">input "Negotiable" if you dont want to show to show the salary</small>
+            @error('salary') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
             <label for="start" class="form-control-label">Start Date</label>
             <input  type="text"
                     name="start"

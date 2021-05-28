@@ -73,6 +73,7 @@ class JobController extends Controller
             'joblocation_id'     => $request->input('joblocation_id'),
             'jobcategory_id'     => $request->input('jobcategory_id'),
             'skill'              => $request->input('skill'),
+            'salary'             => $request->input('salary'),
             'company_id'         => $request->input('company_id'),
             'position'           => $request->input('position'),
             'start'              => Carbon::parse($request->start),
@@ -90,10 +91,10 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
         //return view('frontend.jobdetail');
-        $item = Job::with('Location', 'JobCategory', 'Company')->findorfail($slug);
+        $item = Job::with('Location', 'JobCategory', 'Company')->findorfail($id);
         //dd($item);
 
         return view('frontend.jobdetail')->with([

@@ -14,6 +14,7 @@ class Job extends Model
         'joblocation_id',
         'jobcategory_id',
         'skill',
+        'salary',
         'company_id',
         'position',
         'slug',

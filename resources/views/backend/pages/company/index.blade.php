@@ -15,7 +15,7 @@
                   <tr>
                     <th>#</th>
                     <th>Company</th>
-                    <th></th>
+                    <th>Company Website</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -24,6 +24,7 @@
                     <tr>
                       <td>{{ $item->id }}</td>
                       <td>{{ $item->company }}</td>
+                      <td>{{ $item->website }}</td>
                       <td>
                         {{--  <a href="{{ route('products.gallery', $item->id) }}" class="btn btn-info btn-sm">
                          <a href="#" class="btn btn-info btn-sm">

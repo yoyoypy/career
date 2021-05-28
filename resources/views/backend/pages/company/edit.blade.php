@@ -17,6 +17,14 @@
                   class="form-control @error('company') is-invalid @enderror"/>
           @error('company') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
+        <div class="form-group">
+            <label for="website" class="form-control-label">Company Website</label>
+            <input  type="text"
+                    name="website"
+                    value="{{ old('website') ? old('website') : $item->website }}"
+                    class="form-control @error('website') is-invalid @enderror"/>
+            @error('website') <div class="text-muted">{{ $message }}</div> @enderror
+          </div>
     </div>
     <div class="text-right" style="padding-right: 8px">
         <div class="form-group" style="float: right">

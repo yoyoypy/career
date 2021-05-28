@@ -26,6 +26,7 @@
             <label for="jobrequirement" class="form-control-label">Job Requirement</label>
             <textarea name="jobrequirement"
                       class="ckeditor form-control @error('jobrequirement') is-invalid @enderror">{{ old('jobdescription')}}</textarea>
+                <small class="form-text text-muted">tips: look nicer if you use bulleted list</small>
             @error('jobrequirement') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
@@ -54,6 +55,7 @@
             <label for="skill" class="form-control-label">Require Skill</label>
                 <textarea name="skill"
                       class="ckeditor form-control @error('skill') is-invalid @enderror">{{ old('skill')}}</textarea>
+                <small class="form-text text-muted">tips: look nicer if you use bulleted list</small>
             @error('skill') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
@@ -74,6 +76,16 @@
                         value="{{ old('position') }}"
                         class="form-control @error('position') is-invalid @enderror"/>
             @error('position') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label for="salary" class="form-control-label">Salary</label>
+              <input   type="text"
+                        name="salary"
+                        value="Negotiable"
+                        {{-- placeholder="Negotiable ? {{ old('salary') }}" --}}
+                        class="form-control @error('salary') is-invalid @enderror"/>
+                <small class="form-text text-muted">input "Negotiable" if you dont want to show the salary</small>
+            @error('salary') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label for="start" class="form-control-label">Start Date</label>

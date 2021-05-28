@@ -24,6 +24,7 @@ class CreateJobvacanciesTable extends Migration
             $table->text('skill');
             $table->string('company_id');
             $table->integer('position');
+            $table->string('salary');
             $table->date('start');
             $table->date('end');
             $table->string('status');

@@ -25,6 +25,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'company' => 'required'
+            'website' => 'required'
         ];
     }
 }

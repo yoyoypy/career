@@ -51,21 +51,21 @@
                             <div class="small-section-tittle">
                                 <h4>Job Description</h4>
                             </div>
-                            <p>{{ $item->jobdescription }}</p>
+                            <p>{!! $item->jobdescription !!}</p>
                         </div>
                         <div class="post-details2  mb-50">
                              <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
                                 <h4>Required Knowledge, Skills, and Abilities</h4>
                             </div>
-                            <p>{{ $item->skill }}</p>
+                            <p>{!! $item->skill !!}</p>
                         </div>
                         <div class="post-details2  mb-50">
                              <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
                                 <h4>Education + Experience</h4>
                             </div>
-                            {{ $item->jobrequirement }}
+                            {!! $item->jobrequirement !!}
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                           <li>Location : <span>{{ $item->Location->location }}</span></li>
                           <li>Vacancy : <span>{{ $item->position }}</span></li>
                           <li>Job nature : <span>Full time</span></li>
-                          <li>Salary :  <span>Negotiable</span></li>
+                          <li>Salary :  <span>{{ $item->salary }}</span></li>
                           <li>Application date : <span>{{ $item->end }}</span></li>
                       </ul>
                      <div class="apply-btn2">
@@ -95,9 +95,9 @@
                            <h4>Company Information</h4>
                        </div>
                           <span>{{ $item->Company->company }}</span>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                          {{-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> --}}
                         <ul>
-                            <li>Web : <span> colorlib.com</span></li>
+                            <li>Web : <span>{{ $item->Company->website }}</span></li>
                         </ul>
                    </div>
                 </div>
