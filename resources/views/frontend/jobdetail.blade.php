@@ -86,7 +86,7 @@
                           <li>Application date : <span>{{ $item->end }}</span></li>
                       </ul>
                      <div class="apply-btn2">
-                        <a href="{{$item->id}}/apply" class="btn">Apply Now</a>
+                        <a href="{{$item->slug}}/apply" class="btn">Apply Now</a>
                      </div>
                    </div>
                     <div class="post-details4  mb-50">

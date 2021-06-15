@@ -49,10 +49,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index');
 
-Route::get('joblist', 'JobController@indexlist');
+Route::get('job-list', 'JobController@indexlist');
 
-Route::get('job/{id}', 'JobController@show');
+Route::get('job/{slug}', 'JobController@show');
 
-Route::get('job/{id}/apply', 'JobApplicationController@create');
+Route::get('job/{slug}/apply', 'JobApplicationController@create');
 
-Route::post('job/{id}/apply', 'JobApplicationController@store');
+Route::post('job/{slug}/apply', 'JobApplicationController@store');

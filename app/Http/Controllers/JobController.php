@@ -91,10 +91,9 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //return view('frontend.jobdetail');
-        $item = Job::with('Location', 'JobCategory', 'Company')->findorfail($id);
+        $item = Job::with('Location', 'JobCategory', 'Company')->where('slug', $slug)->firstOrFail();
         //dd($item);
 
         return view('frontend.jobdetail')->with([

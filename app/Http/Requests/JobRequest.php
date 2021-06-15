@@ -25,15 +25,15 @@ class JobRequest extends FormRequest
     public function rules()
     {
         return [
-            'jobtitle' => 'required',
-            'jobdescription' => 'required',
-            'jobrequirement' => 'required',
-            'joblocation_id' => 'required',
-            'jobcategory_id' => 'required',
-            'skill' => 'required',
-            'position' => 'required',
-            'start' => 'required',
-            'status' => 'required'
+            'jobtitle'          => 'required',
+            'jobdescription'    => 'required',
+            'jobrequirement'    => 'required',
+            'joblocation_id'    => 'required',
+            'jobcategory_id'    => 'required',
+            'skill'             => 'required',
+            'position'          => 'required',
+            'start'             => 'required',
+            'status'            => 'required'
         ];
     }
 }

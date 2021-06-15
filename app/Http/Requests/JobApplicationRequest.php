@@ -13,7 +13,7 @@ class JobApplicationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class JobApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fullname'                  => 'required',
+            'firstname'                 => 'required',
+            //'lastname'                  => 'required',
+            'dob'                       => 'required|date',
+            'pob'                       => 'required',
+            'sex'                       => 'required',
+            'education'                 => 'required',
+            'weight'                    => 'numeric',
+            'height'                    => 'numeric',
+            'id_card_address'           => 'required',
+            'present_address'           => 'required',
+            'phone_number'              => 'required',
+            'email'                     => 'required|email',
+            'id_card_number'            => 'required|numeric',
+            'tax_id_card_number'        => 'numeric',
+            'social_security_number'    => 'numeric',
+            'cv'                        => 'required|mimetypes:application/pdf,application/msword'
         ];
     }
 }

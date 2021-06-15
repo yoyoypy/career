@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Job;
+use App\Application;
+use Carbon\Carbon;
+use App\Http\Requests\JobApplicationRequest;
 
 class JobApplicationController extends Controller
 {
@@ -21,9 +25,14 @@ class JobApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($slug)
     {
-        return view('frontend.apply');
+        $item = Job::where('slug', $slug)->firstorfail();
+        //dd($item);
+        return view('frontend.apply')->with([
+            'item' => $item,
+            'Job' => $jobsvacancies = Job::all()
+        ]);
     }
 
     /**
@@ -32,9 +41,11 @@ class JobApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobApplicationRequest $request)
     {
-        //
+
+        // notify()->success('Your Application Has Been Sent!');
+        // return redirect()->back();
     }
 
     /**
@@ -66,7 +77,7 @@ class JobApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(JobApplicationRequest $request, $id)
     {
         //
     }
