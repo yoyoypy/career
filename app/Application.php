@@ -8,6 +8,7 @@ class Application extends Model
 {
     protected $table = 'applications';
     protected $fillable = [
+        'jobvacancy_id',
         'fullname',
         'firstname',
         'lastname',

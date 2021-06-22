@@ -51,8 +51,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
-                        <span>FEATURED TOURS Packages</span>
-                        <h2>Browse Top Categories </h2>
+                        <span>Grow with us</span>
+                        <h2>Find Your Career Path</h2>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="job_listing.html" class="border-btn2">Browse All Sectors</a>
+                        <a href="../job-list" class="border-btn2">Browse All Jobs</a>
                     </div>
                 </div>
             </div>
@@ -167,12 +167,12 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle section-tittle2">
                             <span>What we are doing</span>
-                            <h2>24k Talented people are getting Jobs</h2>
+                            <h2>Hilotae dexter equiso est.</h2>
                         </div>
                         <div class="support-caption">
                             <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
                             <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                            <a href="about.html" class="btn post-btn">Post a job</a>
+                            <a href="../job-list" class="btn post-btn">Find Your Career</a>
                         </div>
                     </div>
                 </div>

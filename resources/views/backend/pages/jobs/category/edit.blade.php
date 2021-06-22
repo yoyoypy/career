@@ -6,7 +6,7 @@
       <strong>Edit Category</strong>
     </div>
     <div class="card-body card-block">
-      <form action="{{ route('category.update', $item->id) }}" method="POST">
+      <form action="{{ route('category.update', $item->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
@@ -17,6 +17,14 @@
                   class="form-control @error('category') is-invalid @enderror"/>
           @error('category') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
+          <div class="form-group">
+              <label for="image" class="form-control-label">Image Thumbnail</label>
+              <input  type="file"
+                      name="image"
+                      value="{{ old('image') }}"
+                      class="form-control @error('image') is-invalid @enderror"/>
+              @error('image') <div class="text-muted">{{ $message }}</div> @enderror
+          </div>
     </div>
     <div class="text-right" style="padding-right: 8px">
         <div class="form-group" style="float: right">

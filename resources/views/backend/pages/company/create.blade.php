@@ -6,7 +6,7 @@
       <strong>Add New Company</strong>
     </div>
     <div class="card-body card-block">
-      <form action="{{ route('company.store') }}" method="POST">
+      <form action="{{ route('company.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="company" class="form-control-label">Company Name</label>
@@ -23,6 +23,15 @@
                     value="{{ old('website') }}"
                     class="form-control @error('website') is-invalid @enderror"/>
             @error('website') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+          <div class="form-group">
+              <label for="logo" class="form-control-label">Company Logo</label>
+              <input  type="file"
+                      name="logo"
+                      value="{{ old('logo') }}"
+                      accept="image"
+                      class="form-control @error('logo') is-invalid @enderror"/>
+              @error('logo') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
     </div>
     <div class="text-right" style="padding-right: 8px">

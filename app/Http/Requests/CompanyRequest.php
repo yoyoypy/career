@@ -24,8 +24,9 @@ class CompanyRequest extends FormRequest
     public function rules()
     {
         return [
-            'company' => 'required'
-            'website' => 'required'
+            'company' => 'required',
+            'website' => 'required',
+            'logo'    => 'required|mimes:jpg,jpeg,png'
         ];
     }
 }

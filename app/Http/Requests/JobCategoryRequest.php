@@ -24,7 +24,8 @@ class JobCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required'
+            'category' => 'required',
+            'image'     => 'mimes:jpeg,jpg,png'
         ];
     }
 }

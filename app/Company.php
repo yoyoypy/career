@@ -9,6 +9,12 @@ class Company extends Model
     protected $table = 'companies';
     protected $fillable = [
         'company',
-        'website'
+        'website',
+        'logo'
     ];
+
+    public function getLogoAttribute($value)
+    {
+        return url('storage/' . $value);
+    }
 }

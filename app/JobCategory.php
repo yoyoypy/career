@@ -9,5 +9,6 @@ class JobCategory extends Model
     protected $table = 'jobcategories';
     protected $fillable = [
         'category',
+        'image'
     ];
 }

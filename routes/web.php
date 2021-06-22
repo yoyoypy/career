@@ -23,24 +23,24 @@
 //routing back end
 Route::prefix('admin')->middleware('auth')->group(function () {
 
-Route::resource('dashboard', 'DashboardController');
+        Route::resource('dashboard', 'DashboardController');
 
-//job route
-Route::resource('job', 'JobController');
+        //job route
+        Route::resource('job', 'JobController');
 
-Route::prefix('/jobs')->group(function () {
-        //job category route
-        Route::resource('category', 'CategoryController');
+        Route::prefix('/jobs')->group(function () {
+                //job category route
+                Route::resource('category', 'CategoryController');
 
-        //job location route
-        Route::resource('location', 'LocationController');
-});
+                //job location route
+                Route::resource('location', 'LocationController');
+        });
 
-//applicant route
-Route::resource('applicant', 'JobApplicationController');
+        //applicant route
+        Route::resource('applicant', 'JobApplicationController');
 
-//company route
-Route::resource('company', 'CompanyController');
+        //company route
+        Route::resource('company', 'CompanyController');
 
 });
 
@@ -55,4 +55,4 @@ Route::get('job/{slug}', 'JobController@show');
 
 Route::get('job/{slug}/apply', 'JobApplicationController@create');
 
-Route::post('job/{slug}/apply', 'JobApplicationController@store');
+Route::post('job/{slug}/submit', 'JobApplicationController@store');

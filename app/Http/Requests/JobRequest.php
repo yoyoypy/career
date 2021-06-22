@@ -30,6 +30,7 @@ class JobRequest extends FormRequest
             'jobrequirement'    => 'required',
             'joblocation_id'    => 'required',
             'jobcategory_id'    => 'required',
+            'employment'        => 'required',
             'skill'             => 'required',
             'position'          => 'required',
             'start'             => 'required',

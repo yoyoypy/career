@@ -34,10 +34,10 @@ class JobController extends Controller
      */
     public function indexlist()
     {
-        $items = Job::with('Location', 'JobCategory', 'Company')->get();
+        $jobs = Job::with('Location', 'JobCategory', 'Company')->get();
         //dd($items);
         return view('frontend.joblist')->with([
-            'items' => $items
+            'jobs' => $jobs
         ]);
     }
 
@@ -76,6 +76,7 @@ class JobController extends Controller
             'salary'             => $request->input('salary'),
             'company_id'         => $request->input('company_id'),
             'position'           => $request->input('position'),
+            'employment'         => $request->input('employment'),
             'start'              => Carbon::parse($request->start),
             'end'                => Carbon::parse($request->end),
             'status'             => $request->input('status'),

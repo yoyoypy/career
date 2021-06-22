@@ -43,9 +43,16 @@ class JobApplicationController extends Controller
      */
     public function store(JobApplicationRequest $request)
     {
+        $data = $request->all();
+        //dd($request->all());
+        $filename = $request->file('cv')->getClientOriginalName();
+        $data['cv'] = $request->file('cv')->storeAs(
+            'assets/cv', $filename, 'public'
+        );
 
-        // notify()->success('Your Application Has Been Sent!');
-        // return redirect()->back();
+        Application::create($data);
+
+        return view('frontend.jobapplied');
     }
 
     /**

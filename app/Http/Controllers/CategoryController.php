@@ -42,6 +42,10 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
+        $data['image'] = $request->file('image')->store(
+            'assets/category', 'public'
+        );
+
         JobCategory::create($data);
         notify()->success('Category Added!');
         return redirect()->route('category.index');
@@ -83,6 +87,9 @@ class CategoryController extends Controller
     public function update(JobCategoryRequest $request, $id)
     {
         $data = $request->all();
+        $data['image'] = $request->file('image')->store(
+            'assets/category', 'public'
+        );
 
         $item = JobCategory::findOrFail($id);
         $item->update($data);

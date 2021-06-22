@@ -17,6 +17,7 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('company');
             $table->string('website');
+            $table->string('logo');
             $table->timestamps();
         });
     }

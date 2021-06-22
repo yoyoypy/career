@@ -16,9 +16,6 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('jobvacancy_id');
-            //$table->integer('jobcategory_id');
-            //$table->integer('joblocation_id');
-            //$table->integer('company_id');
             $table->string('fullname');
             $table->string('firstname');
             $table->string('lastname');
@@ -26,17 +23,17 @@ class CreateApplicationsTable extends Migration
             $table->string('pob');
             $table->string('sex');
             $table->string('education');
-            $table->integer('weight');
-            $table->integer('height');
+            $table->integer('weight')->default(null);
+            $table->integer('height')->default(null);
             $table->string('bloodtype');
             $table->string('eye');
-            $table->text('id_card_address');
-            $table->text('present_address');
+            $table->longtext('id_card_address');
+            $table->longtext('present_address');
             $table->string('phone_number');
             $table->string('email');
             $table->string('id_card_number');
-            $table->string('tax_id_card_number');
-            $table->string('social_security_number');
+            $table->string('tax_id_card_number')->default(null);
+            $table->string('social_security_number')->default(null);
             $table->string('marital_status');
             $table->string('cv');
             $table->timestamps();

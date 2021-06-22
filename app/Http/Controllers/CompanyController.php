@@ -42,6 +42,10 @@ class CompanyController extends Controller
     {
         $data = $request->all();
 
+        $data['logo'] = $request->file('logo')->store(
+            'assets/company', 'public'
+        );
+
         Company::create($data);
         notify()->success('Company Added!');
         return redirect()->route('company.index');
@@ -83,6 +87,10 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, $id)
     {
         $data = $request->all();
+
+        $data['logo'] = $request->file('logo')->store(
+            'assets/company', 'public'
+        );
 
         $item = Company::findOrFail($id);
         $item->update($data);

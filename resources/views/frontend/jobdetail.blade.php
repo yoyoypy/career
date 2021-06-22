@@ -81,19 +81,21 @@
                           <li>Posted date : <span>{{ $item->start }}</span></li>
                           <li>Location : <span>{{ $item->Location->location }}</span></li>
                           <li>Vacancy : <span>{{ $item->position }}</span></li>
-                          <li>Job nature : <span>Full time</span></li>
+                          <li>Employment Type : <span>{{ $item->employment }}</span></li>
                           <li>Salary :  <span>{{ $item->salary }}</span></li>
-                          <li>Application date : <span>{{ $item->end }}</span></li>
+                          <li>Application due date : <span>{{ $item->end }}</span></li>
                       </ul>
                      <div class="apply-btn2">
-                        <a href="{{$item->slug}}/apply" class="btn">Apply Now</a>
+                        <a href="./{{$item->slug}}/apply" class="btn">Apply Now</a>
                      </div>
                    </div>
-                    <div class="post-details4  mb-50">
+                    <img class="post-details4  mb-50">
                         <!-- Small Section Tittle -->
                        <div class="small-section-tittle">
                            <h4>Company Information</h4>
                        </div>
+                        <img src="{{ url($item->Company->logo) }}" style="max-width: 150px" alt="#">
+                    <br><br>
                           <span>{{ $item->Company->company }}</span>
                           {{-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> --}}
                         <ul>

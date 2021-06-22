@@ -76,6 +76,16 @@
                         class="form-control @error('position') is-invalid @enderror"/>
             @error('position') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
+          <div class="form-group">
+              <label for="employment" class="form-control-label">Select Employment Type</label>
+              <select name="employment"
+                      value="{{ old('employment') }}"
+                      class="form-control @error('employment') is-invalid @enderror">
+                  <option value="Full-time">Full-Time</option>
+                  <option value="Internship">Internship</option>
+              </select>
+              @error('employment') <div class="text-muted">{{ $message }}</div> @enderror
+          </div>
         <div class="form-group">
             <label for="salary" class="form-control-label">Salary</label>
               <input   type="text"

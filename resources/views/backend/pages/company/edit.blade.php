@@ -6,7 +6,7 @@
       <strong>Edit Company</strong>
     </div>
     <div class="card-body card-block">
-      <form action="{{ route('company.update', $item->id) }}" method="POST">
+      <form action="{{ route('company.update', $item->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
@@ -24,6 +24,15 @@
                     value="{{ old('website') ? old('website') : $item->website }}"
                     class="form-control @error('website') is-invalid @enderror"/>
             @error('website') <div class="text-muted">{{ $message }}</div> @enderror
+            </div>
+          <div class="form-group">
+              <label for="logo" class="form-control-label">Company Logo</label>
+              <input  type="file"
+                      name="logo"
+                      value="{{ old('logo') }}"
+                      accept="image"
+                      class="form-control @error('logo') is-invalid @enderror"/>
+              @error('logo') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
     </div>
     <div class="text-right" style="padding-right: 8px">
