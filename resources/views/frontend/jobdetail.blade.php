@@ -5,7 +5,7 @@
 <main>
     <!-- Hero Area Start-->
     <div class="slider-area ">
-    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="frontend/assets/img/hero/about.jpg">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="https://sadhanas.co.id/public/images/batik.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

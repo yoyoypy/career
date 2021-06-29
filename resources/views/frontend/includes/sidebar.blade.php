@@ -16,11 +16,11 @@
         </div>
     </div>
     <!-- Job Category Listing start -->
-    <div class="job-category-listing mb-50">
+    <div class="job-category-listing mb-50" style="background-color: rgba(31,43,123,0.8)">
         <!-- single one -->
         <div class="single-listing mb-50">
            <div class="small-section-tittle2">
-                 <h4>Job Category</h4>
+                 <h4 style="color: white">Job Category</h4>
            </div>
             <!-- Select job items start -->
             <div class="select-job-items2">
@@ -34,7 +34,7 @@
             </div>
             <br><br><br>
             <div class="small-section-tittle2">
-                <h4>Job Location</h4>
+                <h4 style="color: white">Job Location</h4>
             </div>
             <!-- Select job items start -->
             <div class="select-job-items2">

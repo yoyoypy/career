@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Application;
 use App\Job;
 use App\Location;
 use App\JobCategory;
@@ -155,5 +156,16 @@ class JobController extends Controller
 
         notify()->success('Job Deleted!');
         return redirect()->route('job.index');
+    }
+
+    public function candidate($id)
+    {
+        $items = Job::with('Application')->where('id', $id)->firstOrFail();
+        //dd($item);
+
+        return view('backend.pages.jobs.candidate')->with([
+            'items' => $items,
+            'application' => $application = Application::all()
+        ]);
     }
 }

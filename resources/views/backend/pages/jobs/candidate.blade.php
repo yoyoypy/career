@@ -6,15 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-{{--                        <div class="col col-md-3" style="float: right">--}}
-{{--                        <div class="col-12 col-md-9">--}}
-{{--                        <select name="selectSm" id="selectSm" class="form-control-sm form-control">--}}
-{{--                            <option value="#">Please select</option>                            --}}
-{{--                            <option value="1">Option #1</option>--}}
-{{--                        </select>--}}
-{{--                        </div>--}}
-{{--                        </div>--}}
-                        <h4 class="box-title">Applications List</h4>
+                        <h4 class="box-title">Candidates List for <strong>{{ $items->jobtitle }}</strong></h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -30,7 +22,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($items->sortByDesc('created_at') as $item)
+                                @forelse ($items->Application->sortByDesc('created_at') as $item)
                                     <tr>
                                         <td>{{ $item->fullname }}</td>
                                         <td>{{ $item->Job->jobtitle }}</td>
@@ -45,9 +37,9 @@
                                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
                                                 <i class="fa fa-eye"> View</i>
                                             </button>
-{{--                                            <a href="{{ route('applicant.show', $item->id) }}" class="btn btn-info btn-sm">--}}
-{{--                                                <i class="fa fa-eye"></i>--}}
-{{--                                            </a>--}}
+                                            {{--                                            <a href="{{ route('applicant.show', $item->id) }}" class="btn btn-info btn-sm">--}}
+                                            {{--                                                <i class="fa fa-eye"></i>--}}
+                                            {{--                                            </a>--}}
                                         </td>
                                     </tr>
                                 @empty
@@ -60,7 +52,7 @@
                                 </tbody>
                             </table>
                             <div class="row justify-content-md-center">
-{{--                            {{$items->links()}}--}}
+                                {{--                            {{$items->links()}}--}}
                             </div>
                         </div>
                     </div>

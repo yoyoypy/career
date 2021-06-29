@@ -28,7 +28,8 @@ class Application extends Model
         'tax_id_card_number',
         'social_security_number',
         'marital_status',
-        'cv'
+        'cv',
+        'status'
     ];
 
     /**
@@ -36,9 +37,9 @@ class Application extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function Vacancies(): BelongsTo
+    public function Job()
     {
-        return $this->belongsTo(JobVacancies::class, 'id');
+        return $this->belongsTo(Job::class, 'jobvacancy_id', 'id');
     }
 
     public function getCvAttribute($value)

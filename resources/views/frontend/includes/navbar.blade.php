@@ -26,6 +26,7 @@
                                              <li><a href="job_details.html">job Details</a></li>
                                          </ul>
                                      </li> -->
+                                     <li><a href="../blog">Our News</a></li>
                                      <li><a href="../contact">Contact Us</a></li>
                                  </ul>
                              </nav>

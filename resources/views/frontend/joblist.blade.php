@@ -5,12 +5,12 @@
 <main>
     <!-- Hero Area Start-->
     <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="https://sadhanas.co.id/public/images/batik.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>Get your job</h2>
+                            <h2>Grow with us</h2>
                         </div>
                     </div>
                 </div>
@@ -55,12 +55,12 @@
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
-                                                <a href="../job/{{$job->slug}}"><img src="{{ url($job->JobCategory->image) }}" alt="#"></a>
+                                                <a href="../job/{{$job->slug}}"><img src="../storage/{{ ($job->JobCategory->image) }}" alt="#" style="max-width: 100px"></a>
                                             </div>
                                             <div class="job-tittle job-tittle2">
                                                 <a href="../job/{{$job->slug}}">
                                                     <h4>{{$job->jobtitle}}</h4>
-                                                    <h5>{!! Str::limit($job->jobdescription, 80) !!}</h5>
+                                                    <h5>{!! Str::limit($job->jobdescription, 70) !!}</h5>
                                                 </a>
                                                 <ul>
                                                     <li>{{$job->JobCategory->category}}</li>

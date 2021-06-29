@@ -36,6 +36,7 @@ class CreateApplicationsTable extends Migration
             $table->string('social_security_number')->default(null);
             $table->string('marital_status');
             $table->string('cv');
+            $table->string('status')->default('new');
             $table->timestamps();
             //$table->ipAddress('visitor');
         });

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Company;
-use App\Http\Requests\CompanyRequest;
+use App\Blog;
+use App\Http\Requests\BlogRequest;
+use Illuminate\Support\Str;
 
-class CompanyController extends Controller
+class AdminBlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $items = Company::all();
+        $items = Blog::all();
 
-        return view('backend.pages.company.index')->with([
+        return view('backend.pages.blog.index')->with([
             'items' => $items
         ]);
     }
@@ -29,7 +30,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.company.create');
+        return view('backend.pages.blog.create');
     }
 
     /**
@@ -38,17 +39,19 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CompanyRequest $request)
+    public function store(BlogRequest $request)
     {
         $data = $request->all();
 
-        $data['logo'] = $request->file('logo')->store(
-            'assets/company', 'public'
+        $data['slug'] = Str::slug( $request->input('title') );
+        $data['thumbnail'] = $request->file('thumbnail')->store(
+            'assets/blogthumbnail', 'public'
         );
 
-        Company::create($data);
-        notify()->success('Company Added!');
-        return redirect()->route('company.index');
+        Blog::create($data);
+        notify()->success('New Blog Added!');
+
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -70,10 +73,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $item = Company::findOrFail($id);
+        $item = Blog::findOrFail($id);
 
-        return view('backend.pages.company.edit')->with([
-            'item' => $item
+        return view('backend.pages.blog.edit')->with([
+            'item'  =>  $item
         ]);
     }
 
@@ -84,20 +87,21 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CompanyRequest $request, $id)
+    public function update(BlogRequest $request, $id)
     {
         $data = $request->all();
 
-        $data['logo'] = $request->file('logo')->store(
-            'assets/company', 'public'
+        $data['slug'] = Str::slug( $request->input('title') );
+        $data['thumbnail'] = $request->file('thumbnail')->store(
+            'assets/blogthumbnail', 'public'
         );
 
-        $item = Company::findOrFail($id);
+        $item = Blog::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Company Edited!');
+        notify()->success('Blog Edited!');
 
-        return redirect()->route('company.index');
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -108,10 +112,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $item = Company::findOrFail($id);
+        $item = Blog::findOrFail($id);
         $item->delete();
 
-        notify()->success('Company Deleted!');
-        return redirect()->route('company.index');
+        notify()->success('Blog Deleted!');
+        return redirect()->route('blog.index');
     }
 }

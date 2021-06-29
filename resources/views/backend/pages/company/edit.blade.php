@@ -29,7 +29,7 @@
               <label for="logo" class="form-control-label">Company Logo</label>
               <input  type="file"
                       name="logo"
-                      value="{{ old('logo') }}"
+                      value="{{ old('logo') ? old('logo') : $item->logo }}"
                       accept="image"
                       class="form-control @error('logo') is-invalid @enderror"/>
               @error('logo') <div class="text-muted">{{ $message }}</div> @enderror

@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Company;
-use App\Http\Requests\CompanyRequest;
 
-class CompanyController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $items = Company::all();
-
-        return view('backend.pages.company.index')->with([
-            'items' => $items
-        ]);
+        //
     }
 
     /**
@@ -29,7 +23,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('backend.pages.company.create');
+        //
     }
 
     /**
@@ -38,17 +32,9 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CompanyRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->all();
-
-        $data['logo'] = $request->file('logo')->store(
-            'assets/company', 'public'
-        );
-
-        Company::create($data);
-        notify()->success('Company Added!');
-        return redirect()->route('company.index');
+        //
     }
 
     /**
@@ -70,11 +56,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $item = Company::findOrFail($id);
-
-        return view('backend.pages.company.edit')->with([
-            'item' => $item
-        ]);
+        //
     }
 
     /**
@@ -84,20 +66,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CompanyRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-
-        $data['logo'] = $request->file('logo')->store(
-            'assets/company', 'public'
-        );
-
-        $item = Company::findOrFail($id);
-        $item->update($data);
-
-        notify()->success('Company Edited!');
-
-        return redirect()->route('company.index');
+        //
     }
 
     /**
@@ -108,10 +79,6 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $item = Company::findOrFail($id);
-        $item->delete();
-
-        notify()->success('Company Deleted!');
-        return redirect()->route('company.index');
+        //
     }
 }

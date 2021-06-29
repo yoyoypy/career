@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Location;
 use Illuminate\Http\Request;
 use App\Job;
 use App\Application;
@@ -17,7 +18,11 @@ class JobApplicationController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.jobsapplication.index');
+        $items = Application::with('Job')->get();
+
+        return view('backend.pages.jobsapplication.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**
@@ -63,7 +68,27 @@ class JobApplicationController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = Application::findOrFail($id);
+        return view('backend.pages.jobsapplication.show')->with([
+            'item' => $item
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function viewcv($id)
+    {
+        $item = Application::findOrFail($id);
+        $headers = [
+            'Content-Type' => 'application/pdf'
+        ];
+        return view('backend.pages.jobsapplication.showcv')->with(
+            ['item'=>$item]
+        );
     }
 
     /**
@@ -74,7 +99,11 @@ class JobApplicationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Application::findOrFail($id);
+
+        return view('backend.pages.jobsapplication.edit')->with([
+            'item' => $item
+        ]);
     }
 
     /**
@@ -84,9 +113,15 @@ class JobApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(JobApplicationRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        //dd($request);
+        $item = Application::findOrFail($id);
+        $item->update($data);
+
+        notify()->success('Status Changed!');
+        return redirect()->route('applicant.index');
     }
 
     /**
@@ -98,5 +133,50 @@ class JobApplicationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function new()
+    {
+        $items = Application::where('status', 'new')->with('Job')->get();
+       //dd($items);
+        return view('backend.pages.jobsapplication.status')->with([
+            'items' => $items
+        ]);
+    }
+
+    public function phone()
+    {
+        $items = Application::where('status', 'phone interview')->with('Job')->get();
+        //dd($items);
+        return view('backend.pages.jobsapplication.status')->with([
+            'items' => $items
+        ]);
+    }
+
+    public function interview()
+    {
+        $items = Application::where('status', 'interview')->with('Job')->get();
+        //dd($items);
+        return view('backend.pages.jobsapplication.status')->with([
+            'items' => $items
+        ]);
+    }
+
+    public function hired()
+    {
+        $items = Application::where('status', 'hired')->with('Job')->get();
+        //dd($items);
+        return view('backend.pages.jobsapplication.status')->with([
+            'items' => $items
+        ]);
+    }
+
+    public function rejected()
+    {
+        $items = Application::where('status', 'rejected')->with('Job')->get();
+        //dd($items);
+        return view('backend.pages.jobsapplication.status')->with([
+            'items' => $items
+        ]);
     }
 }
