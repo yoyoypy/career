@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="blog_left_sidebar">
-                    @foreach ( $items as $item )
+                    @forelse ( $items as $item )
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="{{ $item->thumbnail }}" alt="Data Not Found">
@@ -15,7 +15,6 @@
                                     <p>{{ $item->created_at->todatestring() }}</p>
                                 </a>
                             </div>
-
                             <div class="blog_details">
                                 <a class="d-inline-block" href="blog/{{ $item->slug }}">
                                     <h2>{{ $item->title }}</h2>
@@ -28,27 +27,15 @@
                                 <a href="blog/{{ $item->slug }}">Read More...</a>
                             </div>
                         </article>
-                    @endforeach
-                    {{-- <nav class="blog-pagination justify-content-center d-flex">
+                    @empty
+                        <strong>Sorry...</strong>
+                        <p> what you looking for not found..</p>
+                    @endforelse
+                    <nav class="blog-pagination justify-content-center d-flex">
                         <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
+                            {{ $items->links() }}
                         </ul>
-                    </nav> --}}
+                    </nav>
                 </div>
             </div>
             {{-- side bar --}}

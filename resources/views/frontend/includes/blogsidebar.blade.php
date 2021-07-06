@@ -1,19 +1,24 @@
 <div class="col-lg-4">
     <div class="blog_right_sidebar">
         <aside class="single_sidebar_widget search_widget">
-            <form action="#">
+            <form action="{{ route('blog') }}" method="GET">
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder='Search Keyword'
-                            onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Search Keyword'">
+                        <label for="search" class="form-control-label"></label>
+                        <input  type="text"
+                                name="search"
+                                placeholder="Search here.."
+                                value="{{ old('search') }}"
+                                class="form-control"/>
                         <div class="input-group-append">
                             <button class="btns" type="button"><i class="ti-search"></i></button>
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
                 <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
                     type="submit">Search</button>
+                </div>
             </form>
         </aside>
 
@@ -28,33 +33,6 @@
                     <p>January 12, 2019</p>
                 </div>
             </div>
-            <div class="media post_item">
-                <img src="frontend/assets/img/post/post_2.png" alt="post">
-                <div class="media-body">
-                    <a href="single-blog.html">
-                        <h3>The Amazing Hubble</h3>
-                    </a>
-                    <p>02 Hours ago</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="frontend/assets/img/post/post_3.png" alt="post">
-                <div class="media-body">
-                    <a href="single-blog.html">
-                        <h3>Astronomy Or Astrology</h3>
-                    </a>
-                    <p>03 Hours ago</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="frontend/assets/img/post/post_4.png" alt="post">
-                <div class="media-body">
-                    <a href="single-blog.html">
-                        <h3>Asteroids telescope</h3>
-                    </a>
-                    <p>01 Hours ago</p>
-                </div>
-            </div>
         </aside>
 
         <aside class="single_sidebar_widget instagram_feeds">
@@ -63,31 +41,6 @@
                 <li>
                     <a href="#">
                         <img class="img-fluid" src="frontend/assets/img/post/post_5.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="img-fluid" src="frontend/assets/img/post/post_6.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="img-fluid" src="frontend/assets/img/post/post_7.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="img-fluid" src="frontend/assets/img/post/post_8.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="img-fluid" src="frontend/assets/img/post/post_9.png" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <img class="img-fluid" src="frontend/assets/img/post/post_10.png" alt="">
                     </a>
                 </li>
             </ul>

@@ -15,8 +15,8 @@
                          <div class="main-menu">
                              <nav class="d-none d-lg-block">
                                  <ul id="navigation">
-                                     <li><a href="../">Home</a></li>
-                                     <li><a href="../job-list">Find Your Career</a></li>
+                                     <li><a href="/">Home</a></li>
+                                     <li><a href="/job-list">Find Your Career</a></li>
                                      <!-- <li><a href="about.html">About</a></li>
                                      <li><a href="#">Page</a>
                                          <ul class="submenu">
@@ -26,8 +26,8 @@
                                              <li><a href="job_details.html">job Details</a></li>
                                          </ul>
                                      </li> -->
-                                     <li><a href="../blog">Our News</a></li>
-                                     <li><a href="../contact">Contact Us</a></li>
+                                     <li><a href="/blog">Our News</a></li>
+                                     <li><a href="/contact">Contact Us</a></li>
                                  </ul>
                              </nav>
                          </div>

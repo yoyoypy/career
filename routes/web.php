@@ -65,7 +65,7 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index');
 
 //front end job routing
-Route::get('job-list', 'JobController@indexlist');
+Route::get('job-list', 'JobController@indexlist')->name('jobs');
 Route::get('job/{slug}', 'JobController@show'); //job details
 Route::get('job/{slug}/apply', 'JobApplicationController@create'); //dynamic job apply
 Route::post('job/{slug}/submit', 'JobApplicationController@store'); //store route for apply
@@ -74,5 +74,5 @@ Route::post('job/{slug}/submit', 'JobApplicationController@store'); //store rout
 Route::resource('contact-us', 'ContactController');
 
 //blog front end routing
-Route::get('blog', 'BlogController@index');
-Route::get('blog/{slug}', 'BlogController@show'); //dynamic blog details
+Route::get('blog', 'BlogController@index')->name('blog');
+Route::get('blog/{slug}', 'BlogController@show')->name('blogdetails'); //dynamic blog details

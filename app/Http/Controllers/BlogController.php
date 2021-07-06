@@ -14,7 +14,14 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $items = Blog::all();
+        $search = request()->query('search');
+        if ($search) {
+            $items = Blog::where('title', 'LIKE', "%{$search}%")->paginate(10);
+        }
+
+        else {
+            $items = Blog::paginate(10);
+        }
 
         return view('frontend.blog')->with([
             'items' => $items
