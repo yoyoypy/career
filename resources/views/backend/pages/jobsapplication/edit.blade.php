@@ -28,7 +28,7 @@
                 <button class="btn btn-primary btn-sm" type="submit">
                     Edit Status
                 </button>
-                <a href="{{ route('applicant.index')}}" class="btn btn-warning btn-sm">
+                <a href="{{ url()->previous() }}" class="btn btn-warning btn-sm">
                     Cancel
                 </a>
             </div>

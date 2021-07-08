@@ -35,7 +35,14 @@ class JobController extends Controller
      */
     public function indexlist()
     {
+        $jobsearch = request()->query('jobsearch');
+        dd($jobsearch);
+        if ($jobsearch) {
+            $jobs = Job::where('title', 'LIKE', "%{$search}%")->get();
+        }
+        else{
         $jobs = Job::with('Location', 'JobCategory', 'Company')->get();
+        }
         //dd($items);
         return view('frontend.joblist')->with([
             'jobs' => $jobs

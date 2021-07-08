@@ -19,17 +19,16 @@
                     <div class="row">
                         <div class="col-xl-8">
                             <!-- form -->
-                            <form action="#" class="search-box">
+                            <form action="{{ route('jobs') }}" class="search-box">
                                 <div class="input-form">
                                     <input type="text" placeholder="Job Tittle or keyword">
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
                                         <select name="select" id="select1">
-                                            <option value="">Location BD</option>
-                                            <option value="">Location PK</option>
-                                            <option value="">Location US</option>
-                                            <option value="">Location UK</option>
+                                            @foreach ($items as $item)
+                                            <option value="{{ $item->id }}">{{ $item->location }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
