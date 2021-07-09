@@ -20,12 +20,17 @@
                         <div class="col-xl-8">
                             <!-- form -->
                             <form action="{{ route('jobs') }}" class="search-box">
+                                <label for="jobsearch" class="form-control-label"></label>
                                 <div class="input-form">
-                                    <input type="text" placeholder="Job Tittle or keyword">
+                                    <input  type="text"
+                                            name="jobsearch"
+                                            placeholder="Find jobs here"
+                                            value="{{ old('jobsearch') }}"
+                                            class="form-control"/>
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
-                                        <select name="select" id="select1">
+                                        <select name="location" id="select1">
                                             @foreach ($items as $item)
                                             <option value="{{ $item->id }}">{{ $item->location }}</option>
                                             @endforeach
@@ -33,7 +38,9 @@
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    <a href="#">Find job</a>
+                                    {{-- <a href="#">Find job</a> --}}
+                                    <button class="btn post-btn" style="border-radius:0px;padding:35px"
+                                    type="submit">Find Job</button>
                                 </div>
                             </form>
                         </div>
@@ -56,18 +63,21 @@
                 </div>
             </div>
             <div class="row d-flex justify-contnet-center">
+                @foreach ($categories as $category)
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
-                            <span class="flaticon-tour"></span>
+                           <img src="storage/{{ $category->image }}">
                         </div>
                         <div class="services-cap">
-                           <h5><a href="job_listing.html">Design & Creative</a></h5>
-                            <span>(653)</span>
+                           <h5><a href="/job-category/{{ $category->id }}">{{ $category->category }}</a></h5>
+                            {{-- <span>(653)</span> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                @endforeach
+
+                {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
                             <span class="flaticon-cms"></span>
@@ -143,7 +153,7 @@
                             <span>(658)</span>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <!-- More Btn -->
             <!-- Section Button -->

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JobCategory;
+use App\Job;
+use App\Location;
 use App\Http\Requests\JobCategoryRequest;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -19,6 +22,19 @@ class CategoryController extends Controller
 
         return view('backend.pages.jobs.category.index')->with([
             'items' => $items
+        ]);
+    }
+
+    public function indexlist($id)
+    {
+        $jobs = Job::where('jobcategory_id', $id)->get();
+        $categories = JobCategory::all();
+        $locations = Location::all();
+
+        return view('frontend.joblist')->with([
+            'jobs' => $jobs,
+            'categories' => $categories,
+            'locations'  => $locations
         ]);
     }
 
@@ -42,6 +58,7 @@ class CategoryController extends Controller
     {
         $data = $request->all();
 
+        $data['slug'] = Str::slug($request->category);
         $data['image'] = $request->file('image')->store(
             'assets/category', 'public'
         );

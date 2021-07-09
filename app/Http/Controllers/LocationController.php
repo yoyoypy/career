@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\JobCategory;
+use App\Job;
 use App\Location;
 use App\Http\Requests\LocationRequest;
 
@@ -19,6 +21,19 @@ class LocationController extends Controller
 
         return view('backend.pages.jobs.location.index')->with([
             'items' => $items
+        ]);
+    }
+
+    public function indexlist($id)
+    {
+        $jobs = Job::where('joblocation_id', $id)->get();
+        $categories = JobCategory::all();
+        $locations = Location::all();
+
+        return view('frontend.joblist')->with([
+            'jobs' => $jobs,
+            'categories' => $categories,
+            'locations'  => $locations
         ]);
     }
 

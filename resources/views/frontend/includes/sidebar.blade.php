@@ -24,12 +24,11 @@
            </div>
             <!-- Select job items start -->
             <div class="select-job-items2">
-                <select name="select">
+                <select name="select" onchange="window.location.href=this.value">
                     <option value="">All Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 4</option>
+                    @foreach ($categories as $category)
+                    <option value="../job-category/{{ $category->id }}">{{ $category->category }}</option>
+                    @endforeach
                 </select>
             </div>
             <br><br><br>
@@ -38,12 +37,11 @@
             </div>
             <!-- Select job items start -->
             <div class="select-job-items2">
-                <select name="select">
+                <select name="select" onchange="window.location.href=this.value">
                     <option value="">Anywhere</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
-                    <option value="">Category 4</option>
+                    @foreach ($locations as $location)
+                    <option value="../job-location/{{ $location->id }}">{{ $location->location }}</option>
+                    @endforeach
                 </select>
             </div>
             <!--  Select job items End-->

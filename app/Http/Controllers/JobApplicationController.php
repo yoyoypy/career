@@ -8,6 +8,8 @@ use App\Job;
 use App\Application;
 use Carbon\Carbon;
 use App\Http\Requests\JobApplicationRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ThanksForApplication;
 
 class JobApplicationController extends Controller
 {
@@ -49,12 +51,14 @@ class JobApplicationController extends Controller
     public function store(JobApplicationRequest $request)
     {
         $data = $request->all();
-        //dd($request->all());
+        $usermail = $request->input('email');
+        //dd($usermail);
         $filename = $request->file('cv')->getClientOriginalName();
         $data['cv'] = $request->file('cv')->storeAs(
             'assets/cv', $filename, 'public'
         );
 
+        Mail::to($usermail)->send(new ThanksForApplication($data));
         Application::create($data);
 
         return view('frontend.jobapplied');

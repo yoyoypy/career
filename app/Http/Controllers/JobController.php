@@ -36,16 +36,26 @@ class JobController extends Controller
     public function indexlist()
     {
         $jobsearch = request()->query('jobsearch');
-        // dd($jobsearch);
+        $location = request('location');
+
         if ($jobsearch) {
-            $jobs = Job::where('title', 'LIKE', "%{$search}%")->get();
+            $jobs = Job::where([
+                ['jobtitle', 'LIKE', "%{$jobsearch}%"],
+                ['joblocation_id','LIKE', "%{$location}%"]
+                ])->get();
+            $categories = JobCategory::all();
+            $locations = Location::all();
         }
         else{
         $jobs = Job::with('Location', 'JobCategory', 'Company')->get();
+        $categories = JobCategory::all();
+        $locations = Location::all();
         }
-        //dd($items);
+
         return view('frontend.joblist')->with([
-            'jobs' => $jobs
+            'jobs'       => $jobs,
+            'categories' => $categories,
+            'locations'  => $locations
         ]);
     }
 

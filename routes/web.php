@@ -11,15 +11,6 @@
 |
 */
 
-
-
-//jobs setting
-// Route::prefix('/jobs')->group(function () {
-//     Route::get('/list', 'JobController@index')->name('joblists');
-//     Route::get('/add', 'JobController@create')->name('createjob');
-// });
-
-
 //routing back end
 use App\Application;
 
@@ -76,3 +67,6 @@ Route::resource('contact-us', 'ContactController');
 //blog front end routing
 Route::get('blog', 'BlogController@index')->name('blog');
 Route::get('blog/{slug}', 'BlogController@show')->name('blogdetails'); //dynamic blog details
+
+Route::get('job-category/{id}', 'CategoryController@indexlist');
+Route::get('job-location/{id}', 'LocationController@indexlist');
