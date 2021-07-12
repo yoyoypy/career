@@ -62,7 +62,8 @@ Route::get('job/{slug}/apply', 'JobApplicationController@create'); //dynamic job
 Route::post('job/{slug}/submit', 'JobApplicationController@store'); //store route for apply
 
 //contact us route
-Route::resource('contact-us', 'ContactController');
+Route::get('contact-us', 'ContactController@create')->name('contact');
+Route::post('contact-us', 'ContactController@store')->name('contact-us.store');
 
 //blog front end routing
 Route::get('blog', 'BlogController@index')->name('blog');

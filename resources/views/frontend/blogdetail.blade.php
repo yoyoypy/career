@@ -1,5 +1,9 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>{{ $item->title }} | Sadhana Karir</title>
+         <meta name="description" content="{!! $item->description !!}">
+@endsection
 
 @section('content')
 <!-- Hero Area Start-->

@@ -1,5 +1,9 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>Thank You | Sadhana Karir</title>
+         <meta name="description" content="">
+@endsection
 
 @section('content')
     <meta http-equiv="refresh" content="3; URL=/" />

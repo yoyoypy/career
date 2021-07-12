@@ -9,5 +9,6 @@ class Location extends Model
     protected $table = 'joblocations';
     protected $fillable = [
         'location',
+        'image'
     ];
 }

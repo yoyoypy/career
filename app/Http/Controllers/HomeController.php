@@ -12,10 +12,12 @@ class HomeController extends Controller
 
         $items = Location::all();
         $categories = JobCategory::all();
+        $locations = Location::all();
         //dd($items);
         return view('frontend.home')->with([
             'items' => $items,
-            'categories' => $categories
+            'categories' => $categories,
+            'locations' => $locations
             ]);
     }
 }

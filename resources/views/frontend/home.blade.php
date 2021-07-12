@@ -1,5 +1,10 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>Welcome to Sadhana Karir</title>
+         <meta name="description" content="">
+@endsection
+
 @section('content')
 <main>
     <!-- slider Area Start-->
@@ -71,96 +76,47 @@
                         </div>
                         <div class="services-cap">
                            <h5><a href="/job-category/{{ $category->id }}">{{ $category->category }}</a></h5>
-                            {{-- <span>(653)</span> --}}
                         </div>
                     </div>
                 </div>
                 @endforeach
-
-                {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-cms"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Design & Development</a></h5>
-                            <span>(658)</span>
-                        </div>
+            </div>
+            <!-- More Btn -->
+            <!-- Section Button -->
+            <div class="row">
+                <div class="col-lg-12" style="bottom: 50px">
+                    <div class="browse-btn2 text-center mt-50">
+                        <a href="../job-list" class="border-btn2">Browse All Jobs</a>
                     </div>
                 </div>
+            </div>
+            <!-- Section Location -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle text-center">
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-contnet-center">
+                @foreach ($locations as $location)
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
-                            <span class="flaticon-report"></span>
+                           <img src="storage/{{ $location->image }}">
                         </div>
                         <div class="services-cap">
-                           <h5><a href="job_listing.html">Sales & Marketing</a></h5>
-                            <span>(658)</span>
+                           <h5><a href="/job-location/{{ $location->id }}">{{ $location->location }}</a></h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-app"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Mobile Application</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-helmet"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Construction</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-high-tech"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Information Technology</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-real-estate"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Real Estate</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                    <div class="single-services text-center mb-30">
-                        <div class="services-ion">
-                            <span class="flaticon-content"></span>
-                        </div>
-                        <div class="services-cap">
-                           <h5><a href="job_listing.html">Content Writer</a></h5>
-                            <span>(658)</span>
-                        </div>
-                    </div>
-                </div> --}}
+                @endforeach
             </div>
             <!-- More Btn -->
             <!-- Section Button -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="../job-list" class="border-btn2">Browse All Jobs</a>
+                        <a href="../job-list" class="border-btn2">Browse All Location</a>
                     </div>
                 </div>
             </div>

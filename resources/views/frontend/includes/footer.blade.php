@@ -45,11 +45,9 @@
                         <div class="footer-tittle">
                             <h4>Important Link</h4>
                             <ul>
-                                <li><a href="#"> View Project</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Testimonial</a></li>
-                                <li><a href="#">Proparties</a></li>
-                                <li><a href="#">Support</a></li>
+                                <li><a href="{{ route('jobs') }}">Our Job Vacancies</a></li>
+                                <li><a href="{{ route('blog') }}">Our Blog</a></li>
+                                <li><a href="{{ route('contact') }}">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,19 +89,15 @@
                  <div class="row d-flex justify-content-between align-items-center">
                      <div class="col-xl-10 col-lg-10 ">
                          <div class="footer-copy-right">
-                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright PT. Sadhana Ekapraya Amitra &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                             <p>Copyright PT. Sadhana Ekapraya Amitra &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a></p>
                          </div>
                      </div>
                      <div class="col-xl-2 col-lg-2">
                          <div class="footer-social f-right">
-                             <a href="https://www.instagram.com/sadhanasid/"><i class="fab fa-instagram"></i></a>
-                             <a href="https://www.facebook.com/sadhanasea"><i class="fab fa-facebook-f"></i></a>
-                             <a href="https://twitter.com/sadhanasid"><i class="fab fa-twitter"></i></a>
-                             <a href="https://sadhanas.co.id/"><i class="fab fa-globe"></i></a>
-{{--                             <a href="#"><i class="fas fa-globe"></i></a>--}}
-{{--                             <a href="#"><i class="fab fa-behance"></i></a>--}}
+                            <a href="https://sadhanas.co.id/" target="new"><i class="fa fa-globe" aria-hidden="true"></i></a>
+                             <a href="https://www.instagram.com/sadhanasid/" target="new"><i class="fab fa-instagram"></i></a>
+                             <a href="https://www.facebook.com/sadhanasea" target="new"><i class="fab fa-facebook-f"></i></a>
+                             <a href="https://twitter.com/sadhanasid" target="new"><i class="fab fa-twitter"></i></a>
                          </div>
                      </div>
                  </div>

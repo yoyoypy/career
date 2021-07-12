@@ -1,5 +1,10 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>Our Blog | Sadhana Karir</title>
+         <meta name="description" content="">
+@endsection
+
 
 @section('content')
 <section class="blog_area section-padding">

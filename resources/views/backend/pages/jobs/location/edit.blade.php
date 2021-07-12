@@ -6,7 +6,7 @@
       <strong>Edit Location</strong>
     </div>
     <div class="card-body card-block">
-      <form action="{{ route('location.update', $item->id) }}" method="POST">
+      <form action="{{ route('location.update', $item->id) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         <div class="form-group">
@@ -16,6 +16,14 @@
                   value="{{ old('location') ? old('location') : $item->location }}"
                   class="form-control @error('location') is-invalid @enderror"/>
           @error('location') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label for="image" class="form-control-label">Image Thumbnail</label>
+            <input  type="file"
+                    name="image"
+                    value="{{ old('image') ? old('image') : $item->image }}"
+                    class="form-control @error('image') is-invalid @enderror"/>
+            @error('image') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
     </div>
     <div class="text-right" style="padding-right: 8px">

@@ -57,6 +57,10 @@ class LocationController extends Controller
     {
         $data = $request->all();
 
+        $data['image'] = $request->file('image')->store(
+            'assets/location', 'public'
+        );
+
         Location::create($data);
         notify()->success('Location Added!');
         return redirect()->route('location.index');
@@ -100,6 +104,11 @@ class LocationController extends Controller
         $data = $request->all();
 
         $item = Location::findOrFail($id);
+
+        $data['image'] = $request->file('image')->store(
+            'assets/location', 'public'
+        );
+
         $item->update($data);
 
         notify()->success('Location Edited!');

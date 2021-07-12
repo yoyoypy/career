@@ -21,7 +21,7 @@
               <label for="image" class="form-control-label">Image Thumbnail</label>
               <input  type="file"
                       name="image"
-                      value="{{ old('image') }}"
+                      value="{{ old('image') ? old('image') : $item->image  }}"
                       class="form-control @error('image') is-invalid @enderror"/>
               @error('image') <div class="text-muted">{{ $message }}</div> @enderror
           </div>

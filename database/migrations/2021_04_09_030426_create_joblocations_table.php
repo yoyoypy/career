@@ -16,6 +16,7 @@ class CreateJoblocationsTable extends Migration
         Schema::create('joblocations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('location');
+            $table->string('image');
             $table->timestamps();
         });
     }

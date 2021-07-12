@@ -1,5 +1,9 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>Job List | Sadhana Karir</title>
+         <meta name="description" content="">
+@endsection
 
 @yield('content')
 <main>
@@ -19,7 +23,6 @@
     </div>
     <!-- Hero Area End -->
     <!-- Job List Area Start -->
-
     <div class="job-listing-area pt-120 pb-120">
         <div class="container">
             <div class="row">

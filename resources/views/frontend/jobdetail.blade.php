@@ -1,5 +1,9 @@
 @extends('frontend.layouts.default')
 
+@section('meta')
+         <title>{{ $item->jobtitle }} | Sadhana Karir</title>
+         <meta name="description" content="{!! $item->jobdescription !!}">
+@endsection
 
 @section('content')
 <main>
