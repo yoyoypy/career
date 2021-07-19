@@ -2,7 +2,9 @@
 
 @section('meta')
          <title>{{ $item->jobtitle }} | Sadhana Karir</title>
-         <meta name="description" content="{!! $item->jobdescription !!}">
+         <meta name="title" content="{{ $item->title }}">
+         <meta name="keyword" content="{{ $item->title }}">
+         <meta name="description" content="{!! $item->description !!}">
 @endsection
 
 @section('content')
