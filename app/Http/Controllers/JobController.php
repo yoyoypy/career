@@ -100,7 +100,7 @@ class JobController extends Controller
             'status'             => $request->input('status'),
         ]);
 
-        notify()->success('New Job Added!');
+        flash('Job Added!')->success();
         return redirect()->route('job.index');
     }
 
@@ -156,7 +156,7 @@ class JobController extends Controller
         $item = Job::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Job Edited!');
+        flash('Job Edited!')->warning();
         return redirect()->route('job.index');
     }
 
@@ -171,7 +171,7 @@ class JobController extends Controller
         $item = Job::findOrFail($id);
         $item->delete();
 
-        notify()->success('Job Deleted!');
+        flash('Job Deleted!')->warning();
         return redirect()->route('job.index');
     }
 

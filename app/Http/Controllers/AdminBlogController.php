@@ -49,7 +49,7 @@ class AdminBlogController extends Controller
         );
 
         Blog::create($data);
-        notify()->success('New Blog Added!');
+        flash('New Blog Added!')->success();
 
         return redirect()->route('blog.index');
     }
@@ -99,7 +99,7 @@ class AdminBlogController extends Controller
         $item = Blog::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Blog Edited!');
+        flash('Blog Edited!')->warning();
 
         return redirect()->route('blog.index');
     }
@@ -115,7 +115,7 @@ class AdminBlogController extends Controller
         $item = Blog::findOrFail($id);
         $item->delete();
 
-        notify()->success('Blog Deleted!');
+        flash('Blog Deleted!')->error();
         return redirect()->route('blog.index');
     }
 }

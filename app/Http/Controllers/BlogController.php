@@ -17,14 +17,17 @@ class BlogController extends Controller
         $search = request()->query('search');
         if ($search) {
             $items = Blog::where('title', 'LIKE', "%{$search}%")->paginate(10);
+            $blogs = Blog::orderByDesc('created_at')->get();
         }
 
         else {
             $items = Blog::paginate(10);
+            $blogs = Blog::orderByDesc('created_at')->get();
         }
 
         return view('frontend.blog')->with([
-            'items' => $items
+            'items' => $items,
+            'blogs' => $blogs
         ]);
     }
 
@@ -38,9 +41,11 @@ class BlogController extends Controller
     public function show($slug)
     {
         $item = Blog::where('slug', $slug)->firstOrFail();
+        $blogs = Blog::orderByDesc('created_at')->get();
 
         return view('frontend.blogdetail')->with([
-            'item' => $item
+            'item' => $item,
+            'blogs' => $blogs
         ]);
     }
 }

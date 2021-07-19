@@ -62,7 +62,7 @@ class LocationController extends Controller
         );
 
         Location::create($data);
-        notify()->success('Location Added!');
+        flash('Location Added!')->success();
         return redirect()->route('location.index');
     }
 
@@ -111,7 +111,7 @@ class LocationController extends Controller
 
         $item->update($data);
 
-        notify()->success('Location Edited!');
+        flash('Location Edited!')->warning();
         return redirect()->route('location.index');
     }
 
@@ -126,7 +126,7 @@ class LocationController extends Controller
         $item = Location::findOrFail($id);
         $item->delete();
 
-        notify()->success('Location Deleted!');
+        flash('Location Deleted!')->warning();
         return redirect()->route('location.index');
     }
 }

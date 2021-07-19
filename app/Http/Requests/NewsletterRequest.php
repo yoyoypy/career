@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SkillRequest extends FormRequest
+class NewsletterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class SkillRequest extends FormRequest
     public function rules()
     {
         return [
-            'skill' => 'required'
+            'email' => 'required|email|unique:newsletter,email'
         ];
     }
 }

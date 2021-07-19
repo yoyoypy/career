@@ -13,7 +13,6 @@
 
    {{-- style --}}
    @stack('before-style')
-   @notifyCss
    @include('backend.includes.style')
    @stack('after-style')
 </head>
@@ -27,7 +26,7 @@
         @include('backend.includes.navbar')
 
         {{-- notif --}}
-        @include('notify::messages')
+        @include('flash::message')
 
         <div class="content">
             {{-- content --}}

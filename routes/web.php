@@ -68,6 +68,8 @@ Route::post('contact-us', 'ContactController@store')->name('contact-us.store');
 //blog front end routing
 Route::get('blog', 'BlogController@index')->name('blog');
 Route::get('blog/{slug}', 'BlogController@show')->name('blogdetails'); //dynamic blog details
+Route::post('newsletter/subcribe', 'NewsletterController@store');
 
+//job list by category and location
 Route::get('job-category/{id}', 'CategoryController@indexlist');
 Route::get('job-location/{id}', 'LocationController@indexlist');

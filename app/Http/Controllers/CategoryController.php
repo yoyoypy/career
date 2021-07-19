@@ -64,7 +64,7 @@ class CategoryController extends Controller
         );
 
         JobCategory::create($data);
-        notify()->success('Category Added!');
+        flash('Category Added!')->success();
         return redirect()->route('category.index');
     }
 
@@ -111,7 +111,7 @@ class CategoryController extends Controller
         $item = JobCategory::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Category Edited!');
+        flash('Category Edited!')->warning();
         return redirect()->route('category.index');
     }
 
@@ -126,7 +126,7 @@ class CategoryController extends Controller
         $item = JobCategory::findOrFail($id);
         $item->delete();
 
-        notify()->success('Category Deleted!');
+        flash('Category Deleted!')->error();
         return redirect()->route('category.index');
     }
 }

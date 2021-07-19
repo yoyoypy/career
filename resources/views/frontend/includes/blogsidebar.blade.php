@@ -24,19 +24,30 @@
 
         <aside class="single_sidebar_widget popular_post_widget">
             <h3 class="widget_title">Recent Post</h3>
+            @forelse ( $blogs->take(5) as $blog )
             <div class="media post_item">
-                <img src="frontend/assets/img/post/post_1.png" alt="post">
+                <img src="{{ $blog->thumbnail }}" alt="post" style="max-width: 100px">
                 <div class="media-body">
-                    <a href="single-blog.html">
-                        <h3>From life was you fish...</h3>
+                    <a href="../blog/{{ $blog->slug }}">
+                        <h3>{{ $blog->title }}</h3>
                     </a>
-                    <p>January 12, 2019</p>
+                    <p>{{ $blog->created_at->todatestring() }}</p>
                 </div>
             </div>
+            @empty
+            <div class="media post_item">
+                <div class="media-body">
+                    <a href="#">
+                        <h3>No Recent Post..</h3>
+                    </a>
+                </div>
+            </div>
+            @endforelse
         </aside>
 
         <aside class="single_sidebar_widget instagram_feeds">
             <h4 class="widget_title">Instagram Feeds</h4>
+            <p>No Post Here Yet...</p>
             <ul class="instagram_row flex-wrap">
                 <li>
                     <a href="#">
@@ -48,11 +59,12 @@
 
 
         <aside class="single_sidebar_widget newsletter_widget">
+            @include('flash::message')
             <h4 class="widget_title">Newsletter</h4>
-
-            <form action="#">
+            <form action="../newsletter/subcribe" method="POST">
+                @csrf
                 <div class="form-group">
-                    <input type="email" class="form-control" onfocus="this.placeholder = ''"
+                    <input type="email" name="email" class="form-control" onfocus="this.placeholder = ''"
                         onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
                 </div>
                 <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"

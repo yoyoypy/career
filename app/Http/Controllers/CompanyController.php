@@ -47,7 +47,7 @@ class CompanyController extends Controller
         );
 
         Company::create($data);
-        notify()->success('Company Added!');
+        flash('Company Added!')->success();
         return redirect()->route('company.index');
     }
 
@@ -95,7 +95,7 @@ class CompanyController extends Controller
         $item = Company::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Company Edited!');
+        flash('Company Edited!')->warning();
 
         return redirect()->route('company.index');
     }
@@ -111,7 +111,7 @@ class CompanyController extends Controller
         $item = Company::findOrFail($id);
         $item->delete();
 
-        notify()->success('Company Deleted!');
+        flash('Category Deleted!')->error();
         return redirect()->route('company.index');
     }
 }
