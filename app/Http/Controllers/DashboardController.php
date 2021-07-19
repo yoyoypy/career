@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Application;
+use App\Job;
 
 class DashboardController extends Controller
 {
@@ -11,11 +13,12 @@ class DashboardController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     public function index(){
-        return view('backend.pages.dashboard');
+
+        $applications = Application::with('Job')->orderByDesc('created_at')->get();
+
+        return view('backend.pages.dashboard')->with([
+            'applications'   => $applications
+        ]);
     }
 }
