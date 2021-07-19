@@ -29,7 +29,8 @@ class Application extends Model
         'social_security_number',
         'marital_status',
         'cv',
-        'status'
+        'status',
+        'visitor'
     ];
 
     /**
