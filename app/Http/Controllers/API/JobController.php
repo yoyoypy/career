@@ -37,7 +37,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($joblocation_id)
@@ -48,7 +48,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($jobcategory_id)
@@ -59,7 +59,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($company_id)
@@ -70,7 +70,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
 
