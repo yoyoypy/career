@@ -57,75 +57,31 @@
                                         <table class="table ">
                                             <thead>
                                                 <tr>
-                                                    <th class="serial">#</th>
-                                                    <th>ID</th>
+                                                    <th class="serial">ID</th>
                                                     <th>Name</th>
-                                                    <th>Product</th>
-                                                    <th>Quantity</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Job vacancies</th>
+                                                    <th>CV</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @forelse ( $applications->take(5) as $application )
                                                 <tr>
-                                                    <td class="serial">1.</td>
-                                                    <td> #5469 </td>
-                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                    <td> <span class="product">Uniqlo</span> </td>
-                                                    <td><span class="count">1</span></td>
+                                                    <td class="serial">{{ $application->id }}</td>
+                                                    <td>{{ $application->fullname }}</td>
+                                                    <td>{{ $application->phone_number }}</td>
+                                                    <td>{{ $application->Job->jobtitle }}</td>
+                                                    <td><a href="{{ $application->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> CV</i></a></td>
                                                     <td>
-                                                        <span class="badge badge-complete">Complete</span>
+                                                        <a href="{{ route('applicant.edit', $application->id) }}" class="btn btn-success btn-sm">
+                                                            <i class="fa fa-pencil"> Change Status</i>
+                                                        </a>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="serial">2.</td>
-                                                    <td> #5468 </td>
-                                                    <td>  <span class="name">Gregory Dixon</span> </td>
-                                                    <td> <span class="product">ZARA</span> </td>
-                                                    <td><span class="count">1</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">3.</td>
-                                                    <td> #5467 </td>
-                                                    <td>  <span class="name">Catherine Dixon</span> </td>
-                                                    <td> <span class="product">H&M</span> </td>
-                                                    <td><span class="count">1</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="serial">4.</td>
-                                                    <td> #5466 </td>
-                                                    <td>  <span class="name">Mary Silva</span> </td>
-                                                    <td> <span class="product">Pull&Bear</span> </td>
-                                                    <td><span class="count">1</span></td>
-                                                    <td>
-                                                        <span class="badge badge-pending">Pending</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class=" pb-0">
-                                                    <td class="serial">5.</td>
-                                                    <td> #5465 </td>
-                                                    <td>  <span class="name">Johnny Stephens</span> </td>
-                                                    <td> <span class="product">Bershka</span> </td>
-                                                    <td><span class="count">1</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
-                                                <tr class=" pb-0">
-                                                    <td class="serial">5.</td>
-                                                    <td> #5466 </td>
-                                                    <td>  <span class="name">Kim Ratchet</span> </td>
-                                                    <td> <span class="product">Nama</span> </td>
-                                                    <td><span class="count">1</span></td>
-                                                    <td>
-                                                        <span class="badge badge-complete">Complete</span>
-                                                    </td>
-                                                </tr>
+                                                    @empty
+                                                    <p>No Data found</p>
+                                                    @endforelse
                                             </tbody>
                                         </table>
                                     </div> <!-- /.table-stats -->

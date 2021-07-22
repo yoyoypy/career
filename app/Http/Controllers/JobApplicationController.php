@@ -124,7 +124,7 @@ class JobApplicationController extends Controller
         $item = Application::findOrFail($id);
         $item->update($data);
 
-        notify()->success('Status Changed!');
+        flash('Status Changed!')->success();
         return redirect()->route('applicant.index');
     }
 

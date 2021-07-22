@@ -2,6 +2,8 @@
 
 @section('meta')
          <title>{{ $item->title }} | Sadhana Karir</title>
+         <meta name="title" content="{{ $item->title }}">
+         <meta name="keyword" content="{{ $item->title }}">
          <meta name="description" content="{!! $item->description !!}">
 @endsection
 

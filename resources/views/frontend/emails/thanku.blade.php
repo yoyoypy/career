@@ -109,7 +109,7 @@
                           <tbody>
                             <tr>
                               <td style="width:100px;">
-                                <img alt="" height="auto" src="{{ asset('frontend/assets/img/logo/logo.png') }}" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" />
+                                <img alt="" height="auto" src="url({{ asset('/frontend/assets/img/logo/logo.png') }})" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="100" />
                               </td>
                             </tr>
                           </tbody>

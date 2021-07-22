@@ -38,7 +38,7 @@ class CreateApplicationsTable extends Migration
             $table->string('cv');
             $table->string('status')->default('new');
             $table->timestamps();
-            //$table->ipAddress('visitor');
+            $table->ipAddress('visitor')->default(null);
         });
     }
 
