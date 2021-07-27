@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <strong>Edit Status  {{$item->fullname}}</strong>
+            <strong>Edit Status  {{$item->firstname}}</strong>
         </div>
         <div class="card-body card-block">
             <form action="{{ route('applicant.update', $item->id) }}" method="POST"">

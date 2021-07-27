@@ -1,6 +1,12 @@
 @extends('frontend.layouts.default')
 
 
+@section('meta')
+         <title>Apply Form {{ $item->jobtitle }} | Sadhana Karir</title>
+         <meta name="description" content="">
+@endsection
+
+
 @section('content')
 <main>
     <div class="slider-area ">
@@ -26,23 +32,14 @@
                 <small>* Wajib di isi</small>
                 <form action="./submit" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group mt-10">
-                        <label for="jobvacancy_id" class="form-control-label"></label>
-                            <input  type="text"
-                                    name="jobvacancy_id"
-                                    value="{{ $item->id }}"
-                                    class="form-control @error('jobvacancy_id') is-invalid @enderror"
-                                    hidden/>
-                            @error('jobvacancy_id') <div class="text-muted">{{ $item->id }}</div> @enderror
-                    </div>
-                    <div class="form-group mt-10">
+                    {{-- <div class="form-group mt-10">
                         <label for="fullname" class="form-control-label">Nama Lengkap*</label>
                             <input  type="text"
                                     name="fullname"
                                     value="{{ old('fullname') }}"
                                     class="form-control @error('fullname') is-invalid @enderror"/>
                             @error('fullname') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="firstname" class="form-control-label">Nama Depan*</label>
                             <input  type="text"
@@ -52,7 +49,7 @@
                             @error('firstname') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
                     <div class="form-group mt-10">
-                        <label for="lastname" class="form-control-label">Nama Belakang*</label>
+                        <label for="lastname" class="form-control-label">Nama Belakang</label>
                             <input  type="text"
                                     name="lastname"
                                     value="{{ old('lastname') }}"
@@ -102,7 +99,7 @@
                         @error('education') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
                     </div>
-                    <div class="form-group mt-10">
+                    {{-- <div class="form-group mt-10">
                         <label for="weight" class="form-control-label">Berat Badan (Kg)</label>
                             <input  type="number"
                                     name="weight"
@@ -144,7 +141,7 @@
                             </select>
                         @error('eye') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="id_card_address" class="form-control-label">Alamat sesuai KTP*</label>
                         <textarea name="id_card_address"
@@ -181,7 +178,7 @@
                                     class="form-control @error('id_card_number') is-invalid @enderror"/>
                             @error('id_card_number') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
-                    <div class="form-group mt-10">
+                    {{-- <div class="form-group mt-10">
                         <label for="tax_id_card_number" class="form-control-label">Nomor NPWP</label>
                             <input  type="number"
                                     name="tax_id_card_number"
@@ -196,7 +193,7 @@
                                     value="{{ old('social_security_number') }}"
                                     class="form-control @error('social_security_number') is-invalid @enderror"/>
                             @error('social_security_number') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="marital_status" class="form-control-label">Status</label>
                         <div class="form-select" id="default-select">
@@ -222,7 +219,15 @@
                             <small class="form-text text-muted">File PDF dengan format nama file <em>namapekerjaan-namalengkap</em></small>
                         @error('cv') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
-
+                    <div class="form-group mt-10">
+                        <label for="jobvacancy_id" class="form-control-label"></label>
+                            <input  type="text"
+                                    name="jobvacancy_id"
+                                    value="{{ $item->id }}"
+                                    class="form-control @error('jobvacancy_id') is-invalid @enderror"
+                                    hidden/>
+                            @error('jobvacancy_id') <div class="text-muted">{{ $item->id }}</div> @enderror
+                    </div>
                     <div class="form-group mt-10">
                     <button class="btn btn-primary btn-sm" style="float: right" type="submit">
                         Submit Job Application

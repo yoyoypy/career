@@ -10,12 +10,12 @@
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <div class="stat-icon dib flat-color-1">
-                                        <i class="pe-7s-cash"></i>
+                                        <i class="pe-7s-news-paper"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text">Rp. <span class="count">123901212</span></div>
-                                            <div class="stat-heading">Penghasilan</div>
+                                            <div class="stat-text"><span class="count">{{ $job_count }}</span></div>
+                                            <div class="stat-heading">Total Job Open</div>
                                         </div>
                                     </div>
                                 </div>
@@ -28,12 +28,12 @@
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <div class="stat-icon dib flat-color-2">
-                                        <i class="pe-7s-cart"></i>
+                                        <i class="pe-7s-users"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Penjualan</div>
+                                            <div class="stat-text"><span class="count">{{ $applications_count }}</span></div>
+                                            <div class="stat-heading">Total Applications</div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,31 +50,32 @@
                         <div class="col-xl-8">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="box-title">Pembelian Terbaru </h4>
+                                    <h4 class="box-title">Lamaran Terbaru </h4>
                                 </div>
                                 <div class="card-body--">
                                     <div class="table-stats order-table ov-h">
                                         <table class="table ">
                                             <thead>
                                                 <tr>
-                                                    <th class="serial">ID</th>
                                                     <th>Name</th>
-                                                    <th>Phone Number</th>
                                                     <th>Job vacancies</th>
+                                                    <th>Detail</th>
                                                     <th>CV</th>
                                                     <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ( $applications->take(5) as $application )
+                                                @forelse ( $applications->take(5) as $item )
                                                 <tr>
-                                                    <td class="serial">{{ $application->id }}</td>
-                                                    <td>{{ $application->fullname }}</td>
-                                                    <td>{{ $application->phone_number }}</td>
-                                                    <td>{{ $application->Job->jobtitle }}</td>
-                                                    <td><a href="{{ $application->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> CV</i></a></td>
+                                                    <td>{{ $item->firstname }}</td>
+                                                    <td><a href="../admin/job/{{ $item->Job->id }}/candidate">{{ $item->Job->jobtitle }}</a></td>
+                                                    <td>@include('backend.pages.jobsapplication.show')
+                                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
+                                                            <i class="fa fa-eye"> View</i>
+                                                        </button></td>
+                                                    <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> CV</i></a></td>
                                                     <td>
-                                                        <a href="{{ route('applicant.edit', $application->id) }}" class="btn btn-success btn-sm">
+                                                        <a href="{{ route('applicant.edit', $item->id) }}" class="btn btn-success btn-sm">
                                                             <i class="fa fa-pencil"> Change Status</i>
                                                         </a>
                                                     </td>

@@ -17,8 +17,13 @@ class DashboardController extends Controller
 
         $applications = Application::with('Job')->orderByDesc('created_at')->get();
 
+        $job_count = Job::count();
+        $applications_count = Application::count();
+
         return view('backend.pages.dashboard')->with([
-            'applications'   => $applications
+            'applications'          => $applications,
+            'job_count'             => $job_count,
+            'applications_count'    => $applications_count
         ]);
     }
 }

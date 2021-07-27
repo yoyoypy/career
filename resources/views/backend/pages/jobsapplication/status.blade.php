@@ -21,7 +21,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Full Name</th>
+                                    <th>Name</th>
                                     <th>Job Vacancies</th>
                                     <th>Phone Number</th>
                                     <th>CV</th>
@@ -32,7 +32,7 @@
                                 <tbody>
                                 @forelse ($items->sortByDesc('created_at') as $item)
                                     <tr>
-                                        <td>{{ $item->fullname }}</td>
+                                        <td>{{ $item->firstname }}</td>
                                         <td>{{ $item->Job->jobtitle }}</td>
                                         <td>{{ $item->phone_number }}</td>
                                         <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a></td>

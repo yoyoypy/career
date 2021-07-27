@@ -52,7 +52,7 @@ class JobApplicationController extends Controller
     {
         $data = $request->all();
         $usermail = $request->input('email');
-        //dd($usermail);
+        // dd($request->all());
         $filename = $request->file('cv')->getClientOriginalName();
         $data['cv'] = $request->file('cv')->storeAs(
             'assets/cv', $filename, 'public'
