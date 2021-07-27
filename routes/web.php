@@ -39,9 +39,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('applicant/status/hired', 'JobApplicationController@hired');
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected');
 
-        //failed to create pdf view
-        //Route::get('applicant/{id}/cv', 'JobApplicationController@viewcv');
-
         //company route
         Route::resource('company', 'CompanyController');
 
