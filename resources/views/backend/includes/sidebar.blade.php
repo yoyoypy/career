@@ -20,6 +20,9 @@
                     <li class="">
                         <a href="{{ route ('location.index') }}"> <i class="menu-icon fa fa-map-marker"></i>Add Job Location</a>
                     </li>
+                    <li class="">
+                        <a href="{{ route ('question.index') }}"> <i class="menu-icon fa fa-check-square-o"></i>Add Custom Question</a>
+                    </li>
 
                     <li class="menu-title">Company</li><!-- /.menu-title -->
                     <li class="">

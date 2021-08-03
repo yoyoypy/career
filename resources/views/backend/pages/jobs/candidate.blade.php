@@ -13,7 +13,7 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>Full Name</th>
+                                    <th>Name</th>
                                     <th>Job Vacancies</th>
                                     <th>Phone Number</th>
                                     <th>CV</th>
@@ -24,11 +24,25 @@
                                 <tbody>
                                 @forelse ($items->Application->sortByDesc('created_at') as $item)
                                     <tr>
-                                        <td>{{ $item->fullname }}</td>
+                                        <td>{{ $item->firstname }}</td>
                                         <td>{{ $item->Job->jobtitle }}</td>
                                         <td>{{ $item->phone_number }}</td>
                                         <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a></td>
-                                        <td>{{ $item->status }}</td>
+                                        <td>@if($item->status == 'new')
+                                            <span class="badge badge-primary">
+                                          @elseif($item->status == 'phone interview')
+                                            <span class="badge badge-info">
+                                          @elseif($item->status == 'interview')
+                                            <span class="badge badge-warning">
+                                          @elseif($item->status == 'hired')
+                                            <span class="badge badge-success">
+                                          @elseif($item->status == 'rejected')
+                                            <span class="badge badge-danger">
+                                          @else
+                                            <span>
+                                          @endif
+                                          {{ $item->status }}
+                                            </span></td></td>
                                         <td>
                                             <a href="{{ route('applicant.edit', $item->id) }}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-pencil"> Change Status</i>

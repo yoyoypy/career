@@ -18,16 +18,6 @@ class JobController extends Controller
         $jobcategory_id = $request->input('jobcategory_id');
         $company_id = $request->input('company_id');
 
-        // if($id)
-        // {
-        //     $job = Job::with('Location', 'JobCategory', 'Company')->find($id);
-
-        //     if($id)
-        //         return ResponseFormatter::success($id, 'Data Berhasil Diambil');
-        //     else
-        //         return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
-        // }
-
 
         if($slug)
         {
@@ -37,7 +27,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($joblocation_id)
@@ -48,7 +38,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($jobcategory_id)
@@ -59,7 +49,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
         if($company_id)
@@ -70,7 +60,7 @@ class JobController extends Controller
             if($job)
                 return ResponseFormatter::success($job, 'Data Berhasil Diambil');
             else
-                return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
+                return ResponseFormatter::error(null, 'Data Tidak Ada', 404);
         }
 
 

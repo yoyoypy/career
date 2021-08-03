@@ -68,4 +68,14 @@ class Job extends Model
         return $this->belongsTo(JobCategory::class, 'jobcategory_id', 'id');
     }
 
+    /**
+     * Get all of the Questions for the Job
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Questions()
+    {
+        return $this->hasMany(Questions::class, 'jobvacancy_id', 'id');
+    }
+
 }

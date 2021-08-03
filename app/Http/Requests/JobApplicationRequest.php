@@ -24,7 +24,6 @@ class JobApplicationRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname'                  => 'required',
             'firstname'                 => 'required',
             'dob'                       => 'required|date',
             'pob'                       => 'required',

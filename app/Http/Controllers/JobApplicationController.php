@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Location;
 use Illuminate\Http\Request;
 use App\Job;
 use App\Application;
-use Carbon\Carbon;
 use App\Http\Requests\JobApplicationRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ThanksForApplication;
@@ -52,15 +50,15 @@ class JobApplicationController extends Controller
     {
         $data = $request->all();
         $usermail = $request->input('email');
-        //dd($usermail);
+        // dd($request->all());
         $filename = $request->file('cv')->getClientOriginalName();
         $data['cv'] = $request->file('cv')->storeAs(
             'assets/cv', $filename, 'public'
         );
 
-        Mail::to($usermail)->send(new ThanksForApplication($data));
         Application::create($data);
 
+        Mail::to($usermail)->send(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }
 
