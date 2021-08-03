@@ -47,6 +47,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 });
 
+//utility
+//auth
 Auth::routes(['register' => false]);
 
 //front end home route
