@@ -43,7 +43,7 @@ class Application extends Model
      */
     public function answers()
     {
-        return $this->belongsToMany(Answers::class, 'application_answer', 'application_id', 'answer_id');
+        return $this->hasMany(Answers::class, 'application_id', 'id');
     }
 
     public function getCvAttribute($value)

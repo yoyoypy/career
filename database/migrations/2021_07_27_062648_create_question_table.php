@@ -18,11 +18,11 @@ class CreateQuestionTable extends Migration
             $table->string('jobvacancy_id');
             $table->string('title');
             $table->string('question');
-            $table->string('value_1');
-            $table->string('value_2');
-            $table->string('value_3');
-            $table->string('value_4');
-            $table->string('value_5');
+            $table->string('value_1')->nullable();
+            $table->string('value_2')->nullable();
+            $table->string('value_3')->nullable();
+            $table->string('value_4')->nullable();
+            $table->string('value_5')->nullable();
             $table->timestamps();
         });
     }

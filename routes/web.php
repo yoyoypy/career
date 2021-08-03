@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,6 @@
 */
 
 //routing back end
-use App\Application;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -28,6 +30,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
                 //job location route
                 Route::resource('location', 'LocationController');
+
+                //custom question route
+                Route::resource('question', 'QuestionController');
         });
 
         //applicant route
@@ -38,6 +43,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('applicant/status/interview', 'JobApplicationController@interview');
         Route::get('applicant/status/hired', 'JobApplicationController@hired');
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected');
+
+        //custom question route
+        Route::resource('user', UserController::class);
 
         //company route
         Route::resource('company', 'CompanyController');

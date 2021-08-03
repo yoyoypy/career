@@ -11,4 +11,9 @@ class Location extends Model
         'location',
         'image'
     ];
+
+    public function Job()
+    {
+        return $this->hasMany(Job::class, 'joblocation_id', 'id');
+    }
 }

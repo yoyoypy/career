@@ -18,16 +18,6 @@ class JobController extends Controller
         $jobcategory_id = $request->input('jobcategory_id');
         $company_id = $request->input('company_id');
 
-        // if($id)
-        // {
-        //     $job = Job::with('Location', 'JobCategory', 'Company')->find($id);
-
-        //     if($id)
-        //         return ResponseFormatter::success($id, 'Data Berhasil Diambil');
-        //     else
-        //         return ResponseFormatter::error(null, 'Data Produk Tidak Ada', 404);
-        // }
-
 
         if($slug)
         {

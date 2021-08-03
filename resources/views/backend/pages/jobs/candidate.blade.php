@@ -28,7 +28,21 @@
                                         <td>{{ $item->Job->jobtitle }}</td>
                                         <td>{{ $item->phone_number }}</td>
                                         <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a></td>
-                                        <td>{{ $item->status }}</td>
+                                        <td>@if($item->status == 'new')
+                                            <span class="badge badge-primary">
+                                          @elseif($item->status == 'phone interview')
+                                            <span class="badge badge-info">
+                                          @elseif($item->status == 'interview')
+                                            <span class="badge badge-warning">
+                                          @elseif($item->status == 'hired')
+                                            <span class="badge badge-success">
+                                          @elseif($item->status == 'rejected')
+                                            <span class="badge badge-danger">
+                                          @else
+                                            <span>
+                                          @endif
+                                          {{ $item->status }}
+                                            </span></td></td>
                                         <td>
                                             <a href="{{ route('applicant.edit', $item->id) }}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-pencil"> Change Status</i>
