@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
-        Route::resource('dashboard', 'DashboardController');
+        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
         //job route
         Route::resource('job', 'JobController');
@@ -45,7 +45,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected');
 
         //custom question route
-        Route::resource('user', UserController::class);
+        //Route::resource('user', UserController::class);
 
         //company route
         Route::resource('company', 'CompanyController');

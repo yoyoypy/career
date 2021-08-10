@@ -23,7 +23,7 @@
         </div>
     </div>
 
-<div class="job-post-company pt-120 pb-120">
+<div class="job-post-company pb-120">
     <div class="container">
     <div class="section-top-border">
         <div class="row">
@@ -32,14 +32,6 @@
                 <small>* Wajib di isi</small>
                 <form action="./submit" method="POST" enctype="multipart/form-data">
                     @csrf
-                    {{-- <div class="form-group mt-10">
-                        <label for="fullname" class="form-control-label">Nama Lengkap*</label>
-                            <input  type="text"
-                                    name="fullname"
-                                    value="{{ old('fullname') }}"
-                                    class="form-control @error('fullname') is-invalid @enderror"/>
-                            @error('fullname') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="firstname" class="form-control-label">Nama Depan*</label>
                             <input  type="text"
@@ -99,49 +91,6 @@
                         @error('education') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
                     </div>
-                    {{-- <div class="form-group mt-10">
-                        <label for="weight" class="form-control-label">Berat Badan (Kg)</label>
-                            <input  type="number"
-                                    name="weight"
-                                    value="{{ old('weight') }}"
-                                    class="form-control @error('weight') is-invalid @enderror"/>
-                            @error('weight') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-group mt-10">
-                        <label for="height" class="form-control-label">Tinggi Badan (Cm)</label>
-                            <input  type="number"
-                                    name="height"
-                                    value="{{ old('height') }}"
-                                    class="form-control @error('height') is-invalid @enderror"/>
-                            @error('height') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-group mt-10">
-                        <label for="bloodtype" class="form-control-label">Golongan Darah</label>
-                        <div class="form-select" id="default-select">
-                            <select name="bloodtype"
-                                    value="{{ old('bloodtype') }}"
-                                    class="form-control @error('bloodtype') is-invalid @enderror">
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="O">O</option>
-                                <option value="AB">AB</option>
-                                <option value="no">Tidak tahu</option>
-                            </select>
-                        @error('bloodtype') <div class="text-muted">{{ $message }}</div>@enderror
-                        </div>
-                    </div>
-                    <div class="form-group mt-10">
-                        <label for="eye" class="form-control-label">Memakai Kacamata</label>
-                        <div class="form-select" id="default-select">
-                            <select name="eye"
-                                    value="{{ old('eye') }}"
-                                    class="form-control @error('eye') is-invalid @enderror">
-                                    <option value="no">Tidak</option>
-                                    <option value="yes">Ya</option>
-                            </select>
-                        @error('eye') <div class="text-muted">{{ $message }}</div>@enderror
-                        </div>
-                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="id_card_address" class="form-control-label">Alamat sesuai KTP*</label>
                         <textarea name="id_card_address"
@@ -178,22 +127,6 @@
                                     class="form-control @error('id_card_number') is-invalid @enderror"/>
                             @error('id_card_number') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
-                    {{-- <div class="form-group mt-10">
-                        <label for="tax_id_card_number" class="form-control-label">Nomor NPWP</label>
-                            <input  type="number"
-                                    name="tax_id_card_number"
-                                    value="{{ old('tax_id_card_number') }}"
-                                    class="form-control @error('tax_id_card_number') is-invalid @enderror"/>
-                            @error('tax_id_card_number') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div>
-                    <div class="form-group mt-10">
-                        <label for="social_security_number" class="form-control-label">Nomor BPJS TK</label>
-                            <input  type="number"
-                                    name="social_security_number"
-                                    value="{{ old('social_security_number') }}"
-                                    class="form-control @error('social_security_number') is-invalid @enderror"/>
-                            @error('social_security_number') <div class="text-muted">{{ $message }}</div> @enderror
-                    </div> --}}
                     <div class="form-group mt-10">
                         <label for="marital_status" class="form-control-label">Status</label>
                         <div class="form-select" id="default-select">
@@ -228,6 +161,44 @@
                                     hidden/>
                             @error('jobvacancy_id') <div class="text-muted">{{ $item->id }}</div> @enderror
                     </div>
+                    @foreach ( $item->Questions as $question )
+                    <div class="form-group mt-10">
+                        <label for="question_id" class="form-control-label"></label>
+                            <input  type="text"
+                                    name="answers[question_id]"
+                                    value="{{ $question->id }}"
+                                    class="form-control @error('question_id') is-invalid @enderror"
+                                    hidden/>
+                            @error('question_id') <div class="text-muted">{{ $question->id }}</div> @enderror
+                    </div>
+                    <div class="form-group mt-10">
+                        <label for="answer" class="form-control-label">{{ $question->question }}</label>
+                        <div class="form-select" id="default-select">
+                            <select name="answers[answer]"
+                                    value="{{ old('answer') }}"
+                                    class="form-control @error('answer') is-invalid @enderror">
+
+                                    <option value="{{ $question->value_1 }}">{{ $question->value_1 }}</option>
+
+                                    <option value="{{ $question->value_2 }}">{{ $question->value_2 }}</option>
+
+                                @if ('{{ $question->value_3 }}' <> 'NULL' )
+                                    <option value="{{ $question->value_3 }}">{{ $question->value_3 }}</option>
+                                @endif
+
+                                @if ('{{ $question->value_4 }}' <> 'NULL' )
+                                    <option value="{{ $question->value_4 }}">{{ $question->value_4 }}</option>
+                                @endif
+
+                                @if ('{{ $question->value_5 }}' <> 'NULL' )
+                                    <option value="{{ $question->value_5 }}">{{ $question->value_5 }}</option>
+                                @endif
+
+                            </select>
+                        @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
+                        </div>
+                    </div>
+                    @endforeach
                     <div class="form-group mt-10">
                     <button class="btn btn-primary btn-sm" style="float: right" type="submit">
                         Submit Job Application

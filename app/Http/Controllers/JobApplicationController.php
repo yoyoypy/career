@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Answers;
 use Illuminate\Http\Request;
 use App\Job;
 use App\Application;
 use App\Http\Requests\JobApplicationRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ThanksForApplication;
+use App\Questions;
 
 class JobApplicationController extends Controller
 {
@@ -32,11 +34,13 @@ class JobApplicationController extends Controller
      */
     public function create($slug)
     {
-        $item = Job::where('slug', $slug)->firstorfail();
+        $item = Job::where('slug', $slug)->with('Questions')->firstorfail();
+        //$questions = Question->get();
+
         //dd($item);
         return view('frontend.apply')->with([
             'item' => $item,
-            'Job' => $jobsvacancies = Job::all()
+            //'questions' => $questions
         ]);
     }
 
@@ -49,15 +53,45 @@ class JobApplicationController extends Controller
     public function store(JobApplicationRequest $request)
     {
         $data = $request->all();
+        //$answers = $request->input('answer', []);
+        //$questions = $request->input('question_id', []);
         $usermail = $request->input('email');
-        // dd($request->all());
+
         $filename = $request->file('cv')->getClientOriginalName();
-        $data['cv'] = $request->file('cv')->storeAs(
+        $cv = $request->file('cv')->storeAs(
             'assets/cv', $filename, 'public'
         );
 
-        Application::create($data);
+        $applicant =
+        Application::create([
+            'jobvacancy_id'             => $request->input('jobvacancy_id'),
+            'firstname'                 => $request->input('firstname'),
+            'lastname'                  => $request->input('lastname'),
+            'dob'                       => $request->input('dob'),
+            'pob'                       => $request->input('pob'),
+            'sex'                       => $request->input('sex'),
+            'education'                 => $request->input('education'),
+            'id_card_address'           => $request->input('id_card_address'),
+            'present_address'           => $request->input('present_address'),
+            'phone_number'              => $request->input('phone_number'),
+            'email'                     => $request->input('email'),
+            'id_card_number'            => $request->input('id_card_number'),
+            'marital_status'            => $request->input('marital_status'),
+            'cv'                        => $cv
+        ]);
 
+        $answers = collect(['answers']);
+        if ($request->has($answers)){
+            foreach ($answers as $answer){
+        Answers::create([
+                    'application_id'    => $applicant['id'],
+                    'question_id'       => $answer['question_id'],
+                    'answer'            => $answer['answer']
+                ]);
+            }
+        }
+
+         //dd($answers);
         Mail::to($usermail)->send(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }

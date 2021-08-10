@@ -1,5 +1,5 @@
     <!-- Footer Start-->
-    <div class="footer-area footer-bg footer-padding">
+    <div class="footer-area footer-bg footer-padding" style="padding-top: 50px">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">

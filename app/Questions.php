@@ -15,6 +15,7 @@ class Questions extends Model
         'value_3',
         'value_4',
         'value_5',
+        'jobvacancy_id'
     ];
 
     /**
@@ -25,5 +26,15 @@ class Questions extends Model
     public function answers()
     {
         return $this->hasMany(Answers::class, 'question_id', 'id');
+    }
+
+    /**
+     * Get the jobvacancy te Questions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function job()
+    {
+        return $this->belongsTo(Job::class, 'jobvacancy_id', 'id');
     }
 }

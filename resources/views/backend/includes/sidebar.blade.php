@@ -4,7 +4,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="{{ route ('dashboard.index') }}"><i class
+                        <a href="{{ route ('dashboard') }}"><i class
                             ="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Jobs</li><!-- /.menu-title -->
