@@ -26,6 +26,7 @@ class JobRequest extends FormRequest
     public function rules()
     {
         return [
+            'slug'              => 'unique:slug',
             'jobtitle'          => 'required',
             'jobdescription'    => 'required',
             'jobrequirement'    => 'required',

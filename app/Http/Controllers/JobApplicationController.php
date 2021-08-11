@@ -35,12 +35,10 @@ class JobApplicationController extends Controller
     public function create($slug)
     {
         $item = Job::where('slug', $slug)->with('Questions')->firstorfail();
-        //$questions = Question->get();
 
         //dd($item);
         return view('frontend.apply')->with([
-            'item' => $item,
-            //'questions' => $questions
+            'item' => $item
         ]);
     }
 
@@ -53,10 +51,7 @@ class JobApplicationController extends Controller
     public function store(JobApplicationRequest $request)
     {
         $data = $request->all();
-        //$answers = $request->input('answer', []);
-        //$questions = $request->input('question_id', []);
         $usermail = $request->input('email');
-
         $filename = $request->file('cv')->getClientOriginalName();
         $cv = $request->file('cv')->storeAs(
             'assets/cv', $filename, 'public'
@@ -80,18 +75,20 @@ class JobApplicationController extends Controller
             'cv'                        => $cv
         ]);
 
-        $answers = collect(['answers']);
-        if ($request->has($answers)){
-            foreach ($answers as $answer){
-        Answers::create([
-                    'application_id'    => $applicant['id'],
-                    'question_id'       => $answer['question_id'],
-                    'answer'            => $answer['answer']
-                ]);
-            }
-        }
+        //custom field store method DO NOT DELETE
+        $count = count($request->input('question_id'));
+        for($i = 0 ;$i < $count ; $i++){
+            $questions = $data['question_id'][$i];
+            $answers = $data['answers'][$i];
 
-         //dd($answers);
+            Answers::create([
+                    'application_id'    => $applicant['id'],
+                    'question_id'       => $questions,
+                    'answer'            => $answers
+                ]);
+        }
+        //custom field store method DO NOT DELETE
+
         Mail::to($usermail)->send(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }

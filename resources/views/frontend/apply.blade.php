@@ -165,7 +165,7 @@
                     <div class="form-group mt-10">
                         <label for="question_id" class="form-control-label"></label>
                             <input  type="text"
-                                    name="answers[question_id]"
+                                    name="question_id[]"
                                     value="{{ $question->id }}"
                                     class="form-control @error('question_id') is-invalid @enderror"
                                     hidden/>
@@ -174,7 +174,7 @@
                     <div class="form-group mt-10">
                         <label for="answer" class="form-control-label">{{ $question->question }}</label>
                         <div class="form-select" id="default-select">
-                            <select name="answers[answer]"
+                            <select name="answers[]"
                                     value="{{ old('answer') }}"
                                     class="form-control @error('answer') is-invalid @enderror">
 
@@ -182,19 +182,28 @@
 
                                     <option value="{{ $question->value_2 }}">{{ $question->value_2 }}</option>
 
-                                @if ('{{ $question->value_3 }}' <> 'NULL' )
+                                @if ('{{ $question->value_3 }}' == 'NULL')
+                                </select>
+                                @elseif ('{{ $question->value_3 }}' <> 'NULL')
                                     <option value="{{ $question->value_3 }}">{{ $question->value_3 }}</option>
+                                        @if ('{{ $question->value_4 }}' == 'NULL' )
+                                            </select>
+                                        @elseif ('{{ $question->value_4 }}' <> 'NULL')
+                                            <option value="{{ $question->value_4 }}">{{ $question->value_4 }}</option>
+                                            @if ('{{ $question->value_5 }}' == 'NULL' )
+                                                </select>
+                                            @elseif ('{{ $question->value_5 }}' <> 'NULL')
+                                                <option value="{{ $question->value_5 }}">{{ $question->value_5 }}</option>
+                                                </select>
+                                            @endif
+                                        @endif
                                 @endif
 
-                                @if ('{{ $question->value_4 }}' <> 'NULL' )
-                                    <option value="{{ $question->value_4 }}">{{ $question->value_4 }}</option>
-                                @endif
 
-                                @if ('{{ $question->value_5 }}' <> 'NULL' )
-                                    <option value="{{ $question->value_5 }}">{{ $question->value_5 }}</option>
-                                @endif
 
-                            </select>
+
+
+
                         @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
                     </div>
