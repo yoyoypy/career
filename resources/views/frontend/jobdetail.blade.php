@@ -2,9 +2,9 @@
 
 @section('meta')
          <title>{{ $item->jobtitle }} | Sadhana Karir</title>
-         <meta name="title" content="{{ $item->title }}">
-         <meta name="keyword" content="{{ $item->title }}">
-         <meta name="description" content="{!! $item->description !!}">
+         <meta name="title" content="{{ $item->jobtitle }}">
+         <meta name="keyword" content="{{ $item->jobtitle }}">
+         <meta name="description" content="{!! $item->jobdescription !!}">
 @endsection
 
 @section('content')
@@ -105,7 +105,7 @@
                           <span>{{ $item->Company->company }}</span>
                           {{-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> --}}
                         <ul>
-                            <li>Web : <span>{{ $item->Company->website }}</span></li>
+                            <li><a href="{{ $item->Company->website }}" style="color: #fb246a"><span>{{ $item->Company->website }}</span></a></li>
                         </ul>
                    </div>
                 </div>

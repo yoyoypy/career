@@ -2,7 +2,9 @@
 
 @section('meta')
          <title>Welcome to Sadhana Karir</title>
-         <meta name="description" content="">
+         <meta name="title" content="Sadhana Karir">
+         <meta name="keyword" content="karir sadhanas sadhana ekapraya amitra">
+         <meta name="description" content="PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.">
 @endsection
 
 @section('content')
@@ -43,7 +45,6 @@
                                     </div>
                                 </div>
                                 <div class="search-form">
-                                    {{-- <a href="#">Find job</a> --}}
                                     <button class="btn post-btn" style="border-radius:0px;padding:35px"
                                     type="submit">Find Job</button>
                                 </div>
@@ -72,10 +73,10 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <div class="single-services text-center mb-30">
                         <div class="services-ion">
-                           <img src="storage/{{ $category->image }}">
+                           <img src="storage/{{ $category->image }}" style="max-width:95px">
                         </div>
                         <div class="services-cap">
-                           <h5><a href="/job-category/{{ $category->id }}">{{ $category->category }}</a></h5>
+                           <h5 style="margin-top:10px"><a href="/job-category/{{ $category->id }}">{{ $category->category }}</a></h5>
                         </div>
                     </div>
                 </div>
@@ -132,12 +133,12 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle section-tittle2">
                             <span>What we are doing</span>
-                            <h2>Hilotae dexter equiso est.</h2>
+                            <h2>Established in 1991</h2>
                         </div>
                         <div class="support-caption">
-                            <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
-                            <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                            <a href="../job-list" class="btn post-btn">Find Your Career</a>
+                            <p class="pera-top">PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.</p>
+                            <p>Every retail food business is different and unique. Crucial success factors like store location, customer traffic can make or break any business. The enormous commitment, innovation required to create a successful retail business, there’s often little time left over to think about Freshness and Quality of food.</p>
+                            <a href="../job-list" class="btn post-btn" style="margin-bottom:30px">Find Your Career</a>
                         </div>
                     </div>
                 </div>

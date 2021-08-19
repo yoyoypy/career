@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Contact;
+use App\Mail\GetInTouch;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -41,6 +43,8 @@ class ContactController extends Controller
         $data['visitor'] = request()->ip();
 
         Contact::create($data);
+
+        Mail::to($data['email'])->send(new GetInTouch($data));
         flash('Thanks For Your Message! We Will Get In Touch Soon!')->success();
         return view('frontend.contact');
     }
