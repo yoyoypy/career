@@ -82,6 +82,21 @@
                         </td>
                     </tr>
                     <tr>
+                        <th>Custom Question</th>
+                        <td>
+                          <table class="tabble table-bordered w-100">
+                              @forelse ( $item->answers as $answer )
+                                <tr>
+                                <th>{{ $answer->Question->question }}</th>
+                                </tr>
+                                <td>{{ $answer->answer }}</td>
+                                @empty
+                                <td>No Custom Question</td>
+                              @endforelse
+                          </table>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>ID Card Number</th>
                         <td>{{ $item->id_card_number }}</td>
                     </tr>

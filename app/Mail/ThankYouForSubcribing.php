@@ -7,11 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ThanksForApplication extends Mailable
+class ThankYouForSubcribing extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $data;
 
     /**
      * Create a new message instance.
@@ -30,6 +28,6 @@ class ThanksForApplication extends Mailable
      */
     public function build()
     {
-        return $this->subject('Thank You For Your Application!')->markdown('frontend.emails.thanku');
+        return $this->markdown('frontend.emails.subcribe');
     }
 }

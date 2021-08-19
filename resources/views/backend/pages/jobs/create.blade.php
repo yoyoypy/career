@@ -134,3 +134,10 @@
     </div>
   </div>
 @endsection
+
+
+<!--CKEditor5-->
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'ckeditor' );
+</script>

@@ -198,12 +198,6 @@
                                             @endif
                                         @endif
                                 @endif
-
-
-
-
-
-
                         @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
                     </div>

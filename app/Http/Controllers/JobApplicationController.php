@@ -18,10 +18,9 @@ class JobApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Application $application)
     {
-        $items = Application::with('Job')->get();
-
+        $items = Application::with('Job', 'answers')->get();
         return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
@@ -101,9 +100,12 @@ class JobApplicationController extends Controller
      */
     public function show($id)
     {
-        $item = Application::findOrFail($id);
+        $item = Application::with('answers')->findOrFail($id);
+        //$answers = Answers::where('application_id', $id)->get();
+        //dd($answers);
         return view('backend.pages.jobsapplication.show')->with([
-            'item' => $item
+            'item' => $item,
+            //'answers' => $answers
         ]);
     }
 

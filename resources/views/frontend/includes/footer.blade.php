@@ -5,7 +5,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                     <!-- logo -->
                     <div class="footer-logo mb-20">
-                    <a href="index.html"><img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt=""></a>
+                    <a href="index.html"><img src="{{ asset('frontend/assets/img/logo/footer-logo.png') }}" alt=""></a>
                     </div>
                 </div>
            </div>
@@ -16,7 +16,7 @@
                          <div class="footer-tittle">
                              <h4>About Us</h4>
                              <div class="footer-pera">
-                                 <p>A falsis, historia dexter agripeta. Deuss sunt zirbuss de fortis vita.</p>
+                                 <p>PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors.</p>
                             </div>
                          </div>
                      </div>

@@ -6,6 +6,7 @@ use App\Job;
 use App\Location;
 use App\JobCategory;
 use App\Company;
+use App\Answers;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Str;
@@ -178,11 +179,9 @@ class JobController extends Controller
     public function candidate($id)
     {
         $items = Job::with('Application')->where('id', $id)->firstOrFail();
-        //dd($item);
 
         return view('backend.pages.jobs.candidate')->with([
-            'items' => $items,
-            'application' => $application = Application::all()
+            'items' => $items
         ]);
     }
 }
