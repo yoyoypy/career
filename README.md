@@ -1,4 +1,4 @@
-<p align="center"><img src="https://karir.sadhanas.co.id/frontend/assets/img/logo/logo.png" width="100%"></p>
+<p align="center"><img src="https://karir.sadhanas.co.id/frontend/assets/img/logo/logo.png" width="30%"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
