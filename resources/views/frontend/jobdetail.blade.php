@@ -62,16 +62,9 @@
                         <div class="post-details2  mb-50">
                              <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
-                                <h4>Required Knowledge, Skills, and Abilities</h4>
+                                <h4>Benefit</h4>
                             </div>
-                            <p>{!! $item->skill !!}</p>
-                        </div>
-                        <div class="post-details2  mb-50">
-                             <!-- Small Section Tittle -->
-                            <div class="small-section-tittle">
-                                <h4>Education + Experience</h4>
-                            </div>
-                            {!! $item->jobrequirement !!}
+                            {!! $item->benefit !!}
                         </div>
                     </div>
 

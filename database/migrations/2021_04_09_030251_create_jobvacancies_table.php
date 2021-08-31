@@ -18,10 +18,9 @@ class CreateJobvacanciesTable extends Migration
             $table->string('slug');
             $table->string('jobtitle');
             $table->longText('jobdescription');
-            $table->longText('jobrequirement');
             $table->string('joblocation_id');
             $table->string('jobcategory_id');
-            $table->text('skill');
+            $table->longText('benefit');
             $table->string('company_id');
             $table->integer('position');
             $table->string('employment');

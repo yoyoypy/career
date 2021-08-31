@@ -82,16 +82,13 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
-       //dd($request);
-
         Job::create([
             'slug'               => Str::slug($request->jobtitle),
             'jobtitle'           => $request->input('jobtitle'),
             'jobdescription'     => $request->input('jobdescription'),
-            'jobrequirement'     => $request->input('jobrequirement'),
             'joblocation_id'     => $request->input('joblocation_id'),
             'jobcategory_id'     => $request->input('jobcategory_id'),
-            'skill'              => $request->input('skill'),
+            'benefit'            => $request->input('benefit'),
             'salary'             => $request->input('salary'),
             'company_id'         => $request->input('company_id'),
             'position'           => $request->input('position'),

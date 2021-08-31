@@ -23,13 +23,6 @@
           @error('jobdescription') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label for="jobrequirement" class="form-control-label">Job Requirement</label>
-            <textarea name="jobrequirement"
-                      class="ckeditor form-control @error('jobrequirement') is-invalid @enderror">{{ old('jobdescription')}}</textarea>
-                <small class="form-text text-muted">tips: look nicer if you use bulleted list</small>
-            @error('jobrequirement') <div class="text-muted">{{ $message }}</div> @enderror
-          </div>
-        <div class="form-group">
           <label for="joblocation_id" class="form-control-label">Job Location</label>
             <select name="joblocation_id"
                     value="{{ old('joblocation_id') }}"
@@ -52,11 +45,11 @@
             @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
-            <label for="skill" class="form-control-label">Require Skill</label>
-                <textarea name="skill"
-                      class="ckeditor form-control @error('skill') is-invalid @enderror">{{ old('skill')}}</textarea>
+            <label for="benefit" class="form-control-label">Benefit</label>
+                <textarea name="benefit"
+                      class="ckeditor form-control @error('benefit') is-invalid @enderror">{{ old('benefit')}}</textarea>
                 <small class="form-text text-muted">tips: look nicer if you use bulleted list</small>
-            @error('skill') <div class="text-muted">{{ $message }}</div> @enderror
+            @error('benefit') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label for="company_id" class="form-control-label">Company</label>
@@ -102,6 +95,7 @@
             <input  type="text"
                     name="start"
                     value="{{ old('start') }}"
+                    placeholder="YYYY-MM-DD"
                     class="form-control @error('start') is-invalid @enderror"/>
             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
             @error('start') <div class="text-muted">{{ $message }}</div> @enderror

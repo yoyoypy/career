@@ -35,7 +35,7 @@ class JobApplicationRequest extends FormRequest
             'email'                     => 'required|email',
             'id_card_number'            => 'required|numeric',
             'cv'                        => 'required|mimes:pdf|max:2000',
-            'answer'                    => 'required'
+            'answers'                    => 'required'
         ];
     }
 }

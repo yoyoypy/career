@@ -29,11 +29,10 @@ class JobRequest extends FormRequest
             'slug'              => 'unique:slug',
             'jobtitle'          => 'required',
             'jobdescription'    => 'required',
-            'jobrequirement'    => 'required',
             'joblocation_id'    => 'required',
             'jobcategory_id'    => 'required',
             'employment'        => 'required',
-            'skill'             => 'required',
+            'benefit'           => 'required',
             'position'          => 'required',
             'start'             => 'required',
             'status'            => 'required'
