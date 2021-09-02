@@ -87,6 +87,24 @@
                      <div class="apply-btn2">
                         <a href="./{{$item->slug}}/apply" class="btn">Apply Now</a>
                      </div>
+                     <ul style="padding-top: 15px">
+                         <li>or share this</li>
+                         <li><a href=
+                            "whatsapp://send?text=PT Sadhana is hiring {{ $item->jobtitle }}, {{ url()->current() }}"
+                                    data-action="share/whatsapp/share"
+                                    target="_blank"
+                                    style="color: green">
+                                    <i class="fab fa-whatsapp"> WhatsApp</i>
+                                </a>
+                            </li>
+                        <li>
+                            <a href="mailto:?subject=PT Sadhana Ekapraya is hiring {{ $item->jobtitle }}&amp;body=Check out this job vacancy {{ url()->current() }}."
+                                target="new"
+                                style="color: #fb246a">
+                                <i class="far fa-envelope"> E-mail</i>
+                            </a>
+                        </li>
+                     </ul>
                    </div>
                     <img class="post-details4  mb-50">
                         <!-- Small Section Tittle -->
