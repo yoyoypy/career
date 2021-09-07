@@ -75,6 +75,7 @@ class JobApplicationController extends Controller
         ]);
 
         //custom field store method DO NOT DELETE
+        if($request->input('answer')){
         $count = count($request->input('question_id'));
         for($i = 0 ;$i < $count ; $i++){
             $questions = $data['question_id'][$i];
@@ -85,6 +86,7 @@ class JobApplicationController extends Controller
                     'question_id'       => $questions,
                     'answer'            => $answers
                 ]);
+            }
         }
         //custom field store method DO NOT DELETE
 

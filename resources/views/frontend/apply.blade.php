@@ -198,8 +198,8 @@
                                             @endif
                                         @endif
                                 @endif
-                        @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
+                        @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
                     </div>
                     @endforeach
                     <div class="form-group mt-10">
