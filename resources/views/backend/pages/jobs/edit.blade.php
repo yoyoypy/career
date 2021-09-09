@@ -48,7 +48,7 @@
           <div class="form-group">
             <label for="benefit" class="form-control-label">Benefit</label>
                 <textarea name="benefit"
-                      class="ckeditor form-control @error('benefit') is-invalid @enderror">{{ old('benefit')}}</textarea>
+                      class="ckeditor form-control @error('benefit') is-invalid @enderror">{{ old('benefit') ? old('benefit') : $item->benefit }}</textarea>
                 <small class="form-text text-muted">tips: look nicer if you use bulleted list</small>
             @error('benefit') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
