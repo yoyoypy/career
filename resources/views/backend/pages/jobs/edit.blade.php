@@ -37,7 +37,7 @@
         <div class="form-group">
             <label for="jobcategory_id" class="form-control-label">Job Category</label>
               <select name="jobcategory_id"
-                      value="{{ old('jobcategory_id')  ? old('jobcategory_id') : $item->jobcategory_id}}"
+                      value="{{ old('jobcategory_id')  ? old('jobcategory_id') : $item->jobcategory_id }}"
                       class="form-control @error('jobcategory_id') is-invalid @enderror">
                       @foreach  ($categories as $category)
                       <option value="{{ $category->id }}">{{ $category->category }}</option>

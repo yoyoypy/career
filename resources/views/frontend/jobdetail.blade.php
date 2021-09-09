@@ -52,7 +52,7 @@
                       <!-- job single End -->
 
                     <div class="job-post-details">
-                        <div class="post-details1 mb-50">
+                        <div class="post-details2 mb-50">
                             <!-- Small Section Tittle -->
                             <div class="small-section-tittle">
                                 <h4>Job Description</h4>
