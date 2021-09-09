@@ -57,7 +57,7 @@
                             <div class="small-section-tittle">
                                 <h4>Job Description</h4>
                             </div>
-                            {{  $item->jobdescription  }}
+                            {!! $item->jobdescription !!}
                         </div>
                         <div class="post-details2  mb-50">
                              <!-- Small Section Tittle -->
