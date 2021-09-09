@@ -71,7 +71,8 @@ class JobApplicationController extends Controller
             'email'                     => $request->input('email'),
             'id_card_number'            => $request->input('id_card_number'),
             'marital_status'            => $request->input('marital_status'),
-            'cv'                        => $cv
+            'cv'                        => $cv,
+            'visitor'                   => $request->ip()
         ]);
 
         //custom field store method DO NOT DELETE
