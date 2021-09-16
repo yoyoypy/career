@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="slider-area ">
-    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="https://sadhanas.co.id/public/images/batik.jpg">
+    <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{ asset('frontend/assets/img/hero/sales4.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">

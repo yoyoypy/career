@@ -57,8 +57,30 @@
     </div>
     <!-- slider Area End-->
     <!-- Our Services Start -->
-    <div class="our-services section-pad-t30">
+    <div class="our-services section-pad-t30" style="padding-top: 4em; padding-bottom: 5em">
         <div class="container">
+            <!-- Section newest -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-tittle text-center">
+                        <h2>Our Newest Vacancies</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-contnet-center">
+                @foreach ($jobs as $job)
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                    <div class="single-services text-center mb-30">
+                        <div class="services-ion">
+                           <img src="storage/{{ $job->JobCategory->image }}" style="max-width:95px">
+                        </div>
+                        <div class="services-cap">
+                           <h5 style="margin-top:10px"><a href="/job/{{ $job->slug }}">{{ $job->jobtitle }}</a></h5>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
             <!-- Section Tittle -->
             <div class="row">
                 <div class="col-lg-12">
@@ -132,11 +154,11 @@
                     <div class="right-caption">
                         <!-- Section Tittle -->
                         <div class="section-tittle section-tittle2">
-                            <span>What we are doing</span>
-                            <h2>Established in 1991</h2>
+                            <span>Who we are</span>
+                            <h2>PT. SADHANA EKAPRAYA AMITRA</h2>
                         </div>
                         <div class="support-caption">
-                            <p class="pera-top">PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.</p>
+                            <p class="pera-top">Established in 1991, we has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.</p>
                             <p>Every retail food business is different and unique. Crucial success factors like store location, customer traffic can make or break any business. The enormous commitment, innovation required to create a successful retail business, there’s often little time left over to think about Freshness and Quality of food.</p>
                             <a href="../job-list" class="btn post-btn" style="margin-bottom:30px">Find Your Career</a>
                         </div>

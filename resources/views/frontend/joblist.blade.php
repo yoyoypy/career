@@ -9,7 +9,7 @@
 <main>
     <!-- Hero Area Start-->
     <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="https://sadhanas.co.id/public/images/batik.jpg">
+        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{ asset('frontend/assets/img/hero/sales4.jpg') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -63,7 +63,7 @@
                                             <div class="job-tittle job-tittle2">
                                                 <a href="../job/{{$job->slug}}">
                                                     <h4>{{$job->jobtitle}}</h4>
-                                                    <h5>{!! Str::limit($job->jobdescription, 70) !!}</h5>
+                                                    <h5>{!! Str::limit($job->jobdescription, 60) !!}</h5>
                                                 </a>
                                                 <ul>
                                                     <li>{{$job->JobCategory->category}}</li>
