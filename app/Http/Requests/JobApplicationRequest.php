@@ -33,7 +33,7 @@ class JobApplicationRequest extends FormRequest
             'present_address'           => 'required',
             'phone_number'              => 'required',
             'email'                     => 'required|email',
-            'id_card_number'            => 'required|numeric',
+            'id_card_number'            => 'required|numeric|digits:16',
             'cv'                        => 'required|mimes:pdf|max:2000',
             'answers'                   => 'required'
         ];

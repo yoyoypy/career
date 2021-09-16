@@ -122,6 +122,7 @@
                     <div class="form-group mt-10">
                         <label for="id_card_number" class="form-control-label">Nomor KTP*</label>
                             <input  type="number"
+                                    maxlength="16"
                                     name="id_card_number"
                                     value="{{ old('id_card_number') }}"
                                     class="form-control @error('id_card_number') is-invalid @enderror"/>
