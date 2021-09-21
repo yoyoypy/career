@@ -10,11 +10,6 @@ class Questions extends Model
     protected $fillable = [
         'title',
         'question',
-        'value_1',
-        'value_2',
-        'value_3',
-        'value_4',
-        'value_5',
         'jobvacancy_id'
     ];
 
@@ -36,5 +31,15 @@ class Questions extends Model
     public function job()
     {
         return $this->belongsTo(Job::class, 'jobvacancy_id', 'id');
+    }
+
+    /**
+     * Get all of the comments for the Questions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function value()
+    {
+        return $this->hasMany(Value::class, 'question_id', 'id');
     }
 }

@@ -6,36 +6,29 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <a href="{{ route('question.create')}}" class="btn btn-info btn-sm" style="float: right">
-                <i class="fa fa-pencil">Add New Question</i>
+            <a href="{{ route('question.value.create', $question->id) }}" class="btn btn-info btn-sm" style="float: right">
+                <i class="fa fa-pencil">Add New Value</i>
               </a>
-            <h4 class="box-title">Questions List</h4>
+            <h4 class="box-title">Value Lists for {{ $question->title }}</h4>
           </div>
           <div class="card-body--">
             <div class="table-stats order-table ov-h">
               <table class="table">
                 <thead>
                   <tr>
-                    <th>Title Question</th>
-                    <th>Question</th>
-                    <th>Job Vacancy</th>
-                    <th>Action</th>
+                    <th>#</th>
+                    <th>Value</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  @forelse ($items as $item)
+                  @forelse ($values as $value)
                     <tr>
-                      <td>{{ $item->title }}</td>
-                      <td>{{ $item->question }}</td>
-                      <td>{{ $item->job->jobtitle }}</td>
+                      <td>{{ $value->id }}</td>
+                      <td>{{ $value->value }}</td>
                       <td>
-                        <a href="{{ route('question.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                          <i class="fa fa-pencil">Edit</i>
-                        </a>
-                        <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-pencil">Add Value</i>
-                          </a>
-                        <form action="{{ route('question.destroy', $item->id) }}"
+                        <form action="{{ route('value.destroy', $value->id) }}"
                               method="post"
                               class="d-inline">
                           @csrf

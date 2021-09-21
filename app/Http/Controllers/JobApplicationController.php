@@ -33,8 +33,7 @@ class JobApplicationController extends Controller
      */
     public function create($slug)
     {
-        $item = Job::where('slug', $slug)->with('Questions')->firstorfail();
-
+        $item = Job::where('slug', $slug)->with('Questions.value')->firstorfail();
         //dd($item);
         return view('frontend.apply')->with([
             'item' => $item

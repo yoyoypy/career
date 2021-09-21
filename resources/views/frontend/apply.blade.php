@@ -178,35 +178,18 @@
                             <select name="answers[]"
                                     value="{{ old('answer') }}"
                                     class="form-control @error('answer') is-invalid @enderror">
-
-                                    <option value="{{ $question->value_1 }}">{{ $question->value_1 }}</option>
-
-                                    <option value="{{ $question->value_2 }}">{{ $question->value_2 }}</option>
-
-                                @if ('{{ $question->value_3 }}' == 'NULL')
-                                </select>
-                                @elseif ('{{ $question->value_3 }}' <> 'NULL')
-                                    <option value="{{ $question->value_3 }}">{{ $question->value_3 }}</option>
-                                        @if ('{{ $question->value_4 }}' == 'NULL' )
-                                            </select>
-                                        @elseif ('{{ $question->value_4 }}' <> 'NULL')
-                                            <option value="{{ $question->value_4 }}">{{ $question->value_4 }}</option>
-                                            @if ('{{ $question->value_5 }}' == 'NULL' )
-                                                </select>
-                                            @elseif ('{{ $question->value_5 }}' <> 'NULL')
-                                                <option value="{{ $question->value_5 }}">{{ $question->value_5 }}</option>
-                                                </select>
-                                            @endif
-                                        @endif
-                                @endif
+                                    @foreach ( $question->value as $value)
+                                    <option value="{{ $value->value }}">{{ $value->value }}</option>
+                                    @endforeach
+                            </select>
                         </div>
                         @error('answer') <div class="text-muted">{{ $message }}</div>@enderror
                     </div>
                     @endforeach
                     <div class="form-group mt-10">
-                    <button class="btn btn-primary btn-sm" style="float: right" type="submit">
-                        Submit Job Application
-                      </button>
+                        <button class="btn btn-primary btn-sm" style="float: right" type="submit">
+                            Submit Job Application
+                        </button>
                     </div>
                 </form>
             </div>

@@ -33,6 +33,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
                 //custom question route
                 Route::resource('question', 'QuestionController');
+
+                Route::resource('question.value', 'ValueController')->shallow()->only('index', 'create', 'store', 'destroy');
         });
 
         //applicant route

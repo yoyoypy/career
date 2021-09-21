@@ -35,52 +35,6 @@
                     class="form-control @error('question') is-invalid @enderror"/>
             @error('question') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
-        <div class="form-group">
-            <label for="value_1" class="form-control-label">Jawaban 1</label>
-            <input  type="text"
-                    name="value_1"
-                    placeholder="masukan jawaban kesatu disini"
-                    value="{{ old('value_1') }}"
-                    class="form-control @error('value_1') is-invalid @enderror"/>
-            @error('value_1') <div class="text-muted">{{ $message }}</div> @enderror
-        </div>
-        <div class="form-group">
-            <label for="value_2" class="form-control-label">Jawaban 2</label>
-            <input  type="text"
-                    name="value_2"
-                    placeholder="kosongkan jika tidak ada"
-                    value="{{ old('value_2') }}"
-                    class="form-control @error('value_2') is-invalid @enderror"/>
-            @error('value_2') <div class="text-muted">{{ $message }}</div> @enderror
-        </div>
-        <div class="form-group">
-            <label for="value_3" class="form-control-label">Jawaban 3</label>
-            <input  type="text"
-                    name="value_3"
-                    placeholder="kosongkan jika tidak ada"
-                    value="{{ old('value_3') }}"
-                    class="form-control @error('value_3') is-invalid @enderror"/>
-            @error('value_3') <div class="text-muted">{{ $message }}</div> @enderror
-        </div>
-        <div class="form-group">
-            <label for="value_4" class="form-control-label">Jawaban 4</label>
-            <input  type="text"
-                    name="value_4"
-                    placeholder="kosongkan jika tidak ada"
-                    value="{{ old('value_4') }}"
-                    class="form-control @error('value_4') is-invalid @enderror"/>
-            @error('value_4') <div class="text-muted">{{ $message }}</div> @enderror
-        </div>
-        <div class="form-group">
-            <label for="value_5" class="form-control-label">Jawaban 5</label>
-            <input  type="text"
-                    name="value_5"
-                    placeholder="kosongkan jika tidak ada"
-                    value="{{ old('value_5') }}"
-                    class="form-control @error('value_5') is-invalid @enderror"/>
-            @error('value_5') <div class="text-muted">{{ $message }}</div> @enderror
-        </div>
-
     </div>
     <div class="text-right" style="padding-right: 8px">
         <div class="form-group" style="float: right">
