@@ -44,7 +44,8 @@
                                             type="text"
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter your name'"
-                                            placeholder="Enter your name"/>
+                                            placeholder="Enter your name"
+                                            required/>
                                         @error('name') <div class="text-muted">{{ $message }}</div> @enderror
                                 </div>
                             </div>
@@ -56,7 +57,8 @@
                                             type="email"
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter email address'"
-                                            placeholder="Email"/>
+                                            placeholder="Email"
+                                            required/>
                                     @error('name') <div class="text-muted">{{ $message }}</div> @enderror
                                 </div>
                             </div>
@@ -67,7 +69,8 @@
                                             type="text"
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Enter Subject'"
-                                            placeholder="Enter Subject"/>
+                                            placeholder="Enter Subject"
+                                            required/>
                                     @error('subject') <div class="text-muted">{{ $message }}</div> @enderror
                                 </div>
                             </div>
@@ -78,7 +81,8 @@
                                     cols="30" rows="9"
                                     onfocus="this.placeholder = ''"
                                     onblur="this.placeholder = 'Enter Message'"
-                                    placeholder="Enter Message"></textarea>
+                                    placeholder="Enter Message"
+                                    required></textarea>
                                 @error('message') <div class="text-muted">{{ $message }}</div> @enderror
                                 </div>
                             </div>
