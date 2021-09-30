@@ -37,6 +37,7 @@
                             <input  type="text"
                                     name="firstname"
                                     value="{{ old('firstname') }}"
+                                    required
                                     class="form-control @error('firstname') is-invalid @enderror"/>
                             @error('firstname') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
@@ -53,6 +54,7 @@
                             <input  type="text"
                                     name="dob"
                                     value="{{ old('dob') }}"
+                                    required
                                     class="form-control @error('dob') is-invalid @enderror"/>
                             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
                             @error('dob') <div class="text-muted">{{ $message }}</div> @enderror
@@ -62,6 +64,7 @@
                             <input  type="text"
                                     name="pob"
                                     value="{{ old('pob') }}"
+                                    required
                                     class="form-control @error('pob') is-invalid @enderror"/>
                             @error('pob') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
@@ -70,6 +73,7 @@
                         <div class="form-select" id="default-select">
                             <select name="sex"
                                     value="{{ old('sex') }}"
+                                    required
                                     class="form-control @error('sex') is-invalid @enderror">
                                 <option value="male">Laki-Laki</option>
                                 <option value="female">Perempuan</option>
@@ -82,6 +86,7 @@
                         <div class="form-select" id="default-select">
                             <select name="education"
                                     value="{{ old('education') }}"
+                                    required
                                     class="form-control @error('education') is-invalid @enderror">
                                 <option value="sma">SMA / SLTA / Sederajat</option>
                                 <option value="s1">Strata 1 / Sederajat</option>
@@ -94,12 +99,14 @@
                     <div class="form-group mt-10">
                         <label for="id_card_address" class="form-control-label">Alamat sesuai KTP*</label>
                         <textarea name="id_card_address"
+                        required
                         class="form-control @error('id_card_address') is-invalid @enderror">{{ old('id_card_address')}}</textarea>
                         @error('id_card_address') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
                     <div class="form-group mt-10">
                         <label for="present_address" class="form-control-label">Alamat Terbaru*</label>
                         <textarea name="present_address"
+                        required
                         class="form-control @error('present_address') is-invalid @enderror">{{ old('present_address')}}</textarea>
                         @error('present_address') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
@@ -108,14 +115,17 @@
                             <input  type="number"
                                     name="phone_number"
                                     value="{{ old('phone_number') }}"
+                                    placeholder="08xxxxxxxxxx"
+                                    required
                                     class="form-control @error('phone_number') is-invalid @enderror"/>
                             @error('phone_number') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
                     <div class="form-group mt-10">
                         <label for="email" class="form-control-label">E-Mail Aktif*</label>
-                            <input  type="text"
+                            <input  type="email"
                                     name="email"
                                     value="{{ old('email') }}"
+                                    required
                                     class="form-control @error('email') is-invalid @enderror"/>
                             @error('email') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
@@ -125,6 +135,7 @@
                                     maxlength="16"
                                     name="id_card_number"
                                     value="{{ old('id_card_number') }}"
+                                    required
                                     class="form-control @error('id_card_number') is-invalid @enderror"/>
                             @error('id_card_number') <div class="text-muted">{{ $message }}</div> @enderror
                     </div>
@@ -149,6 +160,7 @@
                                 value="{{ old('cv') }}"
                                 accept="application/pdf"
                                 style="padding: 3px"
+                                required
                                 class="form-control @error('cv') is-invalid @enderror"/>
                             <small class="form-text text-muted">File PDF dengan format nama file <em>namapekerjaan-namalengkap</em></small>
                         @error('cv') <div class="text-muted">{{ $message }}</div> @enderror

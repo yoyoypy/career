@@ -9,6 +9,7 @@
                                 name="search"
                                 placeholder="Search here.."
                                 value="{{ old('search') }}"
+                                required
                                 class="form-control"/>
                         <div class="input-group-append">
                             <button class="btns" type="button"><i class="ti-search"></i></button>
