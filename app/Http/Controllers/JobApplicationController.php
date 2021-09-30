@@ -20,7 +20,7 @@ class JobApplicationController extends Controller
      */
     public function index(Application $application)
     {
-        $items = Application::with('Job', 'answers')->get();
+        $items = Application::with('Job')->latest()->paginate();
         return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
@@ -103,11 +103,11 @@ class JobApplicationController extends Controller
     public function show($id)
     {
         $item = Application::with('answers')->findOrFail($id);
-        //$answers = Answers::where('application_id', $id)->get();
+        $answers = Answers::where('application_id', $id)->get();
         //dd($answers);
         return view('backend.pages.jobsapplication.show')->with([
             'item' => $item,
-            //'answers' => $answers
+            'answers' => $answers
         ]);
     }
 

@@ -65,7 +65,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @forelse ( $applications->take(5) as $item )
+                                                @forelse ( $applications as $item )
                                                 <tr>
                                                     <td>{{ $item->firstname }}</td>
                                                     <td><a href="../admin/job/{{ $item->Job->id }}/candidate">{{ $item->Job->jobtitle }}</a></td>

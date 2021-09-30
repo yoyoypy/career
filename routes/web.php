@@ -33,8 +33,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
                 //custom question route
                 Route::resource('question', 'QuestionController');
-
-                Route::resource('question.value', 'ValueController')->shallow()->only('index', 'create', 'store', 'destroy');
+                Route::resource('question.value', 'ValueController')->shallow()->except('edit');
         });
 
         //applicant route
@@ -46,7 +45,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('applicant/status/hired', 'JobApplicationController@hired');
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected');
 
-        //custom question route
         //Route::resource('user', UserController::class);
 
         //company route
@@ -54,6 +52,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         //blog route for admin
         Route::resource('blog', 'AdminBlogController');
+
+        //contact inbox
+        Route::resource('contact-us', 'ContactController')->except('create', 'store');
 
 });
 

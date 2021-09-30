@@ -31,7 +31,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($items->sortByDesc('created_at') as $item)
+                                @forelse ($items as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->firstname }}</td>
@@ -77,7 +77,7 @@
                                 </tbody>
                             </table>
                             <div class="row justify-content-md-center">
-{{--                            {{$items->links()}}--}}
+                           {{$items->links()}}
                             </div>
                         </div>
                     </div>

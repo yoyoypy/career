@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index(){
 
-        $applications = Application::with('Job')->orderByDesc('created_at')->get();
+        $applications = Application::with('Job')->latest()->take(5)->get();
 
         $job_count = Job::count();
         $applications_count = Application::count();

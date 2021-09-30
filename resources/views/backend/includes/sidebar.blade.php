@@ -46,9 +46,12 @@
                             <li><i class="menu-icon fa fa-warning"></i><a href="{{ url('../admin/applicant/status/rejected') }}">Rejected</a></li>
                         </ul>
                     </li>
-                    <li class="menu-title">Blogs</li>
+                    <li class="menu-title">Utilities</li>
                     <li class="">
                         <a href="{{ route ('blog.index') }}"> <i class="menu-icon fa fa-pencil-square-o"></i>Blogs List</a>
+                    </li>
+                    <li class="">
+                        <a href="{{ route ('contact-us.index') }}"> <i class="menu-icon fa fa-envelope"></i>Contact Inbox List</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

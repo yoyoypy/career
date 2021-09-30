@@ -14,7 +14,7 @@ class HomeController extends Controller
         $items = Location::all();
         $categories = JobCategory::all();
         $locations = Location::all();
-        $jobs = Job::all()->sortByDesc('id')->take(4);
+        $jobs = Job::latest()->take(4)->get();
         //dd($items);
         return view('frontend.home')->with([
             'items'         => $items,

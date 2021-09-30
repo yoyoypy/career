@@ -7,6 +7,8 @@
          <meta name="description" content="PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.">
 @endsection
 
+<link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+
 @section('content')
 <main>
     <!-- slider Area Start-->
@@ -33,7 +35,8 @@
                                             name="jobsearch"
                                             placeholder="Find jobs here"
                                             value="{{ old('jobsearch') }}"
-                                            class="form-control"/>
+                                            class="form-control"
+                                            required/>
                                 </div>
                                 <div class="select-form">
                                     <div class="select-itms">
@@ -191,18 +194,39 @@
             </div>
             <!-- Apply Process Caption -->
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-process text-center mb-30">
-                        <div class="process-ion">
-                            <span class="flaticon-search"></span>
-                        </div>
+                <div class="col-lg">
+                    <div class="single-process mb-30">
                         <div class="process-cap">
-                           <h5>1. Search a job</h5>
-                           <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <video
+                                    id="my-video"
+                                    class="video-js vjs-big-play-centered"
+                                    controls
+                                    preload="auto"
+                                    responsive="true"
+                                    fluid="true"
+                                    data-setup="{}"
+                                  >
+                                    <source src="{{ asset('frontend/assets/video/people-working.mp4') }}" type="video/mp4" />
+                                    <p class="vjs-no-js">
+                                      To view this video please enable JavaScript, and consider upgrading to a
+                                      web browser that
+                                      <a href="https://videojs.com/html5-video-support/" target="_blank"
+                                        >supports HTML5 video</a
+                                      >
+                                    </p>
+                                  </video>
+                                </div>
+                                <div class="col text-right">
+                                    <h5>1. Search a job</h5>
+                                    <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                {{-- <div class="col-lg-4 col-md-6">
                     <div class="single-process text-center mb-30">
                         <div class="process-ion">
                             <span class="flaticon-curriculum-vitae"></span>
@@ -223,7 +247,7 @@
                            <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
          </div>
     </div>
@@ -231,3 +255,5 @@
 
 </main>
 @endsection
+
+<script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>

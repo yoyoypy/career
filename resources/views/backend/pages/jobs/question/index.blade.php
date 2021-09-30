@@ -7,7 +7,7 @@
         <div class="card">
           <div class="card-body">
             <a href="{{ route('question.create')}}" class="btn btn-info btn-sm" style="float: right">
-                <i class="fa fa-pencil">Add New Question</i>
+                <i class="fa fa-pencil"> Add New Question</i>
               </a>
             <h4 class="box-title">Questions List</h4>
           </div>
@@ -30,10 +30,10 @@
                       <td>{{ $item->job->jobtitle }}</td>
                       <td>
                         <a href="{{ route('question.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                          <i class="fa fa-pencil">Edit</i>
+                          Edit
                         </a>
                         <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-pencil">Add Value</i>
+                            <i class="fa fa-pencil"> Add Value</i>
                           </a>
                         <form action="{{ route('question.destroy', $item->id) }}"
                               method="post"

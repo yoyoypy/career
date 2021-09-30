@@ -17,7 +17,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //return view('frontend.contact');
+        $items = Contact::latest()->paginate();
+        return view('backend.pages.contact.index')->with([
+            'items' => $items
+        ]);
     }
 
     /**

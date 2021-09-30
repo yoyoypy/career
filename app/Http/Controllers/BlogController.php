@@ -17,12 +17,12 @@ class BlogController extends Controller
         $search = request()->query('search');
         if ($search) {
             $items = Blog::where('title', 'LIKE', "%{$search}%")->paginate(10);
-            $blogs = Blog::orderByDesc('created_at')->get();
+            $blogs = Blog::latest()->get();
         }
 
         else {
             $items = Blog::paginate(10);
-            $blogs = Blog::orderByDesc('created_at')->get();
+            $blogs = Blog::latest()->get();
         }
 
         return view('frontend.blog')->with([
