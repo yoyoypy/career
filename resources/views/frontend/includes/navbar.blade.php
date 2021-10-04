@@ -6,7 +6,7 @@
                  <div class="col-lg-3 col-md-2">
                      <!-- Logo -->
                      <div class="logo">
-                         <a href="/"><img src="{{ asset('frontend/assets/img/logo/logo.png') }}" alt="#"></a>
+                         <a href="/"><img src="{{ asset('frontend/assets/img/logo/logo2.png') }}" alt="#" style="max-width: 250px"></a>
                      </div>
                  </div>
                  <div class="col-lg-9 col-md-9">
@@ -17,25 +17,20 @@
                                  <ul id="navigation">
                                      <li><a href="/">Home</a></li>
                                      <li><a href="/job-list">Find Your Career</a></li>
-                                     <!-- <li><a href="about.html">About</a></li>
-                                     <li><a href="#">Page</a>
-                                         <ul class="submenu">
-                                             <li><a href="blog.html">Blog</a></li>
-                                             <li><a href="single-blog.html">Blog Details</a></li>
-                                             <li><a href="elements.html">Elements</a></li>
-                                             <li><a href="job_details.html">job Details</a></li>
-                                         </ul>
-                                     </li> -->
                                      <li><a href="{{ route('blog') }}">Our News</a></li>
                                      <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                                    @auth
+                                     <li><a href="{{ route('dashboard') }}">Go to Dashboard</a></li>
+                                    @endauth
                                  </ul>
                              </nav>
                          </div>
                          <!-- Header-btn -->
-                         <!-- <div class="header-btn d-none f-right d-lg-block">
-                             <a href="#" class="btn head-btn1">Register</a>
-                             <a href="#" class="btn head-btn2">Login</a>
-                         </div> -->
+                         {{-- @auth
+                            <div class="header-btn d-none f-right d-lg-block">
+                                <a href="{{ route('dashboard') }}" class="btn head-btn1">Dashboard</a>
+                            </div>
+                         @endauth --}}
                      </div>
                  </div>
                  <!-- Mobile Menu -->

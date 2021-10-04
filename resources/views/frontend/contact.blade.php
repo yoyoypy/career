@@ -29,7 +29,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Get in Touch</h2>
+                    <h2 class="contact-title">Feel free to ask</h2>
                 </div>
                 <div class="col-lg-8">
                     @include('flash::message')
