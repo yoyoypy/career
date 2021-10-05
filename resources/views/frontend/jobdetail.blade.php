@@ -3,7 +3,7 @@
 @section('meta')
          <title>{{ $item->jobtitle }} | Sadhana Karir</title>
          <meta name="title" content="{{ $item->jobtitle }}">
-         <meta name="keyword" content="{{ $item->jobtitle }}">
+         <meta name="keyword" content="{{ $item->jobtitle }} lowongan pekerjaan terbaru pt sadhana ekapraya amitra">
          <meta name="description" content="{!! $item->jobdescription !!}">
 @endsection
 
