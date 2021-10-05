@@ -10,7 +10,6 @@ class JobController extends Controller
 {
     public function all(Request $request)
     {
-        $id = $request->input('id');
         $limit = $request->input('limit', 20);
         $jobtitle = $request->input('jobtitle');
         $slug = $request->input('slug');

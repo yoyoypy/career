@@ -188,7 +188,7 @@
                 <div class="col-lg-12">
                     <div class="section-tittle white-text text-center">
                         <span>Apply process</span>
-                        <h2> How it works</h2>
+                        <h2>How the recruitment process goes</h2>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                                     </p>
                                   </video>
                                 </div>
-                                <div class="col text-right">
+                                <div class="col text-center">
                                     <h5>1. Search a job</h5>
                                     <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
                                 </div>
@@ -252,7 +252,6 @@
          </div>
     </div>
     <!-- How  Apply Process End-->
-
 </main>
 @endsection
 

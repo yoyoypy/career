@@ -39,11 +39,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         //applicant route
         Route::resource('applicant', 'JobApplicationController');
         //applicant route status filter
-        Route::get('applicant/status/new', 'JobApplicationController@new');
-        Route::get('applicant/status/phone', 'JobApplicationController@phone');
-        Route::get('applicant/status/interview', 'JobApplicationController@interview');
-        Route::get('applicant/status/hired', 'JobApplicationController@hired');
-        Route::get('applicant/status/rejected', 'JobApplicationController@rejected');
+        Route::get('applicant/status/new', 'JobApplicationController@new')->name('applicant.new');
+        Route::get('applicant/status/phone', 'JobApplicationController@phone')->name('applicant.phone');
+        Route::get('applicant/status/interview', 'JobApplicationController@interview')->name('applicant.interview');
+        Route::get('applicant/status/hired', 'JobApplicationController@hired')->name('applicant.hired');
+        Route::get('applicant/status/rejected', 'JobApplicationController@rejected')->name('applicant.rejected');
 
         //Route::resource('user', UserController::class);
 
@@ -63,7 +63,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 Auth::routes(['register' => false]);
 
 //front end home route
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('index');
 
 //front end job routing
 Route::get('job-list', 'JobController@indexlist')->name('jobs');

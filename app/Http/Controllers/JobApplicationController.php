@@ -174,45 +174,45 @@ class JobApplicationController extends Controller
 
     public function new()
     {
-        $items = Application::where('status', 'new')->with('Job')->get();
-       //dd($items);
-        return view('backend.pages.jobsapplication.status')->with([
+        $items = Application::where('status', 'new')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }
 
     public function phone()
     {
-        $items = Application::where('status', 'phone interview')->with('Job')->get();
-        //dd($items);
-        return view('backend.pages.jobsapplication.status')->with([
+        $items = Application::where('status', 'phone interview')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }
 
     public function interview()
     {
-        $items = Application::where('status', 'interview')->with('Job')->get();
-        //dd($items);
-        return view('backend.pages.jobsapplication.status')->with([
+        $items = Application::where('status', 'interview')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }
 
     public function hired()
     {
-        $items = Application::where('status', 'hired')->with('Job')->get();
-        //dd($items);
-        return view('backend.pages.jobsapplication.status')->with([
+        $items = Application::where('status', 'hired')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }
 
     public function rejected()
     {
-        $items = Application::where('status', 'rejected')->with('Job')->get();
-        //dd($items);
-        return view('backend.pages.jobsapplication.status')->with([
+        $items = Application::where('status', 'rejected')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }

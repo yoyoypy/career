@@ -90,7 +90,7 @@
                      <ul style="padding-top: 15px">
                          <li>or share this</li>
                          <li><a href=
-                            "whatsapp://send?text=PT Sadhana is hiring {{ $item->jobtitle }}, {{ url()->current() }}"
+                            "https://wa.me/?text=PT Sadhana is hiring {{ $item->jobtitle }}, {{ url()->current() }}"
                                     data-action="share/whatsapp/share"
                                     target="_blank"
                                     style="color: green">
