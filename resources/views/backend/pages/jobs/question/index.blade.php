@@ -33,7 +33,7 @@
                           Edit
                         </a>
                         <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-pencil"> Add Value</i>
+                            <i class="fa fa-pencil"> Tambah Jawaban</i>
                           </a>
                         <form action="{{ route('question.destroy', $item->id) }}"
                               method="post"
