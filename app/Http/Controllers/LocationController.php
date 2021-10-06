@@ -26,7 +26,7 @@ class LocationController extends Controller
 
     public function indexlist($id)
     {
-        $jobs = Job::where('joblocation_id', $id)->get();
+        $jobs = Job::where('joblocation_id', $id)->paginate();
         $categories = JobCategory::all();
         $locations = Location::all();
 

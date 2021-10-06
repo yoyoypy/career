@@ -27,7 +27,7 @@ class CategoryController extends Controller
 
     public function indexlist($id)
     {
-        $jobs = Job::where('jobcategory_id', $id)->get();
+        $jobs = Job::where('jobcategory_id', $id)->paginate();
         $categories = JobCategory::all();
         $locations = Location::all();
 

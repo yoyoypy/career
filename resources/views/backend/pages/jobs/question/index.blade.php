@@ -19,6 +19,7 @@
                     <th>Title Question</th>
                     <th>Question</th>
                     <th>Job Vacancy</th>
+                    <th>Value</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -29,12 +30,14 @@
                       <td>{{ $item->question }}</td>
                       <td>{{ $item->job->jobtitle }}</td>
                       <td>
+                        <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
+                            <i class="fa fa-pencil"> Tambah Jawaban</i>
+                        </a>
+                      </td>
+                      <td>
                         <a href="{{ route('question.edit', $item->id) }}" class="btn btn-warning btn-sm">
                           Edit
                         </a>
-                        <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-pencil"> Tambah Jawaban</i>
-                          </a>
                         <form action="{{ route('question.destroy', $item->id) }}"
                               method="post"
                               class="d-inline">

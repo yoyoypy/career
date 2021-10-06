@@ -54,7 +54,6 @@
                             <!-- Count of Job list End -->
                             <!-- single-job-content -->
                             @forelse($jobs as $job)
-                                @if($job->status == 'active')
                                     <div class="single-job-items mb-30">
                                         <div class="job-items">
                                             <div class="company-img">
@@ -76,7 +75,6 @@
                                             <a href="../job/{{$job->slug}}">{{$job->employment}}</a>
                                         </div>
                                     </div>
-                                @endif
                             @empty
                                 <div style="text-align: center;font-size: 2.5rem">
                                     <strong>Sorry...</strong><br>
@@ -92,25 +90,22 @@
         </div>
     </div>
     <!-- Job List Area End -->
-    <!--Pagination Start  -->
-{{--    <div class="pagination-area pb-115 text-center">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-xl-12">--}}
-{{--                    <div class="single-wrap d-flex justify-content-center">--}}
-{{--                        <nav aria-label="Page navigation example">--}}
-{{--                            <ul class="pagination justify-content-start">--}}
-{{--                                <li class="page-item active"><a class="page-link" href="#">01</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">02</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">03</a></li>--}}
-{{--                            <li class="page-item"><a class="page-link" href="#"><span class="ti-angle-right"></span></a></li>--}}
-{{--                            </ul>--}}
-{{--                        </nav>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-    <!--Pagination End  -->
+    {{-- <!--Pagination Start  --> --}}
+   <div class="pagination-area pb-115 text-center">
+       <div class="container">
+           <div class="row">
+               <div class="col-xl-12">
+                   <div class="single-wrap d-flex justify-content-center">
+                       <nav aria-label="Page navigation example">
+                           <ul class="pagination justify-content-start">
+                                {{-- {{ $jobs->links() }} --}}
+                           </ul>
+                       </nav>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+    {{-- <!--Pagination End  --> --}}
 
 </main>

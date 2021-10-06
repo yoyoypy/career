@@ -25,7 +25,7 @@
             <!-- Select job items start -->
             <div class="select-job-items2">
                 <select name="select" onchange="window.location.href=this.value">
-                    <option value="">All Category</option>
+                    <option value="{{ route('jobs') }}">All Category</option>
                     @foreach ($categories as $category)
                     <option value="../job-category/{{ $category->id }}">{{ $category->category }}</option>
                     @endforeach
@@ -38,7 +38,7 @@
             <!-- Select job items start -->
             <div class="select-job-items2">
                 <select name="select" onchange="window.location.href=this.value">
-                    <option value="">Anywhere</option>
+                    <option value="{{ route('jobs') }}">Anywhere</option>
                     @foreach ($locations as $location)
                     <option value="../job-location/{{ $location->id }}">{{ $location->location }}</option>
                     @endforeach
