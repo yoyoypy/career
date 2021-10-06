@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(){
 
         $items = Location::all();
-        $categories = JobCategory::all()->random(8);
+        $categories = JobCategory::inRandomOrder(8)->get();
         $locations = Location::all();
         $jobs = Job::latest()->take(4)->get();
 
