@@ -12,10 +12,10 @@ class HomeController extends Controller
     public function index(){
 
         $items = Location::all();
-        $categories = JobCategory::all();
+        $categories = JobCategory::all()->random(8);
         $locations = Location::all();
         $jobs = Job::latest()->take(4)->get();
-        //dd($items);
+
         return view('frontend.home')->with([
             'items'         => $items,
             'categories'    => $categories,
