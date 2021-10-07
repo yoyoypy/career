@@ -175,9 +175,9 @@ class JobController extends Controller
 
     public function candidate($id)
     {
-        $items = Job::with('Application')->where('id', $id)->firstOrFail();
+        $items = Application::with('Job')->where('jobvacancy_id', $id)->latest()->paginate();
 
-        return view('backend.pages.jobs.candidate')->with([
+        return view('backend.pages.jobsapplication.index')->with([
             'items' => $items
         ]);
     }

@@ -68,7 +68,6 @@ class JobController extends Controller
         if($jobtitle)
             $job->where('jobtitle', 'like', '%'. $jobtitle . '%');
 
-           // return ResponseFormatter::success($produk->paginate(), 'Data List Produk Berhasil Diambil');
         return $job->paginate($limit);
     }
 }

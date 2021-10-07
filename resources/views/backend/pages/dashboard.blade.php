@@ -62,6 +62,7 @@
                                                     <th>Detail</th>
                                                     <th>CV</th>
                                                     <th>Status</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -74,6 +75,21 @@
                                                             <i class="fa fa-eye"> View</i>
                                                         </button></td>
                                                     <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> CV</i></a></td>
+                                                    <td>@if($item->status == 'new')
+                                                        <span class="badge badge-primary">
+                                                      @elseif($item->status == 'phone interview')
+                                                        <span class="badge badge-info">
+                                                      @elseif($item->status == 'interview')
+                                                        <span class="badge badge-warning">
+                                                      @elseif($item->status == 'hired')
+                                                        <span class="badge badge-success">
+                                                      @elseif($item->status == 'rejected')
+                                                        <span class="badge badge-danger">
+                                                      @else
+                                                        <span>
+                                                      @endif
+                                                      {{ $item->status }}
+                                                        </span></td>
                                                     <td>
                                                         <a href="{{ route('applicant.edit', $item->id) }}" class="btn btn-success btn-sm">
                                                             <i class="fa fa-pencil"> Change Status</i>

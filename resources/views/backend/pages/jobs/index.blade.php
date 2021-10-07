@@ -16,7 +16,6 @@
                     <th>#</th>
                     <th>Job Title</th>
                     <th>Job Location</th>
-{{--                    <th>Job Category</th>--}}
                     <th>Company</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -28,12 +27,11 @@
                       <td>{{ $item->id }}</td>
                       <td><a href="../job/{{ $item->slug }}" target="new">{{ $item->jobtitle }}</a></td>
                       <td>{{ $item->Location->location }}</td>
-{{--                      <td>{{ $item->JobCategory->category }}</td>--}}
                       <td>{{ $item->Company->company }}</td>
                       <td>{{ $item->status }}</td>
                       <td>
                           <a href="job/{{ $item->id }}/candidate" class="btn btn-success btn-sm">
-                              <i class="fa fa-group"> Candidates</i>
+                              <i class="fa fa-group"> View Candidates</i>
                           </a>
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">
                           <i class="fa fa-pencil"></i>
