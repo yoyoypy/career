@@ -56,6 +56,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         //contact inbox
         Route::resource('contact-us', 'ContactController')->except('create', 'store');
 
+        //route interview
+        Route::resource('interview', 'InterviewController');
+
 });
 
 //utility

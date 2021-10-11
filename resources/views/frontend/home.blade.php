@@ -112,7 +112,7 @@
             <div class="row">
                 <div class="col-lg-12" style="bottom: 50px">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="../job-list" class="border-btn2">Browse All Jobs</a>
+                        <a href="{{ route('jobs') }}" class="border-btn2">Browse All Jobs</a>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
-                        <a href="../job-list" class="border-btn2">Browse All Location</a>
+                        <a href="{{ route('jobs') }}" class="border-btn2">Browse All Location</a>
                     </div>
                 </div>
             </div>
@@ -163,13 +163,13 @@
                         <div class="support-caption">
                             <p class="pera-top">Established in 1991, we has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.</p>
                             <p>Every retail food business is different and unique. Crucial success factors like store location, customer traffic can make or break any business. The enormous commitment, innovation required to create a successful retail business, there’s often little time left over to think about Freshness and Quality of food.</p>
-                            <a href="../job-list" class="btn post-btn" style="margin-bottom:30px">Find Your Career</a>
+                            <a href="{{ route('jobs') }}" class="btn post-btn" style="margin-bottom:30px">Find Your Career</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="support-location-img">
-                        <img src="frontend/assets/img/service/support-img.jpg" alt="">
+                        <img src="{{ asset('frontend/assets/img/gallery/produk-vertikal.jpg') }}" alt="">
                         <!-- <div class="support-img-cap text-center">
                             <p>Since</p>
                             <span>1994</span>

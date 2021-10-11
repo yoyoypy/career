@@ -3,9 +3,13 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{{ route ('index') }}"><i class
+                            ="menu-icon fa fa-laptop"></i>Go to homepage </a>
+                    </li>
                     <li class="{{ \Route::current()->getName() == 'dashboard' ? 'active' : '' }}">
                         <a href="{{ route ('dashboard') }}"><i class
-                            ="menu-icon fa fa-laptop"></i>Dashboard </a>
+                            ="menu-icon fa fa-tachometer" aria-hidden="true"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Jobs</li><!-- /.menu-title -->
                     <li class="{{ \Route::current()->getName() == 'job.index' ? 'active' : '' }}">
@@ -45,6 +49,9 @@
                             <li><i class="menu-icon fa fa-thumbs-up"></i><a href="{{ route('applicant.hired') }}">Hired</a></li>
                             <li><i class="menu-icon fa fa-warning"></i><a href="{{ route('applicant.rejected') }}">Rejected</a></li>
                         </ul>
+                    </li>
+                    <li class="{{ \Route::current()->getName() == 'interview.index' ? 'active' : '' }}">
+                        <a href="{{ route ('interview.index') }}"> <i class="menu-icon fa fa-calendar"></i>Interview Schedule</a>
                     </li>
                     <li class="menu-title">Utilities</li>
                     <li class="{{ \Route::current()->getName() == 'blog.index' ? 'active' : '' }}">
