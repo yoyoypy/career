@@ -91,12 +91,11 @@ class InterviewController extends Controller
      */
     public function edit(Interview $interview)
     {
-        $interview = Interview::with('applicant')->first();
-        dd($interview);
+        $applications = Application::where('status', 'interview')->get();
 
-        flash('Schedule Edited!')->success();
         return view('backend.pages.interview.edit')->with([
-            'interview' => $interview
+            'interview' => $interview,
+            'applications' => $applications
         ]);
     }
 
@@ -109,7 +108,12 @@ class InterviewController extends Controller
      */
     public function update(InterviewRequest $request, Interview $interview)
     {
-        //
+        $data = $request->all();
+        Interview::find($interview);
+        $interview->update($data);
+
+        flash('Schedule Edited!')->success();
+        return redirect()->route('interview.index');
     }
 
     /**
