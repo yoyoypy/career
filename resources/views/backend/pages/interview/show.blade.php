@@ -17,6 +17,7 @@
                                     <th>Title</th>
                                     <th>Candidates</th>
                                     <th>Interview Schedule</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -25,10 +26,31 @@
                                         <td>{{ $interview->title }}</td>
                                         <td>{{ $interview->applicant->firstname }} {{ $interview->applicant->lastname }}</td>
                                         <td>{{ $interview->date }}</td>
+                                        <td>
+                                            <a href="{{ route('interview.edit', $interview->id) }}" class="btn btn-info btn-sm">
+                                                <i class="fa fa-pencil"> Edit Schedule</i>
+                                            </a>
+                                            <form action="{{ route('interview.destroy', $interview->id) }}"
+                                                method="post"
+                                                class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm">
+                                              <i class="fa fa-trash"></i>
+                                            </button>
+                                          </form>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+                <div class="text-right" style="padding-right: 8px">
+                    <div class="form-group" style="float: right">
+                        <a href="{{ route('interview.index')}}" class="btn btn-warning btn-sm">
+                            Back to Schedule
+                        </a>
                     </div>
                 </div>
             </div>

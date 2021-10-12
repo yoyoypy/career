@@ -36,6 +36,8 @@
                     value="{{ old('date') }}"
                     placeholder="YYYY-MM-DD"
                     required
+                    autocomplete="off"
+                    id="datepicker"
                     class="form-control @error('date') is-invalid @enderror"/>
             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
             @error('date') <div class="text-muted">{{ $message }}</div> @enderror
@@ -54,3 +56,14 @@
     </form>
 </div>
 @endsection
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script>
+    $( function() {
+        $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    } );
+  </script>

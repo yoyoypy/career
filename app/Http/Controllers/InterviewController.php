@@ -91,7 +91,13 @@ class InterviewController extends Controller
      */
     public function edit(Interview $interview)
     {
-        //
+        $interview = Interview::with('applicant')->first();
+        dd($interview);
+
+        flash('Schedule Edited!')->success();
+        return view('backend.pages.interview.edit')->with([
+            'interview' => $interview
+        ]);
     }
 
     /**
@@ -114,6 +120,9 @@ class InterviewController extends Controller
      */
     public function destroy(Interview $interview)
     {
-        //
+        $interview->delete();
+
+        flash('Schedule Deleted!')->error();
+        return redirect()->route('interview.index');
     }
 }

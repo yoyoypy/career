@@ -85,7 +85,6 @@
               <input   type="text"
                         name="salary"
                         value="Negotiable"
-                        {{-- placeholder="Negotiable ? {{ old('salary') }}" --}}
                         class="form-control @error('salary') is-invalid @enderror"/>
                 <small class="form-text text-muted">input "Negotiable" if you dont want to show the salary</small>
             @error('salary') <div class="text-muted">{{ $message }}</div> @enderror
@@ -95,8 +94,8 @@
             <input  type="text"
                     name="start"
                     value="{{ old('start') }}"
-                    placeholder="YYYY-MM-DD"
-                    class="form-control @error('start') is-invalid @enderror"/>
+                    autocomplete="off"
+                    class="datepicker form-control @error('start') is-invalid @enderror"/>
             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
             @error('start') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
@@ -105,7 +104,8 @@
             <input  type="text"
                     name="end"
                     value="{{ old('end') }}"
-                    class="form-control @error('end') is-invalid @enderror"/>
+                    autocomplete="off"
+                    class="datepicker form-control @error('end') is-invalid @enderror"/>
             <small class="form-text text-muted">ex. YYYY-MM-DD</small>
             @error('end') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
@@ -135,3 +135,14 @@
 <script>
     CKEDITOR.replace( 'ckeditor' );
 </script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <script>
+    $( function() {
+        $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    } );
+  </script>
