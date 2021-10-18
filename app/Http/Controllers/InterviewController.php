@@ -6,6 +6,9 @@ use App\Application;
 use App\Interview;
 use Illuminate\Http\Request;
 use App\Http\Requests\InterviewRequest;
+use App\Mail\InterviewInvitation;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class InterviewController extends Controller
 {
@@ -62,7 +65,11 @@ class InterviewController extends Controller
      */
     public function store(InterviewRequest $request)
     {
-        Interview::create($request->all());
+
+        $data = $request->all();
+        $data['time'] = Carbon::parse($request->time)->format('H:i');
+
+        Interview::create($data);
 
         flash('Schedule Added!')->success();
         return redirect()->route('interview.index');
@@ -74,13 +81,29 @@ class InterviewController extends Controller
      * @param  \App\Interview  $interview
      * @return \Illuminate\Http\Response
      */
-    public function show(Interview $interview)
+    public function show($id)
+    {
+        $item = Interview::with('applicant')->findOrFail($id);
+        $item['time'] = date('h:i a', strtotime($item->time));
+
+        return view('backend.pages.interview.show')->with([
+            'item' => $item
+        ]);
+    }
+
+    public function invite(Interview $interview)
     {
         $interview = Interview::with('applicant')->first();
-        // dd($interview);
-        return view('backend.pages.interview.show')->with([
-            'interview' => $interview
-        ]);
+        $interview->send_mail = '1';
+        $interview->save();
+
+        $usermail = $interview->applicant->email;
+        //  dd($interview);
+
+        Mail::to($usermail)->queue(new InterviewInvitation($interview));
+
+        flash('Invitation Send Successfully!')->success();
+        return redirect()->route('interview.index');
     }
 
     /**

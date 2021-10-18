@@ -27,7 +27,8 @@ class InterviewRequest extends FormRequest
         return [
             'title'             => 'required',
             'applications_id'   => 'required',
-            'date'              => 'required'
+            'date'              => 'required',
+            'time'              => 'required'
         ];
     }
 }

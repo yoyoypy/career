@@ -10,7 +10,8 @@ class Interview extends Model
     protected $fillable = [
         'applications_id',
         'title',
-        'date'
+        'date',
+        'time'
     ];
 
     /**

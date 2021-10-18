@@ -22,15 +22,15 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{ $interview->created_at->todatestring() }}</td>
-                                        <td>{{ $interview->title }}</td>
-                                        <td>{{ $interview->applicant->firstname }} {{ $interview->applicant->lastname }}</td>
-                                        <td>{{ $interview->date }}</td>
+                                        <td>{{ $item->created_at->diffForHumans() }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->applicant->firstname }} {{ $item->applicant->lastname }}</td>
+                                        <td>{{ $item->date }} {{ $item->time }}</td>
                                         <td>
-                                            <a href="{{ route('interview.edit', $interview->id) }}" class="btn btn-info btn-sm">
+                                            <a href="{{ route('interview.edit', $item->id) }}" class="btn btn-info btn-sm">
                                                 <i class="fa fa-pencil"> Edit Schedule</i>
                                             </a>
-                                            <form action="{{ route('interview.destroy', $interview->id) }}"
+                                            <form action="{{ route('interview.destroy', $item->id) }}"
                                                 method="post"
                                                 class="d-inline">
                                             @csrf
@@ -52,6 +52,26 @@
                             Back to Schedule
                         </a>
                     </div>
+                    @if ($item->send_mail == false)
+                    <div class="form-group" style="float: left">
+                        <form action="{{ route('invite') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group" style="float: left">
+                            <button class="btn btn-primary btn-sm" type="submit">
+                                Send Invitation
+                            </button>
+                        </div>
+                        </form>
+                    </div>
+                    @else
+                    <div class="form-group" style="float: left">
+                        <div class="form-group" style="float: left">
+                            <button class="btn btn-danger btn-sm disabled" type="submit">
+                                Invitation Already Send !
+                            </button>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

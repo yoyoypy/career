@@ -47,7 +47,7 @@ class ContactController extends Controller
 
         Contact::create($data);
 
-        Mail::to($data['email'])->send(new GetInTouch($data));
+        Mail::to($data['email'])->queue(new GetInTouch($data));
         flash('Thanks For Your Message! We Will Get In Touch Soon!')->success();
         return view('frontend.contact');
     }

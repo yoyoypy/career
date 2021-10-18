@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         //route interview
         Route::resource('interview', 'InterviewController');
+        Route::post('invite', 'InterviewController@invite')->name('invite');
 
 });
 
