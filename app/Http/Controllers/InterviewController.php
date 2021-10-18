@@ -132,6 +132,8 @@ class InterviewController extends Controller
     public function update(InterviewRequest $request, Interview $interview)
     {
         $data = $request->all();
+        $data['time'] = Carbon::parse($request->time)->format('H:i');
+
         Interview::find($interview);
         $interview->update($data);
 
