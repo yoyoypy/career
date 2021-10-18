@@ -40,7 +40,7 @@
                 </div>
              </div>
              <div class="support-caption">
-             <a href="../blog" class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"><i class="ti-arrow-left"></i> Back To Our News</a>
+             <a href="{{ route('blog') }}" class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"><i class="ti-arrow-left"></i> Back To Our News</a>
              </div>
             </div>
           {{-- side bar --}}

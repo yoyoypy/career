@@ -6,7 +6,7 @@
                  <div class="col-lg-3 col-md-2">
                      <!-- Logo -->
                      <div class="logo">
-                         <a href="/"><img src="{{ asset('frontend/assets/img/logo/logo2.png') }}" alt="#" style="max-width: 250px"></a>
+                         <a href="{{ route('index') }}"><img src="{{ asset('frontend/assets/img/logo/logo2.png') }}" alt="#" style="max-width: 250px"></a>
                      </div>
                  </div>
                  <div class="col-lg-9 col-md-9">
@@ -15,8 +15,8 @@
                          <div class="main-menu">
                              <nav class="d-none d-lg-block">
                                  <ul id="navigation">
-                                     <li><a href="/">Home</a></li>
-                                     <li><a href="/job-list">Find Your Career</a></li>
+                                     <li><a href="{{ route('index') }}">Home</a></li>
+                                     <li><a href="{{ route('jobs') }}">Find Your Career</a></li>
                                      <li><a href="{{ route('blog') }}">Our News</a></li>
                                      <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                     @auth

@@ -26,8 +26,9 @@
             <div class="select-job-items2">
                 <select name="select" onchange="window.location.href=this.value">
                     <option value="{{ route('jobs') }}">All Category</option>
+                    <option value="" disabled>--------------------</option>
                     @foreach ($categories as $category)
-                    <option value="../job-category/{{ $category->id }}">{{ $category->category }}</option>
+                    <option value="{{ route('jobcategory', $category->id) }}">{{ $category->category }}</option>
                     @endforeach
                 </select>
             </div>
@@ -39,8 +40,9 @@
             <div class="select-job-items2">
                 <select name="select" onchange="window.location.href=this.value">
                     <option value="{{ route('jobs') }}">Anywhere</option>
+                    <option value="" disabled>--------------------</option>
                     @foreach ($locations as $location)
-                    <option value="../job-location/{{ $location->id }}">{{ $location->location }}</option>
+                    <option value="{{ route('joblocation', $location->id) }}">{{ $location->location }}</option>
                     @endforeach
                 </select>
             </div>

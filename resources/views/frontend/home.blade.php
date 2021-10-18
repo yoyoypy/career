@@ -3,7 +3,7 @@
 @section('meta')
          <title>Welcome to Sadhana Karir</title>
          <meta name="title" content="Sadhana Karir">
-         <meta name="keyword" content="karir sadhanas sadhana ekapraya amitra">
+         <meta name="keyword" content="karir sadhanas sadhana ekapraya amitra lowongan kerja">
          <meta name="description" content="PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.">
 @endsection
 
@@ -15,7 +15,7 @@
     <div class="slider-area ">
         <!-- Mobile Menu -->
         <div class="slider-active">
-            <div class="single-slider slider-height d-flex align-items-center" data-background="{{ asset('frontend/assets/img/hero/h1_hero.jpg') }}"    >
+            <div class="single-slider slider-height d-flex align-items-center" data-background="{{ asset('frontend/assets/img/hero/h1_hero.jpg') }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-6 col-lg-9 col-md-10">
@@ -41,8 +41,8 @@
                                 <div class="select-form">
                                     <div class="select-itms">
                                         <select name="location" id="select1">
-                                            @foreach ($items as $item)
-                                            <option value="{{ $item->id }}">{{ $item->location }}</option>
+                                            @foreach ($locations as $location)
+                                            <option value="{{ $location->id }}">{{ $location->location }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -218,10 +218,10 @@
                                     </p>
                                   </video>
                                 </div>
-                                <div class="col text-center">
+                                {{-- <div class="col text-center">
                                     <h5>1. Search a job</h5>
                                     <p>Sorem spsum dolor sit amsectetur adipisclit, seddo eiusmod tempor incididunt ut laborea.</p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -84,5 +84,5 @@ Route::get('blog/{slug}', 'BlogController@show')->name('blogdetails'); //dynamic
 Route::post('newsletter/subcribe', 'NewsletterController@store');
 
 //job list by category and location
-Route::get('job-category/{id}', 'CategoryController@indexlist');
-Route::get('job-location/{id}', 'LocationController@indexlist');
+Route::get('job-category/{id}', 'CategoryController@indexlist')->name('jobcategory');
+Route::get('job-location/{id}', 'LocationController@indexlist')->name('joblocation');

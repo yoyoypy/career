@@ -21,15 +21,11 @@
                                 </a>
                             </div>
                             <div class="blog_details">
-                                <a class="d-inline-block" href="blog/{{ $item->slug }}">
+                                <a class="d-inline-block" href="{{ route('blog', $item->slug) }}">
                                     <h2>{{ $item->title }}</h2>
                                 </a>
                                 <p>{!! Str::limit($item->description, 200) !!}</p>
-                                {{-- <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                </ul> --}}
-                                <a href="blog/{{ $item->slug }}">Read More...</a>
+                                <a href="{{ route('blog', $item->slug) }}">Read More...</a>
                             </div>
                         </article>
                     @empty
