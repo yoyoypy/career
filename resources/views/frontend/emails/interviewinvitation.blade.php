@@ -182,7 +182,10 @@
                     </tr>
                     <tr>
                       <td align="center" style="font-size:0px;padding:10px 25px;padding-top:28px;padding-right:25px;padding-bottom:28px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;"><span style="font-size:20px; font-weight:bold">Congratulations! you are invited for an interview.</span>
+                        <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
+                            <span style="font-size:20px; font-weight:bold">Congratulations! you are invited for an interview.</span><br>
+                            <br>
+                            <span style="font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
                           <br />
                           <br>
                           <span style="font-size:15px">Date : {{ $interview->date }}</span><br>

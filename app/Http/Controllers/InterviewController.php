@@ -102,7 +102,7 @@ class InterviewController extends Controller
 
         $applicant = Application::where('id', $interview->applications_id)->first();
 
-        Mail::to($usermail)->send(new InterviewInvitation($interview, $applicant));
+        Mail::to($usermail)->queue(new InterviewInvitation($interview, $applicant));
 
         flash('Invitation Send Successfully!')->success();
         return redirect()->route('interview.index');

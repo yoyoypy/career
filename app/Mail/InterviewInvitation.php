@@ -34,6 +34,7 @@ class InterviewInvitation extends Mailable
     {
         return $this->cc('recruitment@sadhanas.co.id')
                 ->replyTo('recruitment@sadhanas.co.id')
+                ->attach('assets/doc/FormDataPribadiPelamar.docx')
                 ->with([
                     'applicant' => $this->applicant,
                     'interview' => $this->interview
