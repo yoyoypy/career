@@ -54,7 +54,7 @@
                     </div>
                     @if ($item->send_mail == false)
                     <div class="form-group" style="float: left">
-                        <form action="{{ route('invite') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('invite', $item->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group" style="float: left">
                             <button class="btn btn-primary btn-sm" type="submit">

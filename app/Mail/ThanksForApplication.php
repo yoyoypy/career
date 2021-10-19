@@ -30,6 +30,7 @@ class ThanksForApplication extends Mailable
      */
     public function build()
     {
-        return $this->subject('Thank You For Your Application!')->markdown('frontend.emails.thanku');
+        return $this->subject('Thank You For Your Application!')
+                    ->markdown('frontend.emails.thanku');
     }
 }

@@ -11,14 +11,18 @@ class InterviewInvitation extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $interview;
+    public $applicant;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($interview)
+    public function __construct($interview, $applicant)
     {
-        $this->data = $interview;
+        $this->interview = $interview;
+        $this->applicant = $applicant;
     }
 
     /**
@@ -30,6 +34,10 @@ class InterviewInvitation extends Mailable
     {
         return $this->cc('recruitment@sadhanas.co.id')
                 ->replyTo('recruitment@sadhanas.co.id')
+                ->with([
+                    'applicant' => $this->applicant,
+                    'interview' => $this->interview
+                ])
                 ->markdown('frontend.emails.interviewinvitation');
     }
 }

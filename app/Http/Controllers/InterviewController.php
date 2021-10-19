@@ -91,16 +91,18 @@ class InterviewController extends Controller
         ]);
     }
 
-    public function invite(Interview $interview)
+    public function invite($id)
     {
-        $interview = Interview::with('applicant')->first();
+        $interview = Interview::with('applicant')->where('id', $id)->first();
+
         $interview->send_mail = '1';
         $interview->save();
 
         $usermail = $interview->applicant->email;
-        //  dd($interview);
 
-        Mail::to($usermail)->queue(new InterviewInvitation($interview));
+        $applicant = Application::where('id', $interview->applications_id)->first();
+
+        Mail::to($usermail)->send(new InterviewInvitation($interview, $applicant));
 
         flash('Invitation Send Successfully!')->success();
         return redirect()->route('interview.index');

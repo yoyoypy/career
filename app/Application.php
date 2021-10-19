@@ -46,6 +46,16 @@ class Application extends Model
         return $this->hasMany(Answers::class, 'application_id', 'id');
     }
 
+    /**
+     * Get the user that owns the Application
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function interview()
+    {
+        return $this->belongsTo(Interview::class, 'applications_id', 'id');
+    }
+
     public function getCvAttribute($value)
     {
         return url('storage/' . $value);
