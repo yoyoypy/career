@@ -29,6 +29,7 @@ class JobApplicationRequest extends FormRequest
             'pob'                       => 'required',
             'sex'                       => 'required',
             'education'                 => 'required',
+            'salary'                    => 'required|numeric|digits_between:7,9',
             'id_card_address'           => 'required',
             'present_address'           => 'required',
             'phone_number'              => 'required',

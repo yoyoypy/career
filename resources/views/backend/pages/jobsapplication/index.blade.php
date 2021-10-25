@@ -24,7 +24,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Job Vacancies</th>
-                                    <th>Phone Number</th>
+                                    <th>Expected Salary</th>
                                     <th>CV</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -36,7 +36,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->firstname }}</td>
                                         <td>{{ $item->Job->jobtitle }}</td>
-                                        <td>{{ $item->phone_number }}</td>
+                                        <td>Rp {{ number_format($item->salary) }}</td>
                                         <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a></td>
                                         <td>
                                             @if($item->status == 'new')

@@ -64,6 +64,7 @@ class JobApplicationController extends Controller
             'pob'                       => $request->input('pob'),
             'sex'                       => $request->input('sex'),
             'education'                 => $request->input('education'),
+            'salary'                    => $request->input('salary'),
             'id_card_address'           => $request->input('id_card_address'),
             'present_address'           => $request->input('present_address'),
             'phone_number'              => $request->input('phone_number'),

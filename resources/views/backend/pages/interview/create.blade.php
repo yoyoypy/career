@@ -22,12 +22,27 @@
               <select name="applications_id"
                       value="{{ old('applications_id') }}"
                       class="form-control col-sm-4 @error('applications_id') is-invalid @enderror">
+                      <option value="">Select Candidate</option>
+                      <option value="" disabled>---------------</option>
                     @foreach  ($applications as $application)
                       <option value="{{ $application->id}}">{{ $application->firstname }} {{ $application->lastname }}</option>
                     @endforeach
               </select>
             @error('applications_id') <div class="text-muted">{{ $message }}</div> @enderror
             <small class="form-text text-muted">Only candidates with <i>interview</i> status will appear</small>
+        </div>
+        <div class="form-group">
+            <label for="branch_id" class="form-control-label">Interview Location</label>
+              <select name="branch_id"
+                      value="{{ old('branch_id') }}"
+                      class="form-control col-sm-4 @error('branch_id') is-invalid @enderror">
+                      <option value="">Select Branch</option>
+                      <option value="" disabled>---------------</option>
+                    @foreach  ($branches as $branch)
+                      <option value="{{ $branch->id}}">{{ $branch->branch }} | PIC : {{ $branch->pic }}</option>
+                    @endforeach
+              </select>
+            @error('applications_id') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
     {{-- timepicker --}}
         <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>

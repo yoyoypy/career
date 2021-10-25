@@ -16,6 +16,7 @@
                                     <th>Schedule Created</th>
                                     <th>Title</th>
                                     <th>Candidates</th>
+                                    <th>Interview Location</th>
                                     <th>Interview Schedule</th>
                                     <th>Action</th>
                                 </tr>
@@ -25,6 +26,7 @@
                                         <td>{{ $item->created_at->diffForHumans() }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $item->applicant->firstname }} {{ $item->applicant->lastname }}</td>
+                                        <td>{{ $item->branch->branch }}</td>
                                         <td>{{ $item->date }} {{ $item->time }}</td>
                                         <td>
                                             <a href="{{ route('interview.edit', $item->id) }}" class="btn btn-info btn-sm">

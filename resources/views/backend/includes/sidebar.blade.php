@@ -36,6 +36,11 @@
                         <a href="{{ route ('company.create') }}"> <i class="menu-icon fa fa-plus"></i>Add Company</a>
                     </li>
 
+                    <li class="menu-title">Branches</li><!-- /.menu-title -->
+                    <li class="{{ \Route::current()->getName() == 'branch.index' ? 'active' : '' }}">
+                        <a href="{{ route ('branch.index') }}"> <i class="menu-icon fa fa-building"></i>Branches List</a>
+                    </li>
+
                     <li class="menu-title">Job Application</li>
                     <li class="{{ \Route::current()->getName() == 'applicant.index' ? 'active' : '' }}">
                         <a href="{{ route ('applicant.index') }}"> <i class="menu-icon fa fa-group"></i>Applications List</a>

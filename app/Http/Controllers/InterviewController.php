@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Branch;
 use App\Interview;
 use Illuminate\Http\Request;
 use App\Http\Requests\InterviewRequest;
@@ -51,9 +52,11 @@ class InterviewController extends Controller
     public function create()
     {
         $applications = Application::where('status', 'interview')->get();
+        $branches = Branch::all();
 
         return view('backend.pages.interview.create')->with([
-            'applications' => $applications
+            'applications'    => $applications,
+            'branches'        => $branches
         ]);
     }
 
@@ -65,7 +68,6 @@ class InterviewController extends Controller
      */
     public function store(InterviewRequest $request)
     {
-
         $data = $request->all();
         $data['time'] = Carbon::parse($request->time)->format('H:i');
 
@@ -101,8 +103,9 @@ class InterviewController extends Controller
         $usermail = $interview->applicant->email;
 
         $applicant = Application::where('id', $interview->applications_id)->first();
+        $branch = Branch::where('id', $interview->branch_id)->first();
 
-        Mail::to($usermail)->queue(new InterviewInvitation($interview, $applicant));
+        Mail::to($usermail)->queue(new InterviewInvitation($interview, $applicant, $branch));
 
         flash('Invitation Send Successfully!')->success();
         return redirect()->route('interview.index');
@@ -117,10 +120,12 @@ class InterviewController extends Controller
     public function edit(Interview $interview)
     {
         $applications = Application::where('status', 'interview')->get();
+        $branches = Branch::all();
 
         return view('backend.pages.interview.edit')->with([
-            'interview' => $interview,
-            'applications' => $applications
+            'interview'     => $interview,
+            'applications'  => $applications,
+            'branches'      => $branches
         ]);
     }
 

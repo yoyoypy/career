@@ -33,6 +33,10 @@
                         <td>{{ $item->Job->jobtitle }}</td>
                     </tr>
                     <tr>
+                        <th>Expected Salary</th>
+                        <td>Rp {{ number_format($item->salary) }}</td>
+                    </tr>
+                    <tr>
                         <th>Name</th>
                         <td>{{ $item->firstname }} {{ $item->lastname }}</td>
                     </tr>

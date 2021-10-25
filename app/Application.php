@@ -15,6 +15,7 @@ class Application extends Model
         'pob',
         'sex',
         'education',
+        'salary',
         'id_card_address',
         'present_address',
         'phone_number',

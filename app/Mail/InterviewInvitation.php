@@ -13,16 +13,18 @@ class InterviewInvitation extends Mailable
 
     public $interview;
     public $applicant;
+    public $branch;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($interview, $applicant)
+    public function __construct($interview, $applicant, $branch)
     {
         $this->interview = $interview;
         $this->applicant = $applicant;
+        $this->branch    = $branch;
     }
 
     /**
@@ -37,7 +39,8 @@ class InterviewInvitation extends Mailable
                 ->attach('assets/doc/FormDataPribadiPelamar.docx')
                 ->with([
                     'applicant' => $this->applicant,
-                    'interview' => $this->interview
+                    'interview' => $this->interview,
+                    'branch'    => $this->branch
                 ])
                 ->markdown('frontend.emails.interviewinvitation');
     }

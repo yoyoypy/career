@@ -188,8 +188,12 @@
                             <span style="font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
                           <br />
                           <br>
-                          <span style="font-size:15px">Date : {{ $interview->date }}</span><br>
-                          <span style="font-size:15px">Time : {{ $interview->time }}</span>
+                          <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
+                          <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
+                          <span style="font-size:15px">PIC      : {{ $branch->pic }}</span><br>
+                          <span style="font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
+                          <span style="font-size:15px">Date     : {{ $interview->date }}</span><br>
+                          <span style="font-size:15px">Time     : {{ $interview->time }}</span>
                           <br><br>
                           <span style="font-size:15px">feel free to reply this email if you have anything to ask.</span>
                         </div>

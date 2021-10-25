@@ -97,6 +97,16 @@
                         </div>
                     </div>
                     <div class="form-group mt-10">
+                        <label for="salary" class="form-control-label">Gaji yang diharapkan*</label>
+                            <input  type="number"
+                                    name="salary"
+                                    value="{{ old('salary') }}"
+                                    placeholder="contoh : 4000000"
+                                    required
+                                    class="form-control @error('salary') is-invalid @enderror"/>
+                        @error('salary') <div class="text-muted">{{ $message }}</div>@enderror
+                    </div>
+                    <div class="form-group mt-10">
                         <label for="id_card_address" class="form-control-label">Alamat sesuai KTP*</label>
                         <textarea name="id_card_address"
                         required

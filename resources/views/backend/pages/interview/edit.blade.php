@@ -22,13 +22,28 @@
             <label for="applications_id" class="form-control-label">Candidate</label>
               <select name="applications_id"
                       value="{{ old('applications_id') ? old('applications_id') : $interview->applications_id }}"
-                      class="form-control @error('applications_id') is-invalid @enderror">
+                      class="form-control col-sm-4 @error('applications_id') is-invalid @enderror">
+                      <option value="">Select Candidate</option>
+                      <option value="" disabled>---------------</option>
                     @foreach  ($applications as $application)
                       <option value="{{ $application->id}}">{{ $application->firstname }} {{ $application->lastname }}</option>
                     @endforeach
               </select>
             @error('applications_id') <div class="text-muted">{{ $message }}</div> @enderror
             <small class="form-text text-muted">Only candidates with <i>interview</i> status will appear</small>
+        </div>
+        <div class="form-group">
+            <label for="branch_id" class="form-control-label">Interview Location</label>
+              <select name="branch_id"
+                      value="{{ old('branch_id') ? old('branch_id') : $interview->branch->id }}"
+                      class="form-control col-sm-4 @error('branch_id') is-invalid @enderror">
+                      <option value="">Select Branch</option>
+                      <option value="" disabled>---------------</option>
+                    @foreach  ($branches as $branch)
+                      <option value="{{ $branch->id}}">{{ $branch->branch }} | PIC : {{ $branch->pic }}</option>
+                    @endforeach
+              </select>
+            @error('applications_id') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
     {{-- timepicker --}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
@@ -37,7 +52,7 @@
             <div class="col col-sm-3">
                 <input  type="text"
                         name="time"
-                        value="{{ old('time') ? old('time'): $interview->time }}"
+                        value="{{ old('time') ? old('time') : $interview->time }}"
                         required
                         class="timepicker form-control @error('time') is-invalid @enderror"/>
                 @error('time') <div class="text-muted">{{ $message }}</div> @enderror
