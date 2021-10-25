@@ -41,6 +41,19 @@
       display: block;
       margin: 13px 0;
     }
+
+    .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
   </style>
   <!--[if mso]>
         <noscript>
@@ -185,16 +198,22 @@
                         <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
                             <span style="font-size:20px; font-weight:bold">Congratulations! you are invited for an interview.</span><br>
                             <br>
+                            <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
+                            <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
+                            <span style="font-size:15px">PIC      : {{ $branch->pic }}</span><br>
+                            <span style="font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
+                            <span style="font-size:15px">Date     : {{ $interview->date }}</span><br>
+                            <span style="font-size:15px">Time     : {{ $interview->time }}</span>
+                            <br><br>
                             <span style="font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
                           <br />
                           <br>
-                          <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
-                          <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
-                          <span style="font-size:15px">PIC      : {{ $branch->pic }}</span><br>
-                          <span style="font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
-                          <span style="font-size:15px">Date     : {{ $interview->date }}</span><br>
-                          <span style="font-size:15px">Time     : {{ $interview->time }}</span>
-                          <br><br>
+                          @if ($interview->url == null or '')
+                              <br>
+                          @else
+                            <span style="font-size:18px; font-weight:bold">And please do psychotest <a href="{{ $interview->url }}">HERE</a></span><br>
+                            <br><br>
+                          @endif
                           <span style="font-size:15px">feel free to reply this email if you have anything to ask.</span>
                         </div>
                       </td>

@@ -18,6 +18,15 @@
           @error('title') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
+            <label for="url" class="form-control-label">URL Psikotest</label>
+            <input  type="text"
+                    name="url"
+                    value="{{ old('url') }}"
+                    placeholder="kosongkan jika tidak ada"
+                    class="form-control @error('url') is-invalid @enderror"/>
+            @error('url') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
             <label for="applications_id" class="form-control-label">Candidate</label>
               <select name="applications_id"
                       value="{{ old('applications_id') }}"
