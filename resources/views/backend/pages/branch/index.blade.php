@@ -31,7 +31,7 @@
                       <td>{{ $item->branch }}</td>
                       <td>{{ $item->pic }}</td>
                       <td>{{ $item->pic_phone }}</td>
-                      <td>{{ $item->address }}</td>
+                      <td>{{ Str::limit($item->address, 50) }}</td>
                       <td>
                         <a href="{{ route('branch.edit', $item->id) }}" class="btn btn-primary btn-sm">
                           <i class="fa fa-pencil"></i>
