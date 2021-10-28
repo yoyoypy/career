@@ -84,6 +84,7 @@ class BranchController extends Controller
 
         $branch->update($data);
 
+        flash('Branch Edited!')->success();
         return redirect()->route('branch.index');
     }
 

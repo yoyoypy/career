@@ -102,9 +102,9 @@ class InterviewController extends Controller
 
         $usermail = $interview->applicant->email;
 
-        $applicant = Application::where('id', $interview->applications_id)->first();
+        $applicant = Application::with('Job')->where('id', $interview->applications_id)->first();
         $branch = Branch::where('id', $interview->branch_id)->first();
-
+        // dd($applicant);
         Mail::to($usermail)->queue(new InterviewInvitation($interview, $applicant, $branch));
 
         flash('Invitation Send Successfully!')->success();

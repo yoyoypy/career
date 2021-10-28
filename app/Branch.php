@@ -11,6 +11,7 @@ class Branch extends Model
         'branch',
         'pic',
         'pic_phone',
-        'address'
+        'address',
+        'gmaps_url'
     ];
 }

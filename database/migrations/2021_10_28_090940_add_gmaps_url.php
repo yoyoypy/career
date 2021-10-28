@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUrlColoumn extends Migration
+class AddGmapsUrl extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddUrlColoumn extends Migration
      */
     public function up()
     {
-        Schema::table('interview', function (Blueprint $table) {
-            $table->string('url')
-                ->after('title')
+        Schema::table('branches', function (Blueprint $table) {
+            $table->string('gmaps_url')
+                ->after('address')
                 ->nullable();
         });
     }
@@ -27,8 +27,8 @@ class AddUrlColoumn extends Migration
      */
     public function down()
     {
-        Schema::table('interview', function (Blueprint $table) {
-            $table->dropColumn('url');
+        Schema::table('branches', function (Blueprint $table) {
+            $table->dropColumn('gmaps_url');
         });
     }
 }

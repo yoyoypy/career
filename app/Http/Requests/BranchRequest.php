@@ -29,7 +29,8 @@ class BranchRequest extends FormRequest
             'branch'    => 'required',
             'pic'       => 'required',
             'pic_phone' => 'required|numeric',
-            'address'   => 'required'
+            'address'   => 'required',
+            'gmaps_url' => 'required|url'
         ];
     }
 }

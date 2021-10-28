@@ -43,7 +43,17 @@
                       required
                       class="form-control @error('address') is-invalid @enderror">{{ old('address') ? old('address') : $item->address }}</textarea>
             @error('address') <div class="text-muted">{{ $message }}</div> @enderror
-          </div>
+        </div>
+        <div class="form-group">
+            <label for="gmaps_url" class="form-control-label">Link Google Maps</label>
+            <input  type="url"
+                    name="gmaps_url"
+                    value="{{ old('gmaps_url') ? old('gmaps_url') : $item->gmaps_url }}"
+                    placeholder="https://example.com"
+                    required
+                    class="form-control @error('gmaps_url') is-invalid @enderror"/>
+            @error('gmaps_url') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
     </div>
     <div class="text-right" style="padding-right: 8px">
         <div class="form-group" style="float: right">
