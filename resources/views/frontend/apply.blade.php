@@ -195,7 +195,7 @@
                             @error('question_id') <div class="text-muted">{{ $question->id }}</div> @enderror
                     </div>
                     <div class="form-group mt-10">
-                        <label for="answer" class="form-control-label">{{ $question->question }}</label>
+                        <label for="answer" class="form-control-label">{{ $question->question }}*</label>
                         <div class="form-select" id="default-select">
                             <select name="answers[]"
                                     value="{{ old('answer') }}"

@@ -27,7 +27,7 @@
                   @forelse ($items as $item)
                     <tr>
                       <td>{{ $item->title }}</td>
-                      <td>{{ $item->question }}</td>
+                      <td>{{ Str::limit($item->question, 40) }}</td>
                       <td>{{ $item->job->jobtitle }}</td>
                       <td>
                         <a href="{{ route('question.value.index', $item->id) }}" class="btn btn-primary btn-sm">
