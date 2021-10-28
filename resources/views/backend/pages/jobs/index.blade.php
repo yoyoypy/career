@@ -36,7 +36,7 @@
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">
                           <i class="fa fa-pencil"></i>
                         </a>
-                        <form action="{{ route('job.destroy', $item->id) }}"
+                        {{-- <form action="{{ route('job.destroy', $item->id) }}"
                               method="post"
                               class="d-inline">
                           @csrf
@@ -44,7 +44,7 @@
                           <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                           </button>
-                        </form>
+                        </form> --}}
                       </td>
                     </tr>
                   @empty

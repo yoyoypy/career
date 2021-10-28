@@ -34,7 +34,7 @@ class JobApplicationController extends Controller
     public function create($slug)
     {
         $item = Job::where('slug', $slug)->with('Questions.value')->firstorfail();
-        //dd($item);
+
         return view('frontend.apply')->with([
             'item' => $item
         ]);
@@ -91,7 +91,7 @@ class JobApplicationController extends Controller
         }
         //custom field store method DO NOT DELETE
 
-        Mail::to($usermail)->send(new ThanksForApplication($data));
+        Mail::to($usermail)->queue(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }
 
@@ -154,7 +154,7 @@ class JobApplicationController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        //dd($request);
+
         $item = Application::findOrFail($id);
         $item->update($data);
 

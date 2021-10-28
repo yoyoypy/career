@@ -21,7 +21,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
         //job route
-        Route::resource('job', 'JobController');
+        Route::resource('job', 'JobController')->except('destroy');
         Route::get('job/{id}/candidate', 'JobController@candidate');
 
         Route::prefix('/jobs')->group(function () {

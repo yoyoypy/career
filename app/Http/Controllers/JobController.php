@@ -23,7 +23,7 @@ class JobController extends Controller
     public function index()
     {
         $items = Job::with('Location', 'JobCategory', 'Company')->get();
-        //dd($items);
+
         return view('backend.pages.jobs.index')->with([
             'items' => $items
         ]);
@@ -48,7 +48,8 @@ class JobController extends Controller
             $locations = Location::all();
         }
         else{
-        $jobs = Job::with('Location', 'JobCategory', 'Company')->where('status', 'active')->paginate();
+        $jobs = Job::with('Location', 'JobCategory', 'Company')
+                    ->where('status', 'active')->paginate();
         $categories = JobCategory::all();
         $locations = Location::all();
         }
@@ -82,21 +83,13 @@ class JobController extends Controller
      */
     public function store(JobRequest $request)
     {
-        Job::create([
-            'slug'               => Str::slug($request->jobtitle),
-            'jobtitle'           => $request->input('jobtitle'),
-            'jobdescription'     => $request->input('jobdescription'),
-            'joblocation_id'     => $request->input('joblocation_id'),
-            'jobcategory_id'     => $request->input('jobcategory_id'),
-            'benefit'            => $request->input('benefit'),
-            'salary'             => $request->input('salary'),
-            'company_id'         => $request->input('company_id'),
-            'position'           => $request->input('position'),
-            'employment'         => $request->input('employment'),
-            'start'              => Carbon::parse($request->start),
-            'end'                => Carbon::parse($request->end),
-            'status'             => $request->input('status'),
-        ]);
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($request->jobtitle);
+        $data['start'] = Carbon::parse($request->start);
+        $data['end'] = Carbon::parse($request->end);
+
+        Job::create($data);
 
         flash('Job Added!')->success();
         return redirect()->route('job.index');
@@ -111,7 +104,6 @@ class JobController extends Controller
     public function show($slug)
     {
         $item = Job::with('Location', 'JobCategory', 'Company')->where('slug', $slug)->firstOrFail();
-        //dd($item);
 
         return view('frontend.jobdetail')->with([
             'item' => $item,
@@ -166,11 +158,11 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        $item = Job::findOrFail($id);
-        $item->delete();
+        // $item = Job::findOrFail($id);
+        // $item->delete();
 
-        flash('Job Deleted!')->warning();
-        return redirect()->route('job.index');
+        // flash('Job Deleted!')->warning();
+        // return redirect()->route('job.index');
     }
 
     public function candidate($id)

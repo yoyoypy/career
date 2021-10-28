@@ -199,8 +199,7 @@
                         <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
                             <span style="font-size:20px; font-weight:bold">Congratulations! you are invited for an interview for "{{ $applicant->Job->jobtitle }}".</span><br>
                             <br>
-                            <span style="font-size:15px">Day     : {{ \Carbon\Carbon::parse($interview->date)->format('l') }}</span><br>
-                            <span style="font-size:15px">Date     : {{ \Carbon\Carbon::parse($interview->date)->format('d M Y') }}</span><br>
+                            <span style="font-size:15px">Date     : {{ \Carbon\Carbon::parse($interview->date)->format('l') }}, {{ \Carbon\Carbon::parse($interview->date)->format('d M Y') }}</span><br>
                             <span style="font-size:15px">Time     : {{ \Carbon\Carbon::parse($interview->time)->format('h:i a') }}</span><br><br>
                             <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
                             <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
