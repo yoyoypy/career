@@ -135,7 +135,7 @@
                           <tbody>
                             <tr>
                               <td style="width:300px;">
-                                <img alt="" height="auto" src="https://karir.sadhanas.co.id/frontend/assets/img/thankyou.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="300" />
+                                <img alt="" height="auto" src="https://karir.sadhanas.co.id/frontend/assets/img/interview.png" style="border:none;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="300" />
                               </td>
                             </tr>
                           </tbody>
