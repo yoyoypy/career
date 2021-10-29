@@ -30,7 +30,7 @@
                       <td>{{ $item->Company->company }}</td>
                       <td>{{ $item->status }}</td>
                       <td>
-                          <a href="job/{{ $item->id }}/candidate" class="btn btn-success btn-sm">
+                          <a href="{{ route('candidate', $item->id) }}" class="btn btn-success btn-sm">
                               <i class="fa fa-group"> View Candidates</i>
                           </a>
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">

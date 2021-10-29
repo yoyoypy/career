@@ -6,14 +6,28 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-{{--                        <div class="col col-md-3" style="float: right">--}}
-{{--                        <div class="col-12 col-md-9">--}}
-{{--                        <select name="selectSm" id="selectSm" class="form-control-sm form-control">--}}
-{{--                            <option value="#">Please select</option>                            --}}
-{{--                            <option value="1">Option #1</option>--}}
-{{--                        </select>--}}
-{{--                        </div>--}}
-{{--                        </div>--}}
+                        @if (\Route::current()->getName() == 'candidate')
+                            <form action="{{ route('candidate', $job->id) }}" method="GET">
+                                <div class="row form-group">
+                                    <div class="col col-md-12">
+                                        <div class="input-group">
+                                            <div class="input-group-btn">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <i class="fa fa-search"></i> Search
+                                                </button>
+                                            </div>
+                                            <input  type="number"
+                                                    name="salary"
+                                                    placeholder="Input Max Salary"
+                                                    value="{{ old('salary') }}"
+                                                    required
+                                                    class="form-control col col-sm-3 @error('salary') is-invalid @enderror"/>
+                                                    @error('salary') <div class="text-muted">{{ $message }}</div> @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        @endif
                         <h4 class="box-title">Applications List</h4>
                     </div>
                     <div class="card-body--">

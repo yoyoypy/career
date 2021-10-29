@@ -22,7 +22,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         //job route
         Route::resource('job', 'JobController')->except('destroy');
-        Route::get('job/{id}/candidate', 'JobController@candidate');
+        Route::get('job/{id}/candidate', 'JobController@candidate')->name('candidate');
 
         Route::prefix('/jobs')->group(function () {
                 //job category route
