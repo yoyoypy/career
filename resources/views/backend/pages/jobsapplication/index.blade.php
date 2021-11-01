@@ -51,7 +51,7 @@
                                         <td>{{ $item->firstname }}</td>
                                         <td>{{ $item->Job->jobtitle }}</td>
                                         <td>Rp {{ number_format($item->salary) }}</td>
-                                        <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a></td>
+                                        <td><a href="{{ route('view-cv', $item->id) }}" target="new" class="btn btn-info btn-sm"><i class="fa fa-file-pdf-o"> View CV</i></a></td>
                                         <td>
                                             @if($item->status == 'new')
                                             <span class="badge badge-primary">
@@ -73,8 +73,8 @@
                                                 <i class="fa fa-pencil"> Change Status</i>
                                             </a>
                                             @include('backend.pages.jobsapplication.show')
-                                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
-                                                <i class="fa fa-eye"> View</i>
+                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
+                                                <i class="fa fa-eye"> Detail View</i>
                                             </button>
 {{--                                            <a href="{{ route('applicant.show', $item->id) }}" class="btn btn-info btn-sm">--}}
 {{--                                                <i class="fa fa-eye"></i>--}}
