@@ -123,17 +123,17 @@ class JobApplicationController extends Controller
     public function viewcv($id)
     {
         $applicant = Application::find($id);
-        // dd($applicant);
         $file = $applicant->cv;
+        $path = 'storage/assets/cv/';
+
+        $getfilename = str_replace('http://127.0.0.1:8000/storage/assets/cv/', '', $file);
+        $pathtofile = public_path($path . $getfilename);
 
         $headers = [
-            'Contetnt-Type' => 'application/pdf'
+            'Content-Type' => 'application/pdf'
         ];
 
-        // dd($file);
-        // return Response::make($file, 200, $headers);
-
-        return response()->file($file, $headers);
+        return response()->file($pathtofile, $headers);
     }
 
     /**
