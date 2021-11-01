@@ -10,6 +10,8 @@ use App\Http\Requests\JobApplicationRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ThanksForApplication;
 use App\Questions;
+use Facade\FlareClient\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class JobApplicationController extends Controller
 {
@@ -120,13 +122,18 @@ class JobApplicationController extends Controller
      */
     public function viewcv($id)
     {
-        $item = Application::findOrFail($id);
+        $applicant = Application::find($id);
+        // dd($applicant);
+        $file = $applicant->cv;
+
         $headers = [
-            'Content-Type' => 'application/pdf'
+            'Contetnt-Type' => 'application/pdf'
         ];
-        return view('backend.pages.jobsapplication.showcv')->with(
-            ['item'=>$item]
-        );
+
+        // dd($file);
+        // return Response::make($file, 200, $headers);
+
+        return response()->file($file, $headers);
     }
 
     /**

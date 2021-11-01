@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Application;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         //applicant route
         Route::resource('applicant', 'JobApplicationController');
+        Route::get('view-cv/{id}', 'JobApplicationController@viewcv')->name('view-cv');
+
+        // Route::get('view-cv/{id}', function($id) {
+        //     $file = Application::find($id);
+        //     return response()->file(storage_path($file->cv));
+        // })->name('view-cv');
+
         //applicant route status filter
         Route::get('applicant/status/new', 'JobApplicationController@new')->name('applicant.new');
         Route::get('applicant/status/phone', 'JobApplicationController@phone')->name('applicant.phone');
