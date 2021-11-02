@@ -93,6 +93,8 @@ class JobApplicationController extends Controller
         }
         //custom field store method DO NOT DELETE
 
+
+        //do not change send to queue, causing error because of upload file
         Mail::to($usermail)->send(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }

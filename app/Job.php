@@ -82,4 +82,9 @@ class Job extends Model
     //     return $this->Questions()->with('value');
     // }
 
+    public function scopeActive()
+    {
+        return $this->where('status', 'active');
+    }
+
 }
