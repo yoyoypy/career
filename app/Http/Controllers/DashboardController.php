@@ -16,6 +16,9 @@ class DashboardController extends Controller
     public function index(){
 
         $applications = Application::with('Job')->latest()->take(5)->get();
+        $new = Application::where('status', 'new')->count();
+        $interview = Application::where('status', 'interview')->count();
+        $reject = Application::where('status', 'rejected')->count();
 
         $job_count = Job::count();
         $applications_count = Application::count();
@@ -23,7 +26,10 @@ class DashboardController extends Controller
         return view('backend.pages.dashboard')->with([
             'applications'          => $applications,
             'job_count'             => $job_count,
-            'applications_count'    => $applications_count
+            'applications_count'    => $applications_count,
+            'new'                   => $new,
+            'interview'             => $interview,
+            'reject'                => $reject
         ]);
     }
 }

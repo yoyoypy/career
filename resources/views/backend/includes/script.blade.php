@@ -24,6 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="{{ asset('assets/js/init/fullcalendar-init.js') }}"></script>
 
+    @if (\Route::current()->getName() == 'dashboard')
     <!--Local Stuff-->
     <script>
         jQuery(document).ready(function($) {
@@ -31,9 +32,9 @@
 
             // Pie chart flotPie1
             var piedata = [
-                { label: "Pending", data: [[1,32]], color: '#5c6bc0'},
-                { label: "Gagal", data: [[1,33]], color: '#ef5350'},
-                { label: "Sukses", data: [[1,35]], color: '#66bb6a'}
+                { label: "Interview", data: [[1,{{ $interview }}]], color: '#ffc107'},
+                { label: "Reject", data: [[1,{{ $reject }}]], color: '#ef5350'},
+                { label: "New", data: [[1,{{ $new }}]], color: '#007bff'}
             ];
 
             $.plot('#flotPie1', piedata, {
@@ -216,3 +217,4 @@
             // Bar Chart #flotBarChart End
         });
     </script>
+@endif

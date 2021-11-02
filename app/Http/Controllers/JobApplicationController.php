@@ -126,9 +126,9 @@ class JobApplicationController extends Controller
         $file = $applicant->cv;
         $path = 'storage/assets/cv/';
 
-        $getfilename = str_replace('http://127.0.0.1:8000/storage/assets/cv/', '', $file);
+        $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
         $pathtofile = public_path($path . $getfilename);
-
+        // dd($getfilename);
         $headers = [
             'Content-Type' => 'application/pdf'
         ];
