@@ -55,8 +55,6 @@
                                         <td>
                                             @if($item->status == 'new')
                                             <span class="badge badge-primary">
-                                          @elseif($item->status == 'phone interview')
-                                            <span class="badge badge-info">
                                           @elseif($item->status == 'interview')
                                             <span class="badge badge-warning">
                                           @elseif($item->status == 'hired')

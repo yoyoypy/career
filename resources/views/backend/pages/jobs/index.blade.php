@@ -28,7 +28,17 @@
                       <td><a href="../job/{{ $item->slug }}" target="new">{{ $item->jobtitle }}</a></td>
                       <td>{{ $item->Location->location }}</td>
                       <td>{{ $item->Company->company }}</td>
-                      <td>{{ $item->status }}</td>
+                      <td>
+                        @if($item->status == 'active')
+                            <span class="badge badge-primary">
+                        @elseif($item->status == 'inactive')
+                            <span class="badge badge-danger">
+                        @else
+                            <span>
+                        @endif
+                            {{ $item->status }} Job
+                            </span>
+                      </td>
                       <td>
                           <a href="{{ route('candidate', $item->id) }}" class="btn btn-success btn-sm">
                               <i class="fa fa-group"> View Candidates</i>

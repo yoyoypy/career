@@ -41,11 +41,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         //applicant route
         Route::resource('applicant', 'JobApplicationController');
         Route::get('view-cv/{id}', 'JobApplicationController@viewcv')->name('view-cv');
-
-        // Route::get('view-cv/{id}', function($id) {
-        //     $file = Application::find($id);
-        //     return response()->file(storage_path($file->cv));
-        // })->name('view-cv');
+        Route::get('download-cv/{id}', 'JobApplicationController@downloadcv')->name('download-cv');
 
         //applicant route status filter
         Route::get('applicant/status/new', 'JobApplicationController@new')->name('applicant.new');

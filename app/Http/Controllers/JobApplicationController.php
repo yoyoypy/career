@@ -137,6 +137,24 @@ class JobApplicationController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function downloadcv($id)
+    {
+        $applicant = Application::find($id);
+        $file = $applicant->cv;
+        $path = 'storage/assets/cv/';
+
+        $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
+        $pathtofile = public_path($path . $getfilename);
+
+        return response()->download($pathtofile);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

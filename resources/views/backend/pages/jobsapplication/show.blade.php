@@ -107,7 +107,7 @@
                   </table>
             </div>
             <div class="modal-footer">
-                <a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a>
+                <a href="{{ route('download-cv', $item->id) }}" target="new" class="btn btn-primary btn-sm"><i class="fa fa-download"> Download CV</i></a>
                 <a href="{{ route('view-cv', $item->id) }}" target="new" class="btn btn-info btn-sm"><i class="fa fa-eye"> View CV</i></a>
             </div>
         </div>

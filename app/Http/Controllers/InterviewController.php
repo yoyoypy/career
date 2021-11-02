@@ -104,7 +104,7 @@ class InterviewController extends Controller
 
         $applicant = Application::with('Job')->where('id', $interview->applications_id)->first();
         $branch = Branch::where('id', $interview->branch_id)->first();
-        // dd($applicant);
+
         Mail::to($usermail)->queue(new InterviewInvitation($interview, $applicant, $branch));
 
         flash('Invitation Send Successfully!')->success();
@@ -143,6 +143,9 @@ class InterviewController extends Controller
 
         Interview::find($interview);
         $interview->update($data);
+
+        $interview->send_mail = '0';
+        $interview->save();
 
         flash('Schedule Edited!')->success();
         return redirect()->route('interview.index');

@@ -111,7 +111,7 @@
                                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
                                                             <i class="fa fa-eye"> View</i>
                                                         </button></td>
-                                                    <td><a href="{{ $item->cv }}" class="btn btn-primary btn-sm"><i class="fa fa-download"> CV</i></a></td>
+                                                    <td><a href="{{ route('view-cv', $item->id) }}" target="new" class="btn btn-primary btn-sm"><i class="fa fa-eye"> CV</i></a></td>
                                                     <td>@if($item->status == 'new')
                                                         <span class="badge badge-primary">
                                                       @elseif($item->status == 'phone interview')
