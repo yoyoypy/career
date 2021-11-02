@@ -93,7 +93,7 @@ class JobApplicationController extends Controller
         }
         //custom field store method DO NOT DELETE
 
-        Mail::to($usermail)->queue(new ThanksForApplication($data));
+        Mail::to($usermail)->send(new ThanksForApplication($data));
         return view('frontend.jobapplied');
     }
 
@@ -128,7 +128,7 @@ class JobApplicationController extends Controller
 
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
         $pathtofile = public_path($path . $getfilename);
-        // dd($getfilename);
+
         $headers = [
             'Content-Type' => 'application/pdf'
         ];
