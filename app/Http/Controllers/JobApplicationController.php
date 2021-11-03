@@ -135,15 +135,17 @@ class JobApplicationController extends Controller
             'Content-Type' => 'application/pdf'
         ];
 
-        $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
+        // $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
 
-        if(Storage::exists($fullpath)){
-            return response()->file($pathtofile, $headers);
-        }
-        else{
-            flash('file not found or deleted!')->error();
-            return redirect()->route('applicant.index');
-        }
+        // if(Storage::exists($fullpath)){
+        //     return response()->file($pathtofile, $headers);
+        // }
+        // else{
+        //     flash('file not found or deleted!')->error();
+        //     return redirect()->route('applicant.index');
+        // }
+
+        return response()->file($pathtofile, $headers);
     }
 
     /**
@@ -161,15 +163,17 @@ class JobApplicationController extends Controller
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
         $pathtofile = public_path($path . $getfilename);
 
-        $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
+        // $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
 
-        if(Storage::exists($fullpath)){
-            return response()->download($pathtofile);
-        }
-        else{
-            flash('file not found or deleted!')->error();
-            return redirect()->route('applicant.index');
-        }
+        // if(Storage::exists($fullpath)){
+        //     return response()->download($pathtofile);
+        // }
+        // else{
+        //     flash('file not found or deleted!')->error();
+        //     return redirect()->route('applicant.index');
+        // }
+
+        return response()->download($pathtofile);
     }
 
     /**
