@@ -220,7 +220,7 @@ class JobApplicationController extends Controller
         $item = Application::find($id);
         $cv = $item->cv;
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $cv);
-        $pathtofile = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR;
+        $pathtofile = public_path('storage/assets/cv'). DIRECTORY_SEPARATOR;
 
         // if (Storage::exists($pathtofile . $getfilename)){
         //     unlink($pathtofile . $getfilename);
