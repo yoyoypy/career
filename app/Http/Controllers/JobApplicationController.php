@@ -222,11 +222,12 @@ class JobApplicationController extends Controller
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $cv);
         $pathtofile = public_path('storage/assets/cv'). DIRECTORY_SEPARATOR;
 
-        // if (Storage::exists($pathtofile . $getfilename)){
-        //     unlink($pathtofile . $getfilename);
-        // }
+        $fullpath = $pathtofile . $getfilename;
 
-        unlink($pathtofile . $getfilename);
+        if (Storage::exists($fullpath)){
+            unlink($pathtofile . $getfilename);
+        }
+
         $item->delete();
 
         flash('Candidate Deleted!')->error();
