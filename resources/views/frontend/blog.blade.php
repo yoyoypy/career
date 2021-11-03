@@ -16,16 +16,16 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="{{ $item->thumbnail }}" alt="Data Not Found">
-                                <a href="{{ $item->slug }}" class="blog_item_date">
+                                <a href="../blog/{{ $item->slug }}" class="blog_item_date">
                                     <p>{{ $item->created_at->todatestring() }}</p>
                                 </a>
                             </div>
                             <div class="blog_details">
-                                <a class="d-inline-block" href="{{ route('blog', $item->slug) }}">
+                                <a class="d-inline-block" href="../blog/{{ $item->slug }}">
                                     <h2>{{ $item->title }}</h2>
                                 </a>
                                 <p>{!! Str::limit($item->description, 200) !!}</p>
-                                <a href="{{ route('blog', $item->slug) }}">Read More...</a>
+                                <a href="../blog/{{ $item->slug }}">Read More...</a>
                             </div>
                         </article>
                     @empty
