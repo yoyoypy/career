@@ -135,7 +135,15 @@ class JobApplicationController extends Controller
             'Content-Type' => 'application/pdf'
         ];
 
-        return response()->file($pathtofile, $headers);
+        $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
+
+        if(Storage::exists($fullpath)){
+            return response()->file($pathtofile, $headers);
+        }
+        else{
+            flash('file not found or deleted!')->error();
+            return redirect()->route('applicant.index');
+        }
     }
 
     /**
@@ -153,7 +161,15 @@ class JobApplicationController extends Controller
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
         $pathtofile = public_path($path . $getfilename);
 
-        return response()->download($pathtofile);
+        $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
+
+        if(Storage::exists($fullpath)){
+            return response()->download($pathtofile);
+        }
+        else{
+            flash('file not found or deleted!')->error();
+            return redirect()->route('applicant.index');
+        }
     }
 
     /**
@@ -197,7 +213,19 @@ class JobApplicationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Application::find($id);
+        $cv = $item->cv;
+        $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $cv);
+        $pathtofile = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR;
+
+        if (Storage::exists($pathtofile . $getfilename)){
+            unlink($pathtofile . $getfilename);
+        }
+
+        $item->delete();
+
+        flash('Candidate Deleted!')->error();
+        return redirect()->route('applicant.rejected');
     }
 
     public function new()

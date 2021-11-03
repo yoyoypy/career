@@ -42,6 +42,9 @@
                                     <th>CV</th>
                                     <th>Status</th>
                                     <th>Action</th>
+                                @if (\Route::current()->getName() == 'applicant.rejected')
+                                    <th>delete</th>
+                                @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -74,10 +77,20 @@
                                             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#scrollmodal{{$item->id}}">
                                                 <i class="fa fa-eye"> Detail View</i>
                                             </button>
-{{--                                            <a href="{{ route('applicant.show', $item->id) }}" class="btn btn-info btn-sm">--}}
-{{--                                                <i class="fa fa-eye"></i>--}}
-{{--                                            </a>--}}
                                         </td>
+                                    @if (\Route::current()->getName() == 'applicant.rejected')
+                                        <td>
+                                        <form action="{{ route('applicant.destroy', $item->id) }}"
+                                                method="post"
+                                                class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm">
+                                              <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        </td>
+                                    @endif
                                     </tr>
                                 @empty
                                     <tr>

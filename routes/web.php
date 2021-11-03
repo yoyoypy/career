@@ -98,4 +98,4 @@ Route::get('job-location/{id}', 'LocationController@indexlist')->name('joblocati
 
 
 //sitemap
-Route::get('/sitemap.xml/job', 'SitemapController@job');
+Route::get('/jobsitemap.xml', 'SitemapController@job');

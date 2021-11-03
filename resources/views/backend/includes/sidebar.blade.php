@@ -49,7 +49,6 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-check"></i>Application by status</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-envelope"></i><a href="{{ route('applicant.new') }}">New</a></li>
-                            <li><i class="menu-icon fa fa-phone"></i><a href="{{ route('applicant.phone') }}">Phone Interview</a></li>
                             <li><i class="menu-icon fa fa-search"></i><a href="{{ route('applicant.interview') }}">Interview</a></li>
                             <li><i class="menu-icon fa fa-thumbs-up"></i><a href="{{ route('applicant.hired') }}">Hired</a></li>
                             <li><i class="menu-icon fa fa-warning"></i><a href="{{ route('applicant.rejected') }}">Rejected</a></li>
