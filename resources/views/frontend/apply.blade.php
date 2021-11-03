@@ -209,7 +209,7 @@
                     </div>
                     @endforeach
                     <div class="form-group mt-10">
-                        <button class="btn btn-primary btn-sm" style="float: right" type="submit">
+                        <button class="btn btn-primary btn-sm" style="float: right" type="submit" onclick="this.form.submit(); this.disabled=true;">
                             Submit Job Application
                         </button>
                     </div>
