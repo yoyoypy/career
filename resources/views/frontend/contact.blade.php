@@ -89,7 +89,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <div class="form-group">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                <button type="submit" class="button button-contactForm boxed-btn" onclick="this.form.submit(); this.disabled=true;">Send</button>
                             </div>
                         </div>
                     </form>

@@ -19,13 +19,22 @@
           @error('title') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label for="url" class="form-control-label">URL Psikotest</label>
+            <label for="psychotest_1" class="form-control-label">URL Psikotest 1</label>
             <input  type="text"
-                    name="url"
-                    value="{{ old('url') ? old('tiurltle') : $interview->url  }}"
+                    name="psychotest_1"
+                    value="{{ old('psychotest_1') }}"
                     placeholder="kosongkan jika tidak ada"
-                    class="form-control @error('url') is-invalid @enderror"/>
-            @error('url') <div class="text-muted">{{ $message }}</div> @enderror
+                    class="form-control @error('psychotest_1') is-invalid @enderror"/>
+            @error('psychotest_1') <div class="text-muted">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label for="psychotest_2" class="form-control-label">URL Psikotest 2</label>
+            <input  type="text"
+                    name="psychotest_2"
+                    value="{{ old('psychotest_2') }}"
+                    placeholder="kosongkan jika tidak ada"
+                    class="form-control @error('psychotest_2') is-invalid @enderror"/>
+            @error('psychotest_2') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label for="applications_id" class="form-control-label">Candidate</label>

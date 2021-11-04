@@ -10,7 +10,8 @@ class Interview extends Model
     protected $fillable = [
         'applications_id',
         'branch_id',
-        'url',
+        'psychotest_1',
+        'psychotest_2',
         'title',
         'date',
         'time'

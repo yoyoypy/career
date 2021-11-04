@@ -59,7 +59,7 @@
                         <form action="{{ route('invite', $item->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group" style="float: left">
-                            <button class="btn btn-primary btn-sm" type="submit">
+                            <button class="btn btn-primary btn-sm" type="submit" onclick="this.form.submit(); this.disabled=true;">
                                 Send Invitation
                             </button>
                         </div>

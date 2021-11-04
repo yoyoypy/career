@@ -203,21 +203,26 @@
                             <span style="font-size:15px">Time     : {{ \Carbon\Carbon::parse($interview->time)->format('h:i a') }}</span><br><br>
                             <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
                             <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
-                            <span style="font-size:15px">Google Maps : <a href="{{ $branch->gmaps }}" target="new">Link To Maps</a></span><br><br>
+                            <br><a class="button" href="{{ $branch->gmaps_url }}">Google Maps</a><br><br>
                             <span style="font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
                             <span style="font-size:15px">PIC      : {{ $branch->pic }}</span><br>
                             <br><br>
                             <span style="font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
                           <br />
                           <br>
-                          @if ($interview->url == null or '')
+                          @if ($interview->psychotest_1 == null or '')
                               <br>
                           @else
                             <span style="font-size:18px; font-weight:bold">And please do psychotest below </span><br>
-                              <a class="button" href="{{ $interview->url }}">Link to Psychotest</a><br>
-                            <br><br>
+                              <a class="button" href="{{ $interview->psychotest_1 }}">Link to Psychotest 1</a><br>
                           @endif
-                          <span style="font-size:15px">feel free to reply this email if you have anything to ask.</span>
+                          @if ($interview->psychotest_2 == null or '')
+                              <br>
+                          @else
+                              <a class="button" href="{{ $interview->psychotest_2 }}">Link to Psychotest 2</a><br>
+                              <br><br>
+                          @endif
+                          <span style="font-size:22px; font-weight:bold">Please confirm if you are willing to come for an interview by replying to this email.</span>
                         </div>
                       </td>
                     </tr>
@@ -250,7 +255,7 @@
                     </tr>
                     <tr>
                       <td align="center" style="font-size:0px;padding:10px 25px;padding-top:20px;padding-right:25px;padding-bottom:20px;padding-left:25px;word-break:break-word;">
-                        <div style="font-family:Helvetica;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">Best, <br />
+                        <div style="font-family:Helvetica;font-size:15px;line-height:1;text-align:center;color:#FFFFFF;">Best Regards, <br />
                           <span style="font-size:15px">{{ config('app.name') }}</span>
                         </div>
                       </td>

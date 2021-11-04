@@ -135,6 +135,7 @@ class JobApplicationController extends Controller
             'Content-Type' => 'application/pdf'
         ];
 
+        //**  work in local but not in production**
         // $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
 
         // if(Storage::exists($fullpath)){
@@ -144,6 +145,7 @@ class JobApplicationController extends Controller
         //     flash('file not found or deleted!')->error();
         //     return redirect()->route('applicant.index');
         // }
+        //**  work in local but not in production**
 
         return response()->file($pathtofile, $headers);
     }
@@ -163,6 +165,7 @@ class JobApplicationController extends Controller
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $file);
         $pathtofile = public_path($path . $getfilename);
 
+        //**  work in local but not in production**
         // $fullpath = public_path('storage\assets\cv'). DIRECTORY_SEPARATOR . $getfilename;
 
         // if(Storage::exists($fullpath)){
@@ -172,6 +175,7 @@ class JobApplicationController extends Controller
         //     flash('file not found or deleted!')->error();
         //     return redirect()->route('applicant.index');
         // }
+        //**  work in local but not in production**
 
         return response()->download($pathtofile);
     }
@@ -222,11 +226,13 @@ class JobApplicationController extends Controller
         $getfilename = str_replace( url('/storage/assets/cv/') . '/' , '', $cv);
         $pathtofile = public_path('storage/assets/cv'). DIRECTORY_SEPARATOR;
 
+        //**  work in local but not in production**
         // $fullpath = $pathtofile . $getfilename;
 
         // if (Storage::exists($fullpath)){
         //     unlink($pathtofile . $getfilename);
         // }
+        //**  work in local but not in production**
 
         unlink($pathtofile . $getfilename);
         $item->delete();
