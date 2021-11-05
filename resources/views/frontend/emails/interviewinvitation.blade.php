@@ -113,7 +113,7 @@
           <tr>
             <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:20px;padding-top:20px;text-align:center;">
               <!--[if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
-              <div class="mj-column-per-100 mj-outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+              <div class="mj-column-per-100 mj-outlook-group-fix" style="background:#FFFFFF;background-color:#FFFFFF;font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                   <tbody>
                     <tr>
@@ -197,23 +197,23 @@
                     <tr>
                       <td align="center" style="font-size:0px;padding:10px 25px;padding-top:28px;padding-right:25px;padding-bottom:28px;padding-left:25px;word-break:break-word;">
                         <div style="font-family:Helvetica;font-size:13px;line-height:1;text-align:center;color:#FFFFFF;">
-                            <span style="font-size:20px; font-weight:bold">Congratulations! you are invited for an interview for "{{ $applicant->Job->jobtitle }}".</span><br>
+                            <span style="color:#FFFFFF;font-size:20px; font-weight:bold">Congratulations! you are invited for an interview for "{{ $applicant->Job->jobtitle }}".</span><br>
                             <br>
-                            <span style="font-size:15px">Date     : {{ \Carbon\Carbon::parse($interview->date)->format('l') }}, {{ \Carbon\Carbon::parse($interview->date)->format('d M Y') }}</span><br>
-                            <span style="font-size:15px">Time     : {{ \Carbon\Carbon::parse($interview->time)->format('h:i a') }}</span><br><br>
-                            <span style="font-size:15px">Location : {{ $branch->branch }}</span><br>
-                            <span style="font-size:15px">Address  : {{ $branch->address }}</span><br>
+                            <span style="color:#FFFFFF;font-size:15px">Date     : {{ \Carbon\Carbon::parse($interview->date)->format('l') }}, {{ \Carbon\Carbon::parse($interview->date)->format('d M Y') }}</span><br>
+                            <span style="color:#FFFFFF;font-size:15px">Time     : {{ \Carbon\Carbon::parse($interview->time)->format('h:i a') }}</span><br><br>
+                            <span style="color:#FFFFFF;font-size:15px">Location : {{ $branch->branch }}</span><br>
+                            <span style="color:#FFFFFF;font-size:15px">Address  : {{ $branch->address }}</span><br>
                             <br><a class="button" href="{{ $branch->gmaps_url }}">Google Maps</a><br><br>
-                            <span style="font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
-                            <span style="font-size:15px">PIC      : {{ $branch->pic }}</span><br>
+                            <span style="color:#FFFFFF;font-size:15px">Contact  : {{ $branch->pic_phone }}</span><br>
+                            <span style="color:#FFFFFF;font-size:15px">PIC      : {{ $branch->pic }}</span><br>
                             <br><br>
-                            <span style="font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
+                            <span style="color:#FFFFFF; font-size:18px; font-weight:bold">Please download "form data diri" from attachment and bring it when you come for the interview.</span>
                           <br />
                           <br>
                           @if ($interview->psychotest_1 == null or '')
                               <br>
                           @else
-                            <span style="font-size:18px; font-weight:bold">And please do psychotest below </span><br>
+                            <span style="color:#FFFFFF; font-size:18px; font-weight:bold">And please do psychotest below </span><br>
                               <a class="button" href="{{ $interview->psychotest_1 }}">Link to Psychotest 1</a><br>
                           @endif
                           @if ($interview->psychotest_2 == null or '')
@@ -222,7 +222,7 @@
                               <a class="button" href="{{ $interview->psychotest_2 }}">Link to Psychotest 2</a><br>
                               <br><br>
                           @endif
-                          <span style="font-size:22px; font-weight:bold">Please confirm if you are willing to come for an interview by replying to this email.</span>
+                          <span style="color:#FFFFFF; font-size:22px; font-weight:bold">Please confirm if you are willing to come for an interview by replying to this email.</span>
                         </div>
                       </td>
                     </tr>
