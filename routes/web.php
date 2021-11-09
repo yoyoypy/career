@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Application;
 
 /*
 |--------------------------------------------------------------------------

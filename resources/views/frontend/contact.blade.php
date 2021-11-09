@@ -56,8 +56,8 @@
                                             value="{{ old('email') }}"
                                             type="email"
                                             onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Enter email address'"
-                                            placeholder="Email"
+                                            onblur="this.placeholder = 'Enter your email address'"
+                                            placeholder="Enter your email address"
                                             required/>
                                     @error('name') <div class="text-muted">{{ $message }}</div> @enderror
                                 </div>

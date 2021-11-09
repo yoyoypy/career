@@ -6,7 +6,6 @@ use App\Job;
 use App\Location;
 use App\JobCategory;
 use App\Company;
-use App\Answers;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Str;
@@ -69,9 +68,9 @@ class JobController extends Controller
     public function create()
     {
         return view('backend.pages.jobs.create')->with([
-            'locations' => $locations = Location::all(),
-            'categories' => $jobcategories = JobCategory::all(),
-            'companies' => $companies = Company::all()
+            'locations' => Location::all(),
+            'categories' => JobCategory::all(),
+            'companies' => Company::all()
         ]);
     }
 
@@ -103,13 +102,12 @@ class JobController extends Controller
      */
     public function show($slug)
     {
-        $item = Job::with('Location', 'JobCategory', 'Company')->where('slug', $slug)->firstOrFail();
+        $item = Job::with('Location', 'JobCategory', 'Company')
+                ->where('slug', $slug)
+                ->firstOrFail();
 
         return view('frontend.jobdetail')->with([
-            'item' => $item,
-            'locations' => $locations = Location::all(),
-            'categories' => $jobcategories = JobCategory::all(),
-            'companies' => $companies = Company::all()
+            'item' => $item
         ]);
     }
 
@@ -122,13 +120,12 @@ class JobController extends Controller
     public function edit($id)
     {
         $item = Job::with('Location', 'JobCategory', 'Company')->findOrFail($id);
-        //dd($item);
 
         return view('backend.pages.jobs.edit')->with([
             'item' => $item,
-            'locations' => $locations = Location::all(),
-            'categories' => $jobcategories = JobCategory::all(),
-            'companies' => $companies = Company::all()
+            'locations' => Location::all(),
+            'categories' => JobCategory::all(),
+            'companies' => Company::all()
         ]);
     }
 
@@ -170,14 +167,16 @@ class JobController extends Controller
         $job = Job::where('id', $id)->first();
 
         $maxsalary = request()->query('salary');
+
         if($maxsalary){
             $items = Application::with('Job')->where('jobvacancy_id', $id)
                     ->where('salary', '<=', $maxsalary)
                     ->latest()
                     ->paginate();
         }
+
         else{
-        $items = Application::with('Job')->where('jobvacancy_id', $id)->latest()->paginate();
+            $items = Application::with('Job')->where('jobvacancy_id', $id)->latest()->paginate();
         }
 
         return view('backend.pages.jobsapplication.index')->with([
