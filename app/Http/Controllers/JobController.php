@@ -42,13 +42,13 @@ class JobController extends Controller
             $jobs = Job::where([
                 ['jobtitle', 'LIKE', "%{$jobsearch}%"],
                 ['joblocation_id','LIKE', "%{$location}%"]
-                ])->active()->paginate();
+                ])->where('status', 'active')->paginate();
             $categories = JobCategory::all();
             $locations = Location::all();
         }
         else{
         $jobs = Job::with('Location', 'JobCategory', 'Company')
-                    ->active()->paginate();
+                    ->where('status', 'active')->paginate();
         $categories = JobCategory::all();
         $locations = Location::all();
         }
