@@ -13,7 +13,7 @@ class HomeController extends Controller
 
         $categories = JobCategory::inRandomOrder()->take(8)->get();
         $locations = Location::all();
-        $jobs = Job::latest()->take(4)->get();
+        $jobs = Job::active()->latest()->take(4)->get();
 
         return view('frontend.home')->with([
             'categories'    => $categories,
