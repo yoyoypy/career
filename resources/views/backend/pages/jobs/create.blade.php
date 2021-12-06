@@ -27,9 +27,11 @@
             <select name="joblocation_id"
                     value="{{ old('joblocation_id') }}"
                     class="form-control @error('joblocation_id') is-invalid @enderror">
-                @foreach  ($locations as $location)
-                    <option value="{{ $location->id}}">{{ $location->location }}</option>
-                @endforeach
+                        <option value="">Select Job Location</option>
+                        <option value="" disabled>-----------------</option>
+                    @foreach  ($locations as $location)
+                        <option value="{{ $location->id}}">{{ $location->location }}</option>
+                    @endforeach
             </select>
           @error('jobcategory_id') <div class="text-muted">{{ $message }}</div> @enderror
         </div>
@@ -58,6 +60,8 @@
               <select name="company_id"
                       value="{{ old('company_id') }}"
                       class="form-control @error('company_id') is-invalid @enderror">
+                      <option value="">Select Company</option>
+                      <option value="" disabled>-----------------</option>
                     @foreach  ($companies as $company)
                       <option value="{{ $company->id}}">{{ $company->company }}</option>
                     @endforeach
@@ -77,8 +81,10 @@
               <select name="employment"
                       value="{{ old('employment') }}"
                       class="form-control @error('employment') is-invalid @enderror">
-                  <option value="Full-time">Full-Time</option>
-                  <option value="Internship">Internship</option>
+                    <option value="">Select Employment Type</option>
+                    <option value="" disabled>-----------------</option>
+                    <option value="Full-time">Full-Time</option>
+                    <option value="Internship">Internship</option>
               </select>
               @error('employment') <div class="text-muted">{{ $message }}</div> @enderror
           </div>

@@ -39,7 +39,7 @@
               <select name="jobcategory_id"
                       value="{{ old('jobcategory_id')  ? old('jobcategory_id') : $item->jobcategory_id }}"
                       class="form-control @error('jobcategory_id') is-invalid @enderror">
-                      <option value="">Select Job Category</option>
+                      <option value="{{ $item->jobcategory_id }}">{{ $item->JobCategory->category }}</option>
                       <option value="" disabled>-----------------</option>
                       @foreach  ($categories as $category)
                       <option value="{{ $category->id }}">{{ $category->category }}</option>
