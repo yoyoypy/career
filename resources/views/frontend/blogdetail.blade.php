@@ -35,7 +35,7 @@
                 <div class="blog_details">
                    <h2>{{ $item->title }}</h2>
                    <p class="excert">
-                      {!! $item->description !!}
+                      {{ $item->description }}
                    </p>
                 </div>
              </div>

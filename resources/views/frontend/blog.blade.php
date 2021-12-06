@@ -15,7 +15,7 @@
                     @forelse ( $items as $item )
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="{{ $item->thumbnail }}" alt="Data Not Found">
+                                <img class="card-img rounded-0" src="{{ $item->thumbnail }}" alt="Data Not Found" style="max-height: 500px">
                                 <a href="../blog/{{ $item->slug }}" class="blog_item_date">
                                     <p>{{ $item->created_at->todatestring() }}</p>
                                 </a>
