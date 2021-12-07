@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Env;
 
 class SitemapController extends Controller
 {
-    public function job()
+    public function sitemap()
     {
         $jobs = Job::active()->get();
-        $geturl = Env('APP_URL');
+        $blogs = Blog::all();
 
         return response()->view('frontend.sitemap', [
             'jobs' => $jobs,
-            'geturl' => $geturl
+            'blogs' => $blogs
         ])->header('Content-Type', 'text/xml');
     }
 }
