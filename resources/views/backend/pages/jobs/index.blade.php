@@ -17,6 +17,7 @@
                     <th>Job Title</th>
                     <th>Job Location</th>
                     <th>Company</th>
+                    <th>Employment</th>
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -28,6 +29,15 @@
                       <td><a href="../job/{{ $item->slug }}" target="new">{{ $item->jobtitle }}</a></td>
                       <td>{{ $item->Location->location }}</td>
                       <td>{{ $item->Company->company }}</td>
+                      <td>
+                        @if($item->employment == 'Full-time')
+                            <span class="badge badge-primary">
+                        @else
+                            <span class="badge badge-success">
+                        @endif
+                        {{ $item->employment }}
+                        </span>
+                      </td>
                       <td>
                         @if($item->status == 'active')
                             <span class="badge badge-primary">
