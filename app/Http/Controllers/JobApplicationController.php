@@ -37,9 +37,16 @@ class JobApplicationController extends Controller
     {
         $item = Job::where('slug', $slug)->with('Questions.value')->firstorfail();
 
-        return view('frontend.apply')->with([
-            'item' => $item
-        ]);
+        if($item->status == 'active')
+        {
+            return view('frontend.apply')->with([
+                'item' => $item
+            ]);
+        }
+        else
+        {
+            return abort(404);
+        }
     }
 
     /**

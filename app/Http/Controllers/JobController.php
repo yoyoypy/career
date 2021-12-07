@@ -106,9 +106,16 @@ class JobController extends Controller
                 ->where('slug', $slug)
                 ->firstOrFail();
 
-        return view('frontend.jobdetail')->with([
-            'item' => $item
-        ]);
+        if($item->status == 'active')
+        {
+            return view('frontend.jobdetail')->with([
+                'item' => $item
+            ]);
+        }
+        else
+        {
+            return abort(404);
+        }
     }
 
     /**

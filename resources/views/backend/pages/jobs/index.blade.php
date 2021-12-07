@@ -54,7 +54,7 @@
                               <i class="fa fa-group"> View Candidates</i>
                           </a>
                         <a href="{{ route('job.edit', $item->id) }}" class="btn btn-primary btn-sm">
-                          <i class="fa fa-pencil"></i>
+                          <i class="fa fa-pencil"> Edit Job</i>
                         </a>
                         {{-- <form action="{{ route('job.destroy', $item->id) }}"
                               method="post"
