@@ -96,6 +96,7 @@ class JobApplicationController extends Controller
 
         //do not change send to queue, causing error because of upload file
         Mail::to($usermail)->send(new ThanksForApplication($data));
+
         return view('frontend.jobapplied');
     }
 

@@ -96,6 +96,19 @@
                         @error('education') <div class="text-muted">{{ $message }}</div>@enderror
                         </div>
                     </div>
+
+                @if ($item->employment == 'Internship')
+                    <div class="form-group mt-10">
+                        <label for="salary" class="form-control-label">Gaji yang diharapkan*</label>
+                            <input  type="number"
+                                    name="salary"
+                                    value="{{ old('salary') }}"
+                                    placeholder="hanya tersedia untuk lowongan full time"
+                                    disabled
+                                    class="form-control @error('salary') is-invalid @enderror"/>
+                        @error('salary') <div class="text-muted">{{ $message }}</div>@enderror
+                    </div>
+                @else
                     <div class="form-group mt-10">
                         <label for="salary" class="form-control-label">Gaji yang diharapkan*</label>
                             <input  type="number"
@@ -106,6 +119,8 @@
                                     class="form-control @error('salary') is-invalid @enderror"/>
                         @error('salary') <div class="text-muted">{{ $message }}</div>@enderror
                     </div>
+                @endif
+
                     <div class="form-group mt-10">
                         <label for="id_card_address" class="form-control-label">Alamat sesuai KTP*</label>
                         <textarea name="id_card_address"

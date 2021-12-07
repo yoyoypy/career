@@ -14,7 +14,7 @@ class AddExpectedSalary extends Migration
     public function up()
     {
         Schema::table('applications', function (Blueprint $table) {
-            $table->bigInteger('salary')->after('education');
+            $table->bigInteger('salary')->after('education')->nullable();
         });
     }
 
