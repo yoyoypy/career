@@ -25,6 +25,7 @@
           </div>
           <div class="form-group">
               <label for="thumbnail" class="form-control-label">Blog Thumbnail</label>
+              <small><strong>Masukkan kembali gambar</strong></small>
               <input  type="file"
                       name="thumbnail"
                       value="{{ old('thumbnail') ? old('thumbnail') : $item->thumbnail }}"
