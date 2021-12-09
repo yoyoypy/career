@@ -24,7 +24,7 @@
             @error('description') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
           <div class="form-group">
-              <label for="thumbnail" class="form-control-label">Blog Thumbnail</label>
+              <label for="thumbnail" class="form-control-label">Blog Thumbnail</label><br>
               <small><strong>Masukkan kembali gambar</strong></small>
               <input  type="file"
                       name="thumbnail"
