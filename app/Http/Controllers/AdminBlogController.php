@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\BlogUpdateRequest;
 use Illuminate\Support\Str;
 
 class AdminBlogController extends Controller
@@ -87,7 +88,7 @@ class AdminBlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogRequest $request, $id)
+    public function update(BlogUpdateRequest $request, $id)
     {
         $data = $request->all();
 
