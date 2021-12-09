@@ -117,7 +117,7 @@ class JobApplicationController extends Controller
     {
         $item = Application::with('answers')->findOrFail($id);
         $answers = Answers::where('application_id', $id)->get();
-        //dd($answers);
+
         return view('backend.pages.jobsapplication.show')->with([
             'item' => $item,
             'answers' => $answers
