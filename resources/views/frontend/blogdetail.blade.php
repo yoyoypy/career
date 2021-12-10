@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<!-- Hero Area Start-->
+{{-- Hero Area Start--}}
 <div class="slider-area ">
     <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="{{ $item->thumbnail }}">
         <div class="container">
@@ -22,8 +22,8 @@
         </div>
     </div>
  </div>
- <!-- Hero Area End -->
- <!--================Blog Area =================-->
+ {{-- Hero Area End --}}
+ {{--================Blog Area =================--}}
  <section class="blog_area single-post-area section-padding">
     <div class="container">
        <div class="row">
@@ -49,5 +49,5 @@
        </div>
     </div>
  </section>
- <!--================ Blog Area end =================-->
+ {{--================ Blog Area end =================--}}
 @endsection

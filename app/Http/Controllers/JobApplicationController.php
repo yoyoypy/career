@@ -20,7 +20,7 @@ class JobApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Application $application)
+    public function index()
     {
         $items = Application::with('Job')->latest()->paginate();
         return view('backend.pages.jobsapplication.index')->with([
@@ -252,15 +252,6 @@ class JobApplicationController extends Controller
     public function new()
     {
         $items = Application::where('status', 'new')->with('Job')->latest()->paginate();
-
-        return view('backend.pages.jobsapplication.index')->with([
-            'items' => $items
-        ]);
-    }
-
-    public function phone()
-    {
-        $items = Application::where('status', 'phone interview')->with('Job')->latest()->paginate();
 
         return view('backend.pages.jobsapplication.index')->with([
             'items' => $items

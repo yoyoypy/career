@@ -3,7 +3,7 @@
 @section('meta')
          <title>Welcome to Sadhana Karir</title>
          <meta name="title" content="Sadhana Karir">
-         <meta name="keyword" content="karir sadhanas sadhana ekapraya amitra lowongan kerja">
+         <meta name="keyword" content="karir sadhanas sadhana ekapraya amitra lowongan kerja jobstreet">
          <meta name="description" content="PT. SADHANA EKAPRAYA AMITRA has been building it’s business in refrigerator and freezer that performed very well in public and private sectors on maintaining freshness, such as Juice Dispenser, Commercial, Food Product, Cake Display, Beverage, and Blood Banking. The company can assist with suitable refrigerator equipment to meet the specific required temperature of different food.">
 @endsection
 
@@ -11,9 +11,9 @@
 
 @section('content')
 <main>
-    <!-- slider Area Start-->
+    {{-- slider Area Start--}}
     <div class="slider-area ">
-        <!-- Mobile Menu -->
+        {{-- Mobile Menu --}}
         <div class="slider-active">
             <div class="single-slider slider-height d-flex align-items-center" data-background="{{ asset('frontend/assets/img/hero/h1_hero.jpg') }}">
                 <div class="container">
@@ -24,10 +24,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Search Box -->
+                    {{-- Search Box --}}
                     <div class="row">
                         <div class="col-xl-8">
-                            <!-- form -->
+                            {{-- form --}}
                             <form action="{{ route('jobs') }}" class="search-box">
                                 <label for="jobsearch" class="form-control-label"></label>
                                 <div class="input-form">
@@ -58,11 +58,11 @@
             </div>
         </div>
     </div>
-    <!-- slider Area End-->
-    <!-- Our Services Start -->
+    {{-- slider Area End--}}
+    {{-- Our Services Start --}}
     <div class="our-services section-pad-t30" style="padding-top: 4em; padding-bottom: 5em">
         <div class="container">
-            <!-- Section newest -->
+            {{-- Section newest --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
@@ -84,7 +84,7 @@
                 </div>
                 @endforeach
             </div>
-            <!-- Section Tittle -->
+            {{-- Section Tittle --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
@@ -107,8 +107,8 @@
                 </div>
                 @endforeach
             </div>
-            <!-- More Btn -->
-            <!-- Section Button -->
+            {{-- More Btn --}}
+            {{-- Section Button --}}
             <div class="row">
                 <div class="col-lg-12" style="bottom: 50px">
                     <div class="browse-btn2 text-center mt-50">
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Section Location -->
+            {{-- Section Location --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center">
@@ -137,8 +137,8 @@
                 </div>
                 @endforeach
             </div>
-            <!-- More Btn -->
-            <!-- Section Button -->
+            {{-- More Btn --}}
+            {{-- Section Button --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="browse-btn2 text-center mt-50">
@@ -148,14 +148,14 @@
             </div>
         </div>
     </div>
-    <!-- Our Services End -->
-    <!-- Support Company Start-->
+    {{-- Our Services End --}}
+    {{-- Support Company Start--}}
     <div class="support-company-area support-padding fix">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
                     <div class="right-caption">
-                        <!-- Section Tittle -->
+                        {{-- Section Tittle --}}
                         <div class="section-tittle section-tittle2">
                             <span>Who we are</span>
                             <h2>PT. SADHANA EKAPRAYA AMITRA</h2>
@@ -170,20 +170,20 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="support-location-img">
                         <img src="{{ asset('frontend/assets/img/gallery/produk-vertikal.jpg') }}" alt="">
-                        <!-- <div class="support-img-cap text-center">
+                        {{-- <div class="support-img-cap text-center">
                             <p>Since</p>
                             <span>1994</span>
-                        </div> -->
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Support Company End-->
-    <!-- How  Apply Process Start-->
+    {{-- Support Company End--}}
+    {{-- How  Apply Process Start--}}
     <div class="apply-process-area apply-bg pt-150 pb-150" data-background="frontend/assets/img/gallery/how-applybg.png">
         <div class="container">
-            <!-- Section Tittle -->
+            {{-- Section Tittle --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-tittle white-text text-center">
@@ -192,7 +192,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Apply Process Caption -->
+            {{-- Apply Process Caption --}}
             <div class="row">
                 <div class="col-lg">
                     <div class="single-process mb-30">
@@ -251,7 +251,7 @@
             </div>
          </div>
     </div>
-    <!-- How  Apply Process End-->
+    {{-- How  Apply Process End--}}
 </main>
 @endsection
 

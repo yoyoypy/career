@@ -43,7 +43,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
         //applicant route status filter
         Route::get('applicant/status/new', 'JobApplicationController@new')->name('applicant.new');
-        Route::get('applicant/status/phone', 'JobApplicationController@phone')->name('applicant.phone');
         Route::get('applicant/status/interview', 'JobApplicationController@interview')->name('applicant.interview');
         Route::get('applicant/status/hired', 'JobApplicationController@hired')->name('applicant.hired');
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected')->name('applicant.rejected');

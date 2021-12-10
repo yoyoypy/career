@@ -8,12 +8,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/favicon.ico') }}">
 
-		<!-- CSS here -->
+		{{-- CSS here --}}
         @stack('before-style')
         @include('frontend.includes.style')
         @stack('after-style')
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+        {{-- Global site tag (gtag.js) - Google Analytics --}}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7HPC1EF6S"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
@@ -25,7 +25,7 @@
     </head>
 
     <body>
-       <!-- Preloader Start -->
+       {{-- Preloader Start --}}
         <div id="preloader-active">
             <div class="preloader d-flex align-items-center justify-content-center">
                 <div class="preloader-inner position-relative">

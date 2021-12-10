@@ -19,8 +19,8 @@
         </div>
     </div>
 </div>
-    <!-- Hero Area End -->
-<!-- ================ contact section start ================= -->
+    {{-- Hero Area End --}}
+{{-- ================ contact section start ================= --}}
 <section class="contact-section">
         <div class="container">
             <div class="d-none d-sm-block mb-5 pb-4">

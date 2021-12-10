@@ -178,12 +178,16 @@ class JobController extends Controller
         if($maxsalary){
             $items = Application::with('Job')->where('jobvacancy_id', $id)
                     ->where('salary', '<=', $maxsalary)
+                    ->where('status', '!=', 'rejected')
                     ->latest()
                     ->paginate();
         }
 
         else{
-            $items = Application::with('Job')->where('jobvacancy_id', $id)->latest()->paginate();
+            $items = Application::with('Job')->where('jobvacancy_id', $id)
+                    ->where('status', '!=', 'rejected')
+                    ->latest()
+                    ->paginate();
         }
 
         return view('backend.pages.jobsapplication.index')->with([
