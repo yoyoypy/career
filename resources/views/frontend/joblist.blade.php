@@ -37,7 +37,7 @@
                                 <div class="col-lg-12">
                                     <div class="count-job mb-35">
                                        <span>39, 782 Jobs found</span>
-                                        {{-- Select job items start --}}
+                                        Select job items start
                                        <div class="select-job-items">
                                            <span>Sort by</span>
                                            <select name="select">
@@ -47,7 +47,7 @@
                                                <option value="">job list</option>
                                            </select>
                                        </div>
-                                        {{--  Select job items End--}}
+                                         Select job items End
                                     </div>
                                 </div>
                             </div> --}}
