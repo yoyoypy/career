@@ -8,6 +8,7 @@ use App\JobCategory;
 use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
+use App\JobView;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
@@ -100,7 +101,7 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Request $request,$slug)
     {
         $item = Job::with('Location', 'JobCategory', 'Company')
                 ->where('slug', $slug)
@@ -108,6 +109,8 @@ class JobController extends Controller
 
         if($item->status == 'active')
         {
+            JobView::createViewLog($item, $request);
+
             return view('frontend.jobdetail')->with([
                 'item' => $item
             ]);
