@@ -68,6 +68,8 @@
                         </div>
                     </div>
 
+                    @include('frontend.includes.disclaimer')
+
                 </div>
                 {{-- Right Content --}}
                 <div class="col-xl-4 col-lg-4">

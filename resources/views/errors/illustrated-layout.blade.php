@@ -457,6 +457,7 @@
         </style>
     </head>
     <body class="antialiased font-sans">
+        <meta http-equiv="refresh" content="5; URL=/" />
         <div class="md:flex min-h-screen">
             <div class="w-full md:w-1/2 bg-white flex items-center justify-center">
                 <div class="max-w-sm m-8">
