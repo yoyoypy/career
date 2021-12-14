@@ -162,7 +162,7 @@
                         <div class="card-body">
                             <div class="stat-widget-five">
                                 <div class="stat-icon dib flat-color-1">
-                                    <img src="{{ $blog->thumbnail }}" alt="img" style="max-width: 70px">
+                                    <img src="{{ $blog->thumbnail }}" alt="img" style="max-width: 70px; max-height: 50px">
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
