@@ -36,6 +36,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
                 Route::resource('question.value', 'ValueController')->shallow()->except('edit');
         });
 
+        //web traffic route
+        Route::resource('traffic', 'TrafficController');
+
         //applicant route
         Route::resource('applicant', 'JobApplicationController');
         Route::get('view-cv/{id}', 'JobApplicationController@viewcv')->name('view-cv');

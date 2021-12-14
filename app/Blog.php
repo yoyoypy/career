@@ -18,4 +18,14 @@ class Blog extends Model
     {
         return url('storage/' . $value);
     }
+
+    /**
+     * Get all of the comments for the Blog
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function views()
+    {
+        return $this->hasMany(BlogView::class, 'blog_id', 'id');
+    }
 }

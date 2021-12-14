@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
+use App\BlogView;
 
 class BlogController extends Controller
 {
@@ -38,10 +39,12 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
         $item = Blog::where('slug', $slug)->firstOrFail();
         $blogs = Blog::orderByDesc('created_at')->get();
+
+        BlogView::createViewLog($item, $request);
 
         return view('frontend.blogdetail')->with([
             'item' => $item,

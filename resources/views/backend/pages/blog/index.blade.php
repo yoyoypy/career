@@ -19,6 +19,7 @@
                     <th>#</th>
                     <th>Title</th>
                     <th>Thumbnail</th>
+                    <th>Total Views</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -28,6 +29,7 @@
                       <td>{{ $item->id }}</td>
                       <td>{{ $item->title }}</td>
                       <td><img src="{{ url($item->thumbnail) }}" alt="Wrong url" style="max-width: 100px"></td>
+                      <td>{{ $item->views_count }}</td>
                       <td>
                         <a href="{{ route('blog.edit', $item->id) }}" class="btn btn-primary btn-sm">
                           <i class="fa fa-pencil"></i>

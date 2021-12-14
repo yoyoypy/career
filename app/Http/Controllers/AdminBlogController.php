@@ -17,7 +17,7 @@ class AdminBlogController extends Controller
      */
     public function index()
     {
-        $items = Blog::all();
+        $items = Blog::withCount('views')->get();
 
         return view('backend.pages.blog.index')->with([
             'items' => $items

@@ -87,4 +87,14 @@ class Job extends Model
         return $this->where('status', 'active');
     }
 
+    /**
+     * Get all of the comments for the Blog
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function views()
+    {
+        return $this->hasMany(JobView::class, 'jobvacancy_id', 'id');
+    }
+
 }

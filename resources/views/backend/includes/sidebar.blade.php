@@ -64,6 +64,9 @@
                     <li class="{{ \Route::current()->getName() == 'contact-us.index' ? 'active' : '' }}">
                         <a href="{{ route ('contact-us.index') }}"> <i class="menu-icon fa fa-envelope"></i>Contact Inbox List</a>
                     </li>
+                    <li class="{{ \Route::current()->getName() == 'traffic.index' ? 'active' : '' }}">
+                        <a href="{{ route ('traffic.index') }}"> <i class="menu-icon fa fa-signal"></i>Traffic Count</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

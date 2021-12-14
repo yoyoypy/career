@@ -101,7 +101,7 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$slug)
+    public function show(Request $request, $slug)
     {
         $item = Job::with('Location', 'JobCategory', 'Company')
                 ->where('slug', $slug)
