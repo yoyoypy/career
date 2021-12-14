@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Job;
 use App\JobView;
 use Illuminate\Http\Request;
@@ -16,10 +17,11 @@ class TrafficController extends Controller
     public function index()
     {
         $job_traffic = Job::withCount('views')->get();
-        // dd($job_traffic);
+        $blog_traffic = Blog::withCount('views')->get();
 
         return view('backend.pages.traffic.index')->with([
-            'job_traffic' => $job_traffic,
+            'job_traffic'  => $job_traffic,
+            'blog_traffic' => $blog_traffic
         ]);
     }
 

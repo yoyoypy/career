@@ -37,7 +37,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         });
 
         //web traffic route
-        Route::resource('traffic', 'TrafficController');
+        Route::resource('traffic', 'TrafficController')->only('index', 'show');
 
         //applicant route
         Route::resource('applicant', 'JobApplicationController');
