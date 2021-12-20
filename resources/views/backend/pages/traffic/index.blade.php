@@ -58,7 +58,7 @@
             <div class="card col-md-6 no-padding ">
                 <div class="card-body">
                     <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-cart-plus"></i>
+                        <span class="badge badge-primary">NEW</span>
                     </div>
                     <div class="h4 mb-0">
                         <span class="count">{{ $new }}</span>
@@ -70,7 +70,7 @@
             <div class="card col-md-6 no-padding ">
                 <div class="card-body">
                     <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-cart-plus"></i>
+                        <span class="badge badge-warning">INTERVIEW</span>
                     </div>
                     <div class="h4 mb-0">
                         <span class="count">{{ $interview }}</span>
@@ -84,7 +84,7 @@
             <div class="card col-md-6 no-padding ">
                 <div class="card-body">
                     <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-pie-chart"></i>
+                        <span class="badge badge-danger">REJECT</span>
                     </div>
                     <div class="h4 mb-0">
                         <span class="count">{{ $reject }}</span>
