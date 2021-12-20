@@ -27,6 +27,7 @@
               <label for="thumbnail" class="form-control-label">Blog Thumbnail</label><br>
               <small><strong>Masukkan kembali gambar</strong></small>
               <input  type="file"
+                      required
                       name="thumbnail"
                       value="{{ old('thumbnail') ? old('thumbnail') : $item->thumbnail }}"
                       accept="image"

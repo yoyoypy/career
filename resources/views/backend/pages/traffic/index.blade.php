@@ -34,23 +34,25 @@
                     </div>
 
                     <div class="h4 mb-0">
-                        <span class="count">87500</span>
+                        <span class="count">{{ $total_job_view }}</span>
                     </div>
 
-                    <small class="text-muted text-uppercase font-weight-bold">Visitors</small>
+                    <small class="text-muted text-uppercase font-weight-bold">Total Job Visitors</small>
                     <div class="progress progress-xs mt-3 mb-0 bg-flat-color-1" style="width: 40%; height: 5px;"></div>
                 </div>
             </div>
             <div class="card col-md-6 no-padding ">
                 <div class="card-body">
                     <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-user-plus"></i>
+                        <i class="fa fa-users"></i>
                     </div>
+
                     <div class="h4 mb-0">
-                        <span class="count">385</span>
+                        <span class="count">{{ $total_blog_view }}</span>
                     </div>
-                    <small class="text-muted text-uppercase font-weight-bold">New Clients</small>
-                    <div class="progress progress-xs mt-3 mb-0 bg-flat-color-2" style="width: 40%; height: 5px;"></div>
+
+                    <small class="text-muted text-uppercase font-weight-bold">Total Blog Visitors</small>
+                    <div class="progress progress-xs mt-3 mb-0 bg-flat-color-1" style="width: 40%; height: 5px;"></div>
                 </div>
             </div>
             <div class="card col-md-6 no-padding ">
@@ -59,10 +61,22 @@
                         <i class="fa fa-cart-plus"></i>
                     </div>
                     <div class="h4 mb-0">
-                        <span class="count">1238</span>
+                        <span class="count">{{ $new }}</span>
                     </div>
-                    <small class="text-muted text-uppercase font-weight-bold">Products sold</small>
+                    <small class="text-muted text-uppercase font-weight-bold">New Application</small>
                     <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 40%; height: 5px;"></div>
+                </div>
+            </div>
+            <div class="card col-md-6 no-padding ">
+                <div class="card-body">
+                    <div class="h1 text-muted text-right mb-4">
+                        <i class="fa fa-cart-plus"></i>
+                    </div>
+                    <div class="h4 mb-0">
+                        <span class="count">{{ $interview }}</span>
+                    </div>
+                    <small class="text-muted text-uppercase font-weight-bold">Interview Application</small>
+                    <div class="progress progress-xs mt-3 mb-0 bg-flat-color-1" style="width: 40%; height: 5px;"></div>
                 </div>
             </div>
 
@@ -73,32 +87,10 @@
                         <i class="fa fa-pie-chart"></i>
                     </div>
                     <div class="h4 mb-0">
-                        <span class="count">28</span>%
+                        <span class="count">{{ $reject }}</span>
                     </div>
-                    <small class="text-muted text-uppercase font-weight-bold">Returning Visitors</small>
+                    <small class="text-muted text-uppercase font-weight-bold">Reject Application</small>
                     <div class="progress progress-xs mt-3 mb-0 bg-flat-color-4" style="width: 40%; height: 5px;"></div>
-                </div>
-            </div>
-            <div class="card col-md-6 no-padding ">
-                <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-clock-o"></i>
-                    </div>
-                    <div class="h4 mb-0">5:34:11</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Avg. Time</small>
-                    <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 40%; height: 5px;"></div>
-                </div>
-            </div>
-            <div class="card col-md-6 no-padding ">
-                <div class="card-body">
-                    <div class="h1 text-muted text-right mb-4">
-                        <i class="fa fa-comments-o"></i>
-                    </div>
-                    <div class="h4 mb-0">
-                        <span class="count">972</span>
-                    </div>
-                    <small class="text-muted text-uppercase font-weight-bold">COMMENTS</small>
-                    <div class="progress progress-xs mt-3 mb-0 bg-flat-color-1" style="width: 40%; height: 5px;"></div>
                 </div>
             </div>
         </div>

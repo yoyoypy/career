@@ -25,6 +25,7 @@
           <div class="form-group">
               <label for="thumbnail" class="form-control-label">Blog Thumbnail</label>
               <input  type="file"
+                      required
                       name="thumbnail"
                       value="{{ old('thumbnail') }}"
                       accept="image"
