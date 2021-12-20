@@ -25,7 +25,7 @@ class TrafficController extends Controller
             'total_blog_view'   => BlogView::count(),
             'new'               => Application::where('status', 'new')->count(),
             'interview'         => Application::where('status', 'interview')->count(),
-            'reject'            => Application::where('status', 'reject')->count(),
+            'reject'            => Application::where('status', 'rejected')->count(),
         ]);
     }
 
