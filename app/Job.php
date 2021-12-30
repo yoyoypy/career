@@ -77,11 +77,6 @@ class Job extends Model
         return $this->hasMany(Questions::class, 'jobvacancy_id', 'id');
     }
 
-    // public function Value()
-    // {
-    //     return $this->Questions()->with('value');
-    // }
-
     public function scopeActive()
     {
         return $this->where('status', 'active');
