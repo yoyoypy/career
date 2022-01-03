@@ -267,6 +267,15 @@ class JobApplicationController extends Controller
         ]);
     }
 
+    public function qualified()
+    {
+        $items = Application::where('status', 'qualified')->with('Job')->latest()->paginate();
+
+        return view('backend.pages.jobsapplication.index')->with([
+            'items' => $items
+        ]);
+    }
+
     public function hired()
     {
         $items = Application::where('status', 'hired')->with('Job')->latest()->paginate();

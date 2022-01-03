@@ -58,6 +58,8 @@
                                         <td>
                                             @if($item->status == 'new')
                                             <span class="badge badge-primary">
+                                          @elseif($item->status == 'qualified')
+                                            <span class="badge badge-warning">
                                           @elseif($item->status == 'interview')
                                             <span class="badge badge-warning">
                                           @elseif($item->status == 'hired')
