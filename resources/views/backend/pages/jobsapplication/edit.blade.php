@@ -17,6 +17,7 @@
                     <option value="">Select Status</option>
                     <option value="" disabled>-----------------</option>
                     <option value="new">New</option>
+                    <option value="qualified">Qualified</option>
                     <option value="interview">Interview</option>
                     <option value="hired">Hired</option>
                     <option value="rejected">Rejected</option>
