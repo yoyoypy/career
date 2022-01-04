@@ -40,7 +40,7 @@
                               class="d-inline">
                           @csrf
                           @method('delete')
-                          <button class="btn btn-danger btn-sm">
+                          <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')">
                             <i class="fa fa-trash"></i>
                           </button>
                         </form>
