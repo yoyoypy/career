@@ -51,8 +51,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('applicant/status/hired', 'JobApplicationController@hired')->name('applicant.hired');
         Route::get('applicant/status/rejected', 'JobApplicationController@rejected')->name('applicant.rejected');
 
-        //Route::resource('user', UserController::class);
-
         //company route
         Route::resource('company', 'CompanyController');
 
