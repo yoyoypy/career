@@ -96,5 +96,5 @@ Route::get('job-category/{id}', 'CategoryController@indexlist')->name('jobcatego
 Route::get('job-location/{id}', 'LocationController@indexlist')->name('joblocation');
 
 
-//sitemap
+//dynamic sitemap
 Route::get('sitemap.xml', 'SitemapController@sitemap');
