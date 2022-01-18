@@ -14,6 +14,7 @@
    {{-- style --}}
    @stack('before-style')
    @include('backend.includes.style')
+   @livewireStyles
    @stack('after-style')
 </head>
 
@@ -44,6 +45,7 @@
    <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     </script>
+    @livewireScripts
    @stack('after-script')
 </body>
 </html>
