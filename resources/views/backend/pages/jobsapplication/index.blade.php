@@ -41,6 +41,7 @@
                                     <th>Expected Salary</th>
                                     <th>CV</th>
                                     <th>Status</th>
+                                    <th>Applied At</th>
                                     <th>Action</th>
                                 @if (\Route::current()->getName() == 'applicant.rejected')
                                     <th>delete</th>
@@ -71,6 +72,7 @@
                                           @endif
                                           {{ $item->status }}
                                             </span></td>
+                                        <td>{{ $item->created_at->todatestring() }}</td>
                                         <td>
                                             <a href="{{ route('applicant.edit', $item->id) }}" class="btn btn-success btn-sm">
                                                 <i class="fa fa-pencil"> Change Status</i>
