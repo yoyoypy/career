@@ -128,7 +128,7 @@
             @error('status') <div class="text-muted">{{ $message }}</div> @enderror
           </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block" type="submit">
+          <button class="btn btn-primary btn-block" onclick="this.form.submit(); this.disabled=true;" type="submit">
             Submit Job Vacancy
           </button>
         </div>
