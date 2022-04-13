@@ -20,6 +20,7 @@ class TrafficController extends Controller
     {
         return view('backend.pages.traffic.index')->with([
             'job_traffic'       => Job::active()->withCount('views')->get(),
+            'job_inactive'      => Job::where('status', 'inactive')->withCount('views')->get(),
             'blog_traffic'      => Blog::withCount('views')->get(),
             'total_job_view'    => JobView::count(),
             'total_blog_view'   => BlogView::count(),
